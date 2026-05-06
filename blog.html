@@ -25,6 +25,103 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Blog Accordion Styles -->
+  <style>
+    .blog-card {
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .blog-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    }
+    .blog-card-toggle {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-top: 12px;
+      transition: color 0.2s ease;
+    }
+    .blog-card-toggle .arrow {
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+    .blog-card.active .blog-card-toggle .arrow {
+      transform: rotate(180deg);
+    }
+    .blog-article-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+      background: var(--bg-secondary, #1a1a2e);
+      border-radius: 0 0 16px 16px;
+      margin-top: -8px;
+      margin-bottom: 24px;
+    }
+    .blog-article-content.expanded {
+      max-height: 3000px;
+      transition: max-height 0.8s ease;
+    }
+    .blog-article-inner {
+      padding: 32px;
+      line-height: 1.7;
+      font-size: 1rem;
+      color: var(--text-secondary, #ccc);
+    }
+    .blog-article-inner h3 {
+      color: var(--accent, #f5c518);
+      font-size: 1.2rem;
+      margin: 28px 0 12px 0;
+      font-weight: 700;
+    }
+    .blog-article-inner h3:first-child {
+      margin-top: 0;
+    }
+    .blog-article-inner p {
+      margin-bottom: 16px;
+    }
+    .blog-article-inner ul, .blog-article-inner ol {
+      margin: 12px 0 20px 20px;
+      color: var(--text-secondary, #ccc);
+    }
+    .blog-article-inner li {
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+    .blog-article-inner strong {
+      color: var(--text-primary, #fff);
+    }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 0;
+    }
+    .blog-card-wrapper {
+      grid-column: 1 / -1;
+    }
+    .blog-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+    }
+    .blog-card-item {
+      display: flex;
+      flex-direction: column;
+    }
+    @media (max-width: 768px) {
+      .blog-article-inner {
+        padding: 24px 20px;
+        font-size: 0.95rem;
+      }
+      .blog-cards-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -48,8 +145,13 @@
         <a href="about.html">About</a>
         <a href="blog.html" class="active">Blog</a>
         <a href="faq.html">FAQ</a>
-        <a href="affiliate.html">Affiliate</a>
-        <a href="franchise.html">Franchise</a>
+        <div class="nav-dropdown">
+          <a href="#" aria-haspopup="true">Partner &#9662;</a>
+          <div class="nav-dropdown-menu">
+            <a href="affiliate.html">Affiliate Program</a>
+            <a href="franchise.html">Own a Franchise</a>
+          </div>
+        </div>
         <a href="contact.html">Contact</a>
       </div>
       <div class="nav-actions">
@@ -72,8 +174,13 @@
     <a href="about.html">About</a>
     <a href="blog.html">Blog</a>
     <a href="faq.html">FAQ</a>
-        <a href="affiliate.html">Affiliate</a>
-        <a href="franchise.html">Franchise</a>
+        <div class="nav-dropdown">
+          <a href="#" aria-haspopup="true">Partner &#9662;</a>
+          <div class="nav-dropdown-menu">
+            <a href="affiliate.html">Affiliate Program</a>
+            <a href="franchise.html">Own a Franchise</a>
+          </div>
+        </div>
     <a href="contact.html">Contact</a>
     <a href="portal.html">Client Login</a>
     <a href="get-started.html" class="btn btn-primary" style="margin-top:16px;">Get Started</a>
@@ -105,103 +212,396 @@
   <!-- ========== BLOG GRID ========== -->
   <section style="padding: 0 0 100px;">
     <div class="container">
-      <div class="blog-grid">
+      <div class="blog-cards-grid">
 
         <!-- Card 1 -->
-        <a href="#" class="blog-card fade-up">
-          <div class="blog-card-img">
-            <span>IU</span>
+        <div class="blog-card-item fade-up" data-category="Credit Tips">
+          <div class="blog-card" onclick="toggleArticle(this)">
+            <div class="blog-card-img">
+              <span>IU</span>
+            </div>
+            <div class="blog-card-body">
+              <div class="category">Credit Tips</div>
+              <h4>How Many Points Can Credit Repair Actually Add to Your Score?</h4>
+              <p>The truth about credit repair results &mdash; what's realistic, what's possible, and what determines your outcome.</p>
+              <div class="blog-card-toggle">
+                <span class="toggle-text">Read More</span>
+                <span class="arrow">&#9660;</span>
+              </div>
+            </div>
           </div>
-          <div class="blog-card-body">
-            <div class="category">Credit Tips</div>
-            <h4>How Many Points Can Credit Repair Actually Add to Your Score?</h4>
-            <p>The truth about credit repair results &mdash; what's realistic, what's possible, and what to watch out for.</p>
+          <div class="blog-article-content">
+            <div class="blog-article-inner">
+              <h3>Let's Cut the Hype &mdash; Here's What's Real</h3>
+              <p>You've probably seen those ads: "We raised this client's score 200 points!" And your first thought is either "sign me up" or "that's a scam." The truth is somewhere in between &mdash; and it depends almost entirely on what's in your specific credit file.</p>
+              <p>At ImproveU, we've seen clients gain anywhere from 50 points to over 200 points. That's not marketing fluff. That's data from real files we've worked. But here's what determines where you fall on that spectrum.</p>
+
+              <h3>What Determines Your Point Increase?</h3>
+              <ul>
+                <li><strong>How many negative items you have:</strong> Someone with 12 collections and 5 late payments has way more room for improvement than someone with a single 30-day late from 3 years ago.</li>
+                <li><strong>The age of negative items:</strong> Newer derogatory marks hurt more. Removing a recent collection can spike your score faster than removing one from 2019.</li>
+                <li><strong>Your credit utilization:</strong> If your cards are maxed out, even removing negative items won't help much until you bring balances down. We coach you on this.</li>
+                <li><strong>Your credit mix and history length:</strong> Thin files (few accounts, short history) respond differently than established files with years of history.</li>
+              </ul>
+
+              <h3>Realistic Timeline Expectations</h3>
+              <p>Most clients see their first deletions within 30-45 days. That's when the first score bump usually hits. By the 90-day mark, the majority of our clients have seen meaningful improvement &mdash; often 80-120 points if they started with multiple negative items.</p>
+              <p>The full process typically takes 3-6 months, depending on how many items need to be addressed and how quickly the bureaus respond to disputes.</p>
+
+              <h3>Why Results Vary</h3>
+              <p>Credit scoring is not simple math. FICO uses over 20 variables weighted differently depending on your overall profile. Two people can get the same collection removed and see completely different point increases. That's why we don't promise a specific number &mdash; anyone who does is lying to you.</p>
+              <p>What we DO promise: we'll fight every inaccurate, unverifiable, and unfair item on your report using every legal tool available. And our track record speaks for itself &mdash; the average ImproveU client sees a 85-140 point improvement across all three bureaus.</p>
+
+              <h3>Bottom Line</h3>
+              <p>If you have legitimate errors, outdated information, or unverifiable accounts on your credit reports, professional credit repair works. Period. The question isn't IF your score will improve &mdash; it's by how much. Book a free consultation and we'll give you an honest assessment of your specific file.</p>
+            </div>
           </div>
-        </a>
+        </div>
 
         <!-- Card 2 -->
-        <a href="#" class="blog-card fade-up">
-          <div class="blog-card-img">
-            <span>IU</span>
+        <div class="blog-card-item fade-up" data-category="Funding Education">
+          <div class="blog-card" onclick="toggleArticle(this)">
+            <div class="blog-card-img">
+              <span>IU</span>
+            </div>
+            <div class="blog-card-body">
+              <div class="category">Funding Education</div>
+              <h4>0% Business Credit Stacking &mdash; How It Works and Who It's Right For</h4>
+              <p>Stack multiple 0% interest business credit lines to fund your startup or expansion without paying a dime in interest.</p>
+              <div class="blog-card-toggle">
+                <span class="toggle-text">Read More</span>
+                <span class="arrow">&#9660;</span>
+              </div>
+            </div>
           </div>
-          <div class="blog-card-body">
-            <div class="category">Funding Education</div>
-            <h4>0% Business Credit Stacking &mdash; How It Works and Who It's Right For</h4>
-            <p>Stack multiple 0% interest business credit cards to fund your startup without paying interest.</p>
+          <div class="blog-article-content">
+            <div class="blog-article-inner">
+              <h3>What Is Business Credit Stacking?</h3>
+              <p>Business credit stacking is the strategic process of applying for multiple business credit cards within a short window &mdash; all offering 0% APR introductory periods &mdash; to accumulate a large pool of interest-free capital. We're talking $50,000 to $250,000+ in available credit, with 12-21 months of zero interest.</p>
+              <p>This isn't some underground loophole. It's a legitimate funding strategy used by savvy entrepreneurs who understand how business credit works. Banks want to issue these cards. You just need to know the right sequence, timing, and approach.</p>
+
+              <h3>How to Qualify</h3>
+              <p>Here's the reality check. To stack effectively, you generally need:</p>
+              <ul>
+                <li><strong>A personal credit score of 680+</strong> (ideally 720+) for the best offers and highest limits</li>
+                <li><strong>Clean credit history:</strong> No recent late payments, no collections, low utilization</li>
+                <li><strong>An established business entity:</strong> LLC or Corp with an EIN (even if newly formed)</li>
+                <li><strong>A reasonable debt-to-income ratio:</strong> Lenders still evaluate your capacity</li>
+              </ul>
+              <p>If your credit isn't there yet, that's exactly why we pair credit repair WITH funding services. Fix first, fund second.</p>
+
+              <h3>Typical Amounts and Terms</h3>
+              <p>Individual card approvals typically range from $5,000 to $50,000 per card. With a proper stacking strategy (applying to the right lenders in the right order), clients commonly secure $50K-$150K in their first round. Clients with 750+ scores and strong profiles can push into the $200K-$250K range.</p>
+              <p>Introductory 0% APR periods last 12-21 months depending on the issuer. After that, standard business card rates apply (typically 18-26% APR), so you need a plan to either pay down or refinance before the promo period ends.</p>
+
+              <h3>Risks and Benefits</h3>
+              <p><strong>Benefits:</strong> No interest charges during promo period, no collateral required, fast funding (often within 2-3 weeks), builds your business credit profile, and you keep full equity in your business.</p>
+              <p><strong>Risks:</strong> High utilization can temporarily drop your personal score, rates jump after promo ends, you're personally liable in most cases, and overspending without a repayment plan is dangerous.</p>
+
+              <h3>How ImproveU Helps</h3>
+              <p>Our funding team doesn't just hand you a list of cards. We analyze your credit profile, identify which lenders are most likely to approve you for maximum limits, time your applications strategically, and coach you through the entire process. Many clients use stacked credit to fund inventory, marketing, equipment, or working capital &mdash; then repay from business revenue before the 0% period ends.</p>
+            </div>
           </div>
-        </a>
+        </div>
 
         <!-- Card 3 -->
-        <a href="#" class="blog-card fade-up">
-          <div class="blog-card-img">
-            <span>IU</span>
+        <div class="blog-card-item fade-up" data-category="Homeownership">
+          <div class="blog-card" onclick="toggleArticle(this)">
+            <div class="blog-card-img">
+              <span>IU</span>
+            </div>
+            <div class="blog-card-body">
+              <div class="category">Homeownership</div>
+              <h4>Why Your Mortgage Was Denied (And Exactly How to Fix It)</h4>
+              <p>The most common denial reasons and the specific steps to turn each one around so you get approved next time.</p>
+              <div class="blog-card-toggle">
+                <span class="toggle-text">Read More</span>
+                <span class="arrow">&#9660;</span>
+              </div>
+            </div>
           </div>
-          <div class="blog-card-body">
-            <div class="category">Homeownership</div>
-            <h4>Why Your Mortgage Was Denied (And Exactly How to Fix It)</h4>
-            <p>The most common reasons applications get rejected and the exact steps to turn it around.</p>
+          <div class="blog-article-content">
+            <div class="blog-article-inner">
+              <h3>Getting Denied Doesn't Mean Game Over</h3>
+              <p>A mortgage denial stings. But here's what most people don't realize: the denial letter actually tells you exactly what to fix. Lenders are required to give you a reason. And almost every reason has a solution &mdash; often one that takes 60-90 days to resolve.</p>
+              <p>Here are the five most common denial reasons we see, and exactly how to fix each one.</p>
+
+              <h3>1. Credit Score Too Low</h3>
+              <p><strong>The Problem:</strong> Most conventional loans need a 620 minimum. FHA requires 580 (or 500 with 10% down). If you're below these thresholds, you're getting denied.</p>
+              <p><strong>The Fix:</strong> Professional credit repair to remove inaccurate negative items, paying down credit card balances below 30% utilization, and becoming an authorized user on a seasoned account. Most clients can gain 50-100+ points in 60-90 days with the right strategy.</p>
+
+              <h3>2. Debt-to-Income Ratio Too High</h3>
+              <p><strong>The Problem:</strong> Your DTI (monthly debt payments divided by gross monthly income) exceeds the lender's limit. Conventional loans cap at 43-45%, FHA at 50% in some cases.</p>
+              <p><strong>The Fix:</strong> Pay off smaller debts entirely (especially car payments nearing payoff), increase your income documentation, or pay down credit card balances. Even one paid-off account can shift your ratio significantly.</p>
+
+              <h3>3. Employment History Issues</h3>
+              <p><strong>The Problem:</strong> Lenders want 2 years of stable employment. Job hopping, gaps, or a recent career change can trigger a denial.</p>
+              <p><strong>The Fix:</strong> Wait until you have 6+ months at your new position, provide detailed documentation of your employment history, and if you're self-employed, ensure you have 2 years of tax returns showing consistent income.</p>
+
+              <h3>4. Insufficient Down Payment or Reserves</h3>
+              <p><strong>The Problem:</strong> Your savings don't meet the lender's minimum down payment or reserve requirements.</p>
+              <p><strong>The Fix:</strong> Look into down payment assistance programs (many states offer 3-5% grants), FHA loans requiring only 3.5% down, or gift funds from family members. Our homeowner program connects you with lenders who specialize in low-down-payment options.</p>
+
+              <h3>5. Open Collections or Judgments</h3>
+              <p><strong>The Problem:</strong> Unpaid collections, charge-offs, or civil judgments make lenders nervous. Some require these to be paid before closing.</p>
+              <p><strong>The Fix:</strong> Dispute inaccurate collections for removal, negotiate pay-for-delete agreements on valid debts, or work with lenders who allow collections to remain open under certain conditions. We handle this daily.</p>
+
+              <h3>The ImproveU 90-Day Homeowner Program</h3>
+              <p>This is exactly what our program was built for. We identify every obstacle between you and an approval, fix them in priority order, and connect you with our lending partners who understand credit repair clients. Most of our homeowner program clients go from denied to approved within 90 days.</p>
+            </div>
           </div>
-        </a>
+        </div>
 
         <!-- Card 4 -->
-        <a href="#" class="blog-card fade-up">
-          <div class="blog-card-img">
-            <span>IU</span>
+        <div class="blog-card-item fade-up" data-category="Credit Tips">
+          <div class="blog-card" onclick="toggleArticle(this)">
+            <div class="blog-card-img">
+              <span>IU</span>
+            </div>
+            <div class="blog-card-body">
+              <div class="category">Credit Tips</div>
+              <h4>Late Payments: How Long They Hurt You and How to Get Them Removed</h4>
+              <p>Late payments can destroy your score for years. Here's exactly how much damage they do and how we fight them.</p>
+              <div class="blog-card-toggle">
+                <span class="toggle-text">Read More</span>
+                <span class="arrow">&#9660;</span>
+              </div>
+            </div>
           </div>
-          <div class="blog-card-body">
-            <div class="category">Credit Tips</div>
-            <h4>Late Payments: How Long They Hurt You and How to Get Them Removed</h4>
-            <p>Late payments can tank your score for years. Here's how we challenge them.</p>
+          <div class="blog-article-content">
+            <div class="blog-article-inner">
+              <h3>The Impact Is Worse Than You Think</h3>
+              <p>A single late payment can drop a good credit score by 60-110 points. That's not an exaggeration &mdash; that's FICO's own data. And the better your score was before the late payment, the harder you fall. Someone with a 780 can drop to 670 from one 30-day late. It's brutal.</p>
+
+              <h3>How the Severity Scales</h3>
+              <ul>
+                <li><strong>30 days late:</strong> The "least severe" &mdash; but still devastating. Expect a 60-80 point drop on an otherwise clean file. Stays on your report for 7 years.</li>
+                <li><strong>60 days late:</strong> More damage. Signals a pattern rather than a simple oversight. Can drop scores 80-100+ points.</li>
+                <li><strong>90+ days late:</strong> This is where creditors start reporting you as seriously delinquent. Maximum damage. Often leads to charge-offs or collections.</li>
+              </ul>
+              <p>The good news: the impact fades over time. A late payment from 5 years ago hurts far less than one from 5 months ago. But "fading" isn't the same as "gone" &mdash; it still drags your score down until it falls off at the 7-year mark.</p>
+
+              <h3>Strategy 1: Goodwill Letters</h3>
+              <p>If you have an otherwise solid payment history with a creditor and the late payment was due to an honest circumstance (medical emergency, bank error, travel), a goodwill letter can work. You're essentially asking the creditor to remove the negative mark as a courtesy. Success rate: about 20-30% for first-time offenders with long account histories.</p>
+
+              <h3>Strategy 2: Dispute for Accuracy</h3>
+              <p>The FCRA requires that all reported information be 100% accurate. If the date is wrong, the amount is wrong, or the creditor can't verify the late payment with proper documentation, it must be removed. This is where professional credit repair shines. We know exactly what to challenge and how to phrase disputes for maximum effectiveness.</p>
+
+              <h3>Strategy 3: Negotiate Removal</h3>
+              <p>In some cases, creditors will agree to remove a late payment in exchange for setting up autopay, paying a remaining balance, or enrolling in a specific program. This is more common with original creditors than with the bureaus directly.</p>
+
+              <h3>Our Success Rate</h3>
+              <p>At ImproveU, we successfully remove or get updated approximately 70-80% of late payments we challenge. Some take one round of disputes, others take multiple rounds over several months. The key is persistence, documentation, and knowing the legal leverage points that force bureaus and creditors to comply with the law.</p>
+              <p>If late payments are killing your score, don't just wait 7 years and hope for the best. There are real strategies that work &mdash; and we execute them every single day.</p>
+            </div>
           </div>
-        </a>
+        </div>
 
         <!-- Card 5 -->
-        <a href="#" class="blog-card fade-up">
-          <div class="blog-card-img">
-            <span>IU</span>
+        <div class="blog-card-item fade-up" data-category="Funding Education">
+          <div class="blog-card" onclick="toggleArticle(this)">
+            <div class="blog-card-img">
+              <span>IU</span>
+            </div>
+            <div class="blog-card-body">
+              <div class="category">Funding Education</div>
+              <h4>The Real Difference Between SBA Loans and a Business Line of Credit</h4>
+              <p>Two powerful funding tools for entrepreneurs &mdash; but choosing wrong can cost you time and money.</p>
+              <div class="blog-card-toggle">
+                <span class="toggle-text">Read More</span>
+                <span class="arrow">&#9660;</span>
+              </div>
+            </div>
           </div>
-          <div class="blog-card-body">
-            <div class="category">Funding Education</div>
-            <h4>The Real Difference Between SBA Loans and a Business Line of Credit</h4>
-            <p>Two powerful funding tools &mdash; but which one is right for your business?</p>
+          <div class="blog-article-content">
+            <div class="blog-article-inner">
+              <h3>They're Not Interchangeable</h3>
+              <p>Business owners constantly ask us: "Should I get an SBA loan or a line of credit?" The answer depends on what you need the money for, how fast you need it, and where your credit stands. These are fundamentally different products built for different purposes.</p>
+
+              <h3>SBA Loans: The Overview</h3>
+              <p>SBA (Small Business Administration) loans are government-backed loans issued through participating banks. They offer some of the best terms available to small businesses:</p>
+              <ul>
+                <li><strong>Amounts:</strong> $5,000 to $5 million (7(a) program)</li>
+                <li><strong>Interest rates:</strong> Prime + 2.25% to Prime + 4.75% (currently 9-13%)</li>
+                <li><strong>Terms:</strong> 10-25 years depending on use</li>
+                <li><strong>Timeline:</strong> 60-90 days from application to funding (sometimes longer)</li>
+                <li><strong>Credit requirement:</strong> Generally 680+ personal score, strong business financials</li>
+              </ul>
+              <p><strong>Best for:</strong> Major purchases (real estate, equipment), business acquisitions, or large working capital needs where you want low monthly payments spread over many years.</p>
+
+              <h3>Business Line of Credit: The Overview</h3>
+              <p>A business line of credit works like a credit card &mdash; you have a limit, draw what you need, pay interest only on what you use, and the line replenishes as you repay.</p>
+              <ul>
+                <li><strong>Amounts:</strong> $10,000 to $500,000 (sometimes more)</li>
+                <li><strong>Interest rates:</strong> 8-24% depending on creditworthiness</li>
+                <li><strong>Terms:</strong> Revolving (no fixed end date, annual renewals)</li>
+                <li><strong>Timeline:</strong> 1-3 weeks for approval and access</li>
+                <li><strong>Credit requirement:</strong> 600+ for some lenders, 680+ for the best rates</li>
+              </ul>
+              <p><strong>Best for:</strong> Cash flow management, inventory purchases, short-term expenses, payroll gaps, or any situation where you need flexible access to capital on an ongoing basis.</p>
+
+              <h3>When to Use Which</h3>
+              <p>Use an SBA loan when you need a large lump sum for a specific purpose and want the lowest possible rate with long repayment terms. Use a line of credit when you need flexible, fast access to working capital that you'll draw and repay repeatedly.</p>
+              <p>Many successful businesses use BOTH &mdash; an SBA loan for their building or major equipment, and a line of credit for day-to-day operations.</p>
+
+              <h3>How ImproveU's Funding Network Helps</h3>
+              <p>We don't just repair credit and wish you luck. Our funding team connects you with our network of SBA lenders, credit line providers, and alternative capital sources. We match you with the right product based on your credit profile, business stage, and goals &mdash; and we help you present the strongest possible application. Clients who go through our credit repair program first consistently qualify for better rates and higher limits.</p>
+            </div>
           </div>
-        </a>
+        </div>
 
         <!-- Card 6 -->
-        <a href="#" class="blog-card fade-up">
-          <div class="blog-card-img">
-            <span>IU</span>
+        <div class="blog-card-item fade-up" data-category="Client Wins">
+          <div class="blog-card" onclick="toggleArticle(this)">
+            <div class="blog-card-img">
+              <span>IU</span>
+            </div>
+            <div class="blog-card-body">
+              <div class="category">Client Wins</div>
+              <h4>From 540 to 720: One Client's 6-Month Comeback</h4>
+              <p>A real ImproveU client story. From denied everywhere to approved for a $385K mortgage in six months.</p>
+              <div class="blog-card-toggle">
+                <span class="toggle-text">Read More</span>
+                <span class="arrow">&#9660;</span>
+              </div>
+            </div>
           </div>
-          <div class="blog-card-body">
-            <div class="category">Client Wins</div>
-            <h4>From 540 to 720: One Client's 6-Month Comeback</h4>
-            <p>A real ImproveU client story. From denied everywhere to approved for a $385K mortgage.</p>
+          <div class="blog-article-content">
+            <div class="blog-article-inner">
+              <h3>Where It Started</h3>
+              <p>When Marcus (name changed for privacy) first called ImproveU, his situation was rough. Credit scores: 538, 542, and 551 across the three bureaus. He'd been denied for a mortgage, a car loan came with a 19% rate, and he felt stuck. He had a good job, solid income, and savings for a down payment &mdash; but his credit report was a disaster.</p>
+              <p>Here's what we found on his reports:</p>
+              <ul>
+                <li>4 medical collections ($2,200 total)</li>
+                <li>2 late payments on a car loan from 2023</li>
+                <li>1 charged-off credit card ($4,800)</li>
+                <li>3 credit cards maxed out (98% utilization)</li>
+                <li>1 old apartment collection ($1,450) he never knew about</li>
+              </ul>
+
+              <h3>Month 1-2: The Cleanup</h3>
+              <p>We immediately filed disputes on all four medical collections &mdash; two were past the statute of limitations, one had incorrect balances, and one belonged to someone else entirely (same name, different person). Within 45 days, three of the four were removed. The fourth was deleted on the second round of disputes.</p>
+              <p>Simultaneously, we sent goodwill letters to his auto lender regarding the late payments. His payment history had been perfect for 18 months since those lates. The lender agreed to remove both marks.</p>
+              <p>We also coached Marcus on a utilization strategy: using balance transfer offers to spread his debt across cards and pay each below 30%.</p>
+
+              <h3>Month 3-4: Building Momentum</h3>
+              <p>The apartment collection was disputed and removed &mdash; the collection agency couldn't produce a signed lease. The charged-off credit card was negotiated to a "paid in full" status with a pay-for-delete agreement. Marcus paid $2,800 (negotiated down from $4,800).</p>
+              <p>His scores by month 4: 651, 668, and 659. Already a 110+ point improvement.</p>
+
+              <h3>Month 5-6: The Home Stretch</h3>
+              <p>With the major negatives gone, we focused on optimization. Marcus became an authorized user on his mother's 15-year-old credit card (perfect history). He kept all card balances below 10%. His average age of accounts improved.</p>
+              <p>Final scores at month 6: 712, 724, and 718. We connected him with our lending partner, and Marcus was pre-approved for a $385,000 FHA loan at 6.2% &mdash; the home he'd been wanting for three years.</p>
+
+              <h3>The Takeaway</h3>
+              <p>Marcus didn't have "unfixable" credit. He had fixable problems that nobody had shown him how to address. That's the difference professional credit repair makes. Not magic &mdash; strategy, persistence, and knowing the system inside and out.</p>
+            </div>
           </div>
-        </a>
+        </div>
 
         <!-- Card 7 -->
-        <a href="#" class="blog-card fade-up">
-          <div class="blog-card-img">
-            <span>IU</span>
+        <div class="blog-card-item fade-up" data-category="Homeownership">
+          <div class="blog-card" onclick="toggleArticle(this)">
+            <div class="blog-card-img">
+              <span>IU</span>
+            </div>
+            <div class="blog-card-body">
+              <div class="category">Homeownership</div>
+              <h4>First-Time Home Buyer? Here's Your 90-Day Roadmap</h4>
+              <p>Our step-by-step system to go from renting to owning in as little as 90 days. No fluff, just the plan.</p>
+              <div class="blog-card-toggle">
+                <span class="toggle-text">Read More</span>
+                <span class="arrow">&#9660;</span>
+              </div>
+            </div>
           </div>
-          <div class="blog-card-body">
-            <div class="category">Homeownership</div>
-            <h4>First-Time Home Buyer? Here's Your 90-Day Roadmap</h4>
-            <p>Our step-by-step system to go from renting to owning in as little as 90 days.</p>
+          <div class="blog-article-content">
+            <div class="blog-article-inner">
+              <h3>The Path From Renter to Homeowner Is Shorter Than You Think</h3>
+              <p>Most first-time buyers think homeownership is years away. Bad credit, no savings, confusion about the process &mdash; it all feels overwhelming. But we've helped hundreds of people go from "I can't buy a house" to "I just got the keys" in 90 days or less. Here's the exact roadmap.</p>
+
+              <h3>Days 1-30: Credit Cleanup Phase</h3>
+              <p><strong>Goal:</strong> Remove inaccurate negative items and stop the bleeding.</p>
+              <ul>
+                <li>Pull all three credit reports and identify every negative item</li>
+                <li>File disputes on collections, charge-offs, and late payments that are inaccurate or unverifiable</li>
+                <li>Send goodwill letters to creditors where you have an otherwise good history</li>
+                <li>Pay down credit card balances &mdash; get every card below 30% utilization (below 10% is ideal)</li>
+                <li>Do NOT open any new accounts or make any major purchases</li>
+                <li>Do NOT close old credit cards (even if you don't use them &mdash; they help your average age)</li>
+              </ul>
+              <p><strong>Expected result:</strong> First round of deletions typically hit by day 30-45. Score increase of 30-60 points is common in this phase alone.</p>
+
+              <h3>Days 31-60: Score Optimization Phase</h3>
+              <p><strong>Goal:</strong> Maximize your score with strategic credit moves.</p>
+              <ul>
+                <li>Follow up on disputes &mdash; file second rounds where needed</li>
+                <li>Become an authorized user on a family member's seasoned credit card (15+ years old, perfect history, low balance)</li>
+                <li>Use a credit-builder loan or secured card if your file is thin</li>
+                <li>Negotiate pay-for-delete on any remaining small collections</li>
+                <li>Keep ALL payments on time &mdash; set up autopay on everything</li>
+                <li>Start documenting your income (gather pay stubs, tax returns, bank statements)</li>
+              </ul>
+              <p><strong>Expected result:</strong> Scores should be in the mid-600s to low-700s by now. If you started below 580, you may need an extra 30 days.</p>
+
+              <h3>Days 61-90: Lender Prep and Pre-Approval Phase</h3>
+              <p><strong>Goal:</strong> Get pre-approved and start shopping for homes.</p>
+              <ul>
+                <li>Research down payment assistance programs in your state (many offer 3-5% as a grant)</li>
+                <li>Get pre-approved with 2-3 lenders to compare rates (all hard inquiries within 14 days count as one)</li>
+                <li>Choose between FHA (3.5% down, 580+ score) or Conventional (3% down, 620+ score)</li>
+                <li>Lock in your rate when you find a home</li>
+                <li>Do NOT change jobs, open new credit accounts, or make large deposits during this phase</li>
+              </ul>
+              <p><strong>Expected result:</strong> Pre-approval letter in hand, shopping for your new home.</p>
+
+              <h3>The ImproveU 90-Day Homeowner Program</h3>
+              <p>This roadmap is exactly what our homeowner program delivers &mdash; but with a dedicated team executing every step for you. We handle the credit repair, coach you on optimization, connect you with lenders who work with credit repair clients, and guide you through the entire process. If homeownership is your goal, we'll get you there faster than you ever thought possible.</p>
+            </div>
           </div>
-        </a>
+        </div>
 
         <!-- Card 8 -->
-        <a href="#" class="blog-card fade-up">
-          <div class="blog-card-img">
-            <span>IU</span>
+        <div class="blog-card-item fade-up" data-category="Industry News">
+          <div class="blog-card" onclick="toggleArticle(this)">
+            <div class="blog-card-img">
+              <span>IU</span>
+            </div>
+            <div class="blog-card-body">
+              <div class="category">Industry News</div>
+              <h4>New FCRA Updates in 2026: What Consumers Need to Know</h4>
+              <p>Major changes to credit reporting laws are here. Here's what changed and how it affects your rights.</p>
+              <div class="blog-card-toggle">
+                <span class="toggle-text">Read More</span>
+                <span class="arrow">&#9660;</span>
+              </div>
+            </div>
           </div>
-          <div class="blog-card-body">
-            <div class="category">Industry News</div>
-            <h4>New FCRA Updates in 2026: What Consumers Need to Know</h4>
-            <p>Recent changes to the Fair Credit Reporting Act and how they affect your rights.</p>
+          <div class="blog-article-content">
+            <div class="blog-article-inner">
+              <h3>Big Changes Are Finally Here</h3>
+              <p>The Fair Credit Reporting Act (FCRA) has seen its most significant updates in years. These changes directly impact how negative information appears on your credit report and how long it stays there. If you have medical debt, old collections, or inaccurate information on your reports, pay attention &mdash; because the rules just shifted in your favor.</p>
+
+              <h3>Medical Debt Removal From Credit Reports</h3>
+              <p>This is the biggest change. Medical debt under $500 is no longer reported on credit reports at all. Additionally, paid medical collections are removed immediately rather than lingering for up to 7 years. For the millions of Americans whose scores were dragged down by a surprise ER bill or insurance dispute, this is massive.</p>
+              <p><strong>What this means for you:</strong> If you have medical collections under $500 on your report, they should already be gone. If they're not, that's a violation &mdash; and we can dispute them for immediate removal. Larger medical debts that have been paid should also be removed. Check your reports.</p>
+
+              <h3>Shorter Reporting Periods for Negative Items</h3>
+              <p>New guidelines are pushing toward reducing the reporting period for certain negative items from 7 years to 5 years. While this isn't fully implemented across all item types yet, collection accounts under $1,000 and certain charge-offs are already seeing accelerated removal timelines.</p>
+              <p><strong>What this means for you:</strong> If you have older negative items (4-5 years old), they may be eligible for removal sooner than you expected. We're tracking these changes and filing disputes accordingly.</p>
+
+              <h3>Stricter Bureau Accuracy Requirements</h3>
+              <p>The CFPB has increased enforcement of accuracy standards. Credit bureaus are now required to conduct more thorough investigations of consumer disputes rather than rubber-stamping creditor responses. They must also maintain better procedures for matching consumer information to prevent mixed files (where someone else's accounts appear on your report).</p>
+              <p><strong>What this means for you:</strong> Dispute outcomes should improve. Bureaus can no longer dismiss disputes with form letters without conducting genuine investigations. If they fail to properly investigate, consumers have stronger grounds for legal action.</p>
+
+              <h3>New Inquiry Protections</h3>
+              <p>Rate shopping protections have been expanded. Previously, mortgage and auto loan inquiries within a 14-day window counted as one inquiry. That window has been extended to 45 days for mortgages and auto loans, giving consumers more time to shop for the best rate without score damage.</p>
+
+              <h3>How ImproveU Leverages These Changes</h3>
+              <p>Every regulatory change creates new leverage for consumers &mdash; and for us. Our dispute strategies are updated in real-time to reflect new laws, new precedents, and new bureau obligations. When bureaus fail to comply with updated FCRA requirements, that's an opportunity for removal. We stay on top of every change so you don't have to.</p>
+              <p>The credit reporting system is slowly becoming more fair. But it still requires someone who knows the rules to fight for you. That's what we do.</p>
+            </div>
           </div>
-        </a>
+        </div>
 
       </div>
     </div>
@@ -277,5 +677,78 @@
   </div>
 
   <script src="js/main.js"></script>
+
+  <!-- Blog Accordion Script -->
+  <script>
+    function toggleArticle(cardEl) {
+      const wrapper = cardEl.closest('.blog-card-item');
+      const content = wrapper.querySelector('.blog-article-content');
+      const toggleText = cardEl.querySelector('.toggle-text');
+      const isExpanded = content.classList.contains('expanded');
+
+      // Close all other open articles
+      document.querySelectorAll('.blog-article-content.expanded').forEach(function(el) {
+        if (el !== content) {
+          el.classList.remove('expanded');
+          const otherCard = el.closest('.blog-card-item').querySelector('.blog-card');
+          otherCard.classList.remove('active');
+          otherCard.querySelector('.toggle-text').textContent = 'Read More';
+        }
+      });
+
+      // Toggle current article
+      if (isExpanded) {
+        content.classList.remove('expanded');
+        cardEl.classList.remove('active');
+        toggleText.textContent = 'Read More';
+      } else {
+        content.classList.add('expanded');
+        cardEl.classList.add('active');
+        toggleText.textContent = 'Close';
+        // Smooth scroll to card
+        setTimeout(function() {
+          wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
+    }
+
+    // Category filter functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const badges = document.querySelectorAll('.badge');
+      const articles = document.querySelectorAll('.blog-card-item');
+
+      badges.forEach(function(badge) {
+        badge.addEventListener('click', function() {
+          // Update active badge
+          badges.forEach(function(b) {
+            b.style.background = '';
+            b.style.color = '';
+            b.style.borderColor = '';
+          });
+          this.style.background = 'var(--accent)';
+          this.style.color = '#000';
+          this.style.borderColor = 'var(--accent)';
+
+          const category = this.textContent.trim();
+
+          // Filter articles
+          articles.forEach(function(article) {
+            if (category === 'All' || article.dataset.category === category) {
+              article.style.display = '';
+            } else {
+              article.style.display = 'none';
+              // Close expanded articles that are being hidden
+              var content = article.querySelector('.blog-article-content');
+              if (content.classList.contains('expanded')) {
+                content.classList.remove('expanded');
+                article.querySelector('.blog-card').classList.remove('active');
+                article.querySelector('.toggle-text').textContent = 'Read More';
+              }
+            }
+          });
+        });
+      });
+    });
+  </script>
 </body>
 </html>
