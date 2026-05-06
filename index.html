@@ -253,8 +253,73 @@
 
   <!-- ========== SMARTCREDIT PARTNER SECTION ========== -->
   <section class="section section-dark" style="border-top:1px solid var(--border);">
+    <style>
+      .sc-section { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+      .sc-logo { max-width:280px; margin:0 auto 32px; }
+      .sc-prices { display:flex; flex-wrap:wrap; gap:16px; align-items:center; margin-top:24px; }
+      .sc-price-box { background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:20px 24px; text-align:center; }
+
+      /* Dropdown toggle */
+      .sc-dropdown-toggle {
+        width:100%; display:flex; align-items:center; justify-content:space-between;
+        background:var(--bg-card); border:1px solid var(--border); border-radius:16px;
+        padding:20px 24px; cursor:pointer; transition:var(--transition);
+      }
+      .sc-dropdown-toggle:hover { border-color:var(--accent); box-shadow:0 0 20px rgba(255,214,0,0.1); }
+      .sc-dropdown-toggle h4 { margin:0; font-size:1.1rem; display:flex; align-items:center; gap:10px; }
+      .sc-dropdown-arrow {
+        font-size:1.4rem; color:var(--accent); transition:transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .sc-dropdown-toggle.active .sc-dropdown-arrow { transform:rotate(180deg); }
+      .sc-dropdown-toggle.active { border-color:var(--accent); background:rgba(255,214,0,0.05); }
+
+      /* Dropdown content */
+      .sc-dropdown-content {
+        max-height:0; overflow:hidden; transition:max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s, padding 0.4s;
+        opacity:0; border-radius:0 0 16px 16px;
+      }
+      .sc-dropdown-content.open {
+        max-height:500px; opacity:1;
+      }
+      .sc-dropdown-inner { padding:0 24px 24px; }
+      .sc-feature {
+        display:flex; align-items:center; gap:10px; padding:12px 0;
+        border-bottom:1px solid var(--border); font-size:0.9rem; color:var(--gray);
+        opacity:0; transform:translateY(10px);
+        transition:opacity 0.3s, transform 0.3s;
+      }
+      .sc-feature:last-child { border-bottom:none; }
+      .sc-dropdown-content.open .sc-feature {
+        opacity:1; transform:translateY(0);
+      }
+      .sc-dropdown-content.open .sc-feature:nth-child(1) { transition-delay:0.05s; }
+      .sc-dropdown-content.open .sc-feature:nth-child(2) { transition-delay:0.1s; }
+      .sc-dropdown-content.open .sc-feature:nth-child(3) { transition-delay:0.15s; }
+      .sc-dropdown-content.open .sc-feature:nth-child(4) { transition-delay:0.2s; }
+      .sc-dropdown-content.open .sc-feature:nth-child(5) { transition-delay:0.25s; }
+      .sc-dropdown-content.open .sc-feature:nth-child(6) { transition-delay:0.3s; }
+      .sc-feature-icon { font-size:1.3rem; flex-shrink:0; }
+
+      /* Pulse animation on the card */
+      .sc-card { position:relative; overflow:hidden; }
+      .sc-card::before {
+        content:''; position:absolute; top:-50%; left:-50%; width:200%; height:200%;
+        background:radial-gradient(circle, rgba(255,214,0,0.06) 0%, transparent 60%);
+        animation:scPulse 4s ease-in-out infinite;
+      }
+      @keyframes scPulse {
+        0%, 100% { transform:scale(0.8); opacity:0; }
+        50% { transform:scale(1.2); opacity:1; }
+      }
+
+      @media (max-width:768px) {
+        .sc-section { grid-template-columns:1fr; gap:32px; }
+        .sc-logo { max-width:200px; margin-bottom:20px; }
+        .sc-prices { justify-content:center; }
+      }
+    </style>
     <div class="container">
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;">
+      <div class="sc-section">
         <div class="fade-up">
           <div style="display:inline-flex; align-items:center; gap:8px; background:rgba(255,214,0,0.1); border:1px solid rgba(255,214,0,0.25); border-radius:50px; padding:6px 16px; margin-bottom:20px;">
             <span style="font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent);">&#x1F91D; Official Partner</span>
@@ -262,12 +327,12 @@
           <h2>POWERED BY <span class="gradient-text">SMARTCREDIT</span></h2>
           <p style="margin-top:16px;">SmartCredit is the credit monitoring tool that makes our process work. It gives us real-time access to all 3 bureau reports so we can track your progress, identify items to dispute, and measure results &mdash; all in one place.</p>
           <p style="margin-top:12px; color:var(--white); font-weight:600;">Every ImproveU client needs SmartCredit active to get started.</p>
-          <div style="margin-top:24px; display:flex; flex-wrap:wrap; gap:16px; align-items:center;">
-            <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:20px 24px; text-align:center;">
+          <div class="sc-prices">
+            <div class="sc-price-box">
               <div style="font-family:var(--font-display); font-size:2.5rem; color:var(--accent);">$1</div>
               <div style="font-size:0.8rem; color:var(--gray);">to sign up</div>
             </div>
-            <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:20px 24px; text-align:center;">
+            <div class="sc-price-box">
               <div style="font-family:var(--font-display); font-size:2.5rem; color:var(--white);">$24.95</div>
               <div style="font-size:0.8rem; color:var(--gray);">/month after</div>
             </div>
@@ -275,30 +340,23 @@
           <a href="https://www.smartcredit.com/WealthyAllianceClub" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:24px;">Sign Up for SmartCredit &mdash; $1 &#x1F680;</a>
           <p style="margin-top:10px; font-size:0.78rem; color:var(--gray-dark);">&#x2B50; SmartCredit is INCLUDED FREE with The Blueprint (Tier 3)</p>
         </div>
-        <div class="fade-up" style="text-align:center;">
-          <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:20px; padding:40px; position:relative;">
-            <img src="images/smartcredit-color.png" alt="SmartCredit" style="max-width:280px; margin:0 auto 32px;">
-            <h4 style="margin-bottom:20px; font-size:1.4rem;">WHAT YOU GET</h4>
-            <ul style="text-align:left; max-width:320px; margin:0 auto;">
-              <li style="display:flex; align-items:center; gap:10px; padding:10px 0; border-bottom:1px solid var(--border); font-size:0.9rem; color:var(--gray);">
-                <span style="font-size:1.2rem;">&#x1F4CA;</span> All 3 Bureau Credit Reports
-              </li>
-              <li style="display:flex; align-items:center; gap:10px; padding:10px 0; border-bottom:1px solid var(--border); font-size:0.9rem; color:var(--gray);">
-                <span style="font-size:1.2rem;">&#x1F4C8;</span> Score Tracker &amp; History
-              </li>
-              <li style="display:flex; align-items:center; gap:10px; padding:10px 0; border-bottom:1px solid var(--border); font-size:0.9rem; color:var(--gray);">
-                <span style="font-size:1.2rem;">&#x1F3D7;&#xFE0F;</span> ScoreBuilder Tool
-              </li>
-              <li style="display:flex; align-items:center; gap:10px; padding:10px 0; border-bottom:1px solid var(--border); font-size:0.9rem; color:var(--gray);">
-                <span style="font-size:1.2rem;">&#x1F514;</span> Real-Time Score Alerts
-              </li>
-              <li style="display:flex; align-items:center; gap:10px; padding:10px 0; border-bottom:1px solid var(--border); font-size:0.9rem; color:var(--gray);">
-                <span style="font-size:1.2rem;">&#x1F512;</span> Dark Web Monitoring
-              </li>
-              <li style="display:flex; align-items:center; gap:10px; padding:10px 0; font-size:0.9rem; color:var(--gray);">
-                <span style="font-size:1.2rem;">&#x1F4B3;</span> Credit Action Plans
-              </li>
-            </ul>
+        <div class="fade-up">
+          <div class="sc-card" style="background:var(--bg-card); border:1px solid var(--border); border-radius:20px; padding:32px; position:relative;">
+            <img src="images/smartcredit-color.png" alt="SmartCredit" class="sc-logo" style="display:block;">
+            <div class="sc-dropdown-toggle" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('open');" role="button" tabindex="0" aria-expanded="false">
+              <h4>&#x1F4CB; WHAT YOU GET</h4>
+              <span class="sc-dropdown-arrow">&#x25BC;</span>
+            </div>
+            <div class="sc-dropdown-content">
+              <div class="sc-dropdown-inner">
+                <div class="sc-feature"><span class="sc-feature-icon">&#x1F4CA;</span> All 3 Bureau Credit Reports</div>
+                <div class="sc-feature"><span class="sc-feature-icon">&#x1F4C8;</span> Score Tracker &amp; History</div>
+                <div class="sc-feature"><span class="sc-feature-icon">&#x1F3D7;&#xFE0F;</span> ScoreBuilder Tool</div>
+                <div class="sc-feature"><span class="sc-feature-icon">&#x1F514;</span> Real-Time Score Alerts</div>
+                <div class="sc-feature"><span class="sc-feature-icon">&#x1F512;</span> Dark Web Monitoring</div>
+                <div class="sc-feature"><span class="sc-feature-icon">&#x1F4B3;</span> Credit Action Plans</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
