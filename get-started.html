@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="apple-touch-icon" href="images/favicon.svg">
+  <title>Get Started — Choose Your Credit Specialist | ImproveU</title>
+  <meta name="description" content="Pick your ImproveU credit specialist and get started on your credit repair journey today.">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ImproveU Credit Repair">
+  <meta property="og:title" content="Get Started — Choose Your Credit Specialist | ImproveU">
+  <meta property="og:description" content="Pick your ImproveU credit specialist and get started on your credit repair journey today.">
+  <meta property="og:image" content="https://improveu.net/images/og-image.svg">
+  <meta property="og:url" content="https://improveu.net/get-started.html">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Get Started — Choose Your Credit Specialist | ImproveU">
+  <meta name="twitter:description" content="Pick your ImproveU credit specialist and get started on your credit repair journey today.">
+  <meta name="twitter:image" content="https://improveu.net/images/og-image.svg">
+  <!-- Canonical -->
+  <link rel="canonical" href="https://improveu.net/get-started.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* === Agent Selection Page Styles === */
+    .agent-page {
+      min-height: 100vh;
+      padding: calc(var(--nav-height) + 40px) 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .agent-page::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center top, rgba(255,214,0,0.05) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .agent-header {
+      text-align: center;
+      margin-bottom: 60px;
+      position: relative;
+      z-index: 1;
+    }
+    .agent-header h1 {
+      margin-bottom: 12px;
+    }
+    .agent-header p {
+      max-width: 550px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+    }
+    .agent-header .animated-emojis {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+    }
+    .agent-header .animated-emojis span {
+      display: inline-block;
+      animation: emojiBounce 2s ease-in-out infinite;
+    }
+    .agent-header .animated-emojis span:nth-child(1) { animation-delay: 0s; }
+    .agent-header .animated-emojis span:nth-child(2) { animation-delay: 0.15s; }
+    .agent-header .animated-emojis span:nth-child(3) { animation-delay: 0.3s; }
+    .agent-header .animated-emojis span:nth-child(4) { animation-delay: 0.45s; }
+    .agent-header .animated-emojis span:nth-child(5) { animation-delay: 0.6s; }
+
+    @keyframes emojiBounce {
+      0%, 100% { transform: translateY(0) scale(1); }
+      25% { transform: translateY(-12px) scale(1.1); }
+      50% { transform: translateY(0) scale(1); }
+    }
+
+    /* Agent Cards Grid */
+    .agent-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .agent-card {
+      background: var(--bg-card);
+      border: 2px solid var(--border);
+      border-radius: 20px;
+      padding: 0;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      text-align: center;
+      position: relative;
+    }
+    .agent-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 0 40px var(--accent-glow), 0 20px 50px rgba(0,0,0,0.4);
+    }
+    .agent-card:hover .agent-card-glow {
+      opacity: 1;
+    }
+
+    .agent-card-glow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 200px;
+      background: radial-gradient(ellipse at center top, rgba(255,214,0,0.1) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+
+    .agent-photo {
+      height: 320px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+      background: linear-gradient(180deg, transparent, var(--bg-card));
+    }
+    .agent-photo img {
+      max-height: 300px;
+      width: auto;
+      position: relative;
+      z-index: 1;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+    }
+
+    /* Floating emojis on each card */
+    .card-emoji {
+      position: absolute;
+      font-size: 1.5rem;
+      z-index: 2;
+      animation: cardEmojiFloat 3s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .card-emoji:nth-child(1) { top: 12px; right: 15px; animation-delay: 0s; }
+    .card-emoji:nth-child(2) { top: 40px; left: 12px; animation-delay: 0.5s; }
+    .card-emoji:nth-child(3) { top: 70px; right: 20px; animation-delay: 1s; }
+
+    @keyframes cardEmojiFloat {
+      0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+      50% { transform: translateY(-10px) rotate(10deg); opacity: 1; }
+    }
+
+    .agent-info {
+      padding: 24px 24px 32px;
+      position: relative;
+      z-index: 1;
+    }
+    .agent-info h3 {
+      font-size: 1.8rem;
+      margin-bottom: 4px;
+      color: var(--white);
+    }
+    .agent-info .agent-title {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+    }
+    .agent-info p {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: 20px;
+      min-height: 54px;
+    }
+    .agent-info .btn {
+      width: 100%;
+      font-size: 1rem;
+    }
+
+    /* Pulsing arrow hint */
+    .select-hint {
+      text-align: center;
+      margin-top: 40px;
+      position: relative;
+      z-index: 1;
+    }
+    .select-hint p {
+      color: var(--gray);
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .select-hint .point-emoji {
+      animation: pointBounce 1.5s ease-in-out infinite;
+      display: inline-block;
+      font-size: 1.3rem;
+    }
+    @keyframes pointBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    /* Background floating emojis */
+    .bg-emojis {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .bg-emojis span {
+      position: absolute;
+      font-size: 2rem;
+      opacity: 0.06;
+      animation: bgEmojiRise 12s linear infinite;
+    }
+    .bg-emojis span:nth-child(1) { left: 5%; animation-delay: 0s; font-size: 2.5rem; }
+    .bg-emojis span:nth-child(2) { left: 15%; animation-delay: 2s; }
+    .bg-emojis span:nth-child(3) { left: 30%; animation-delay: 4s; font-size: 1.5rem; }
+    .bg-emojis span:nth-child(4) { left: 45%; animation-delay: 1s; }
+    .bg-emojis span:nth-child(5) { left: 60%; animation-delay: 3s; font-size: 3rem; }
+    .bg-emojis span:nth-child(6) { left: 75%; animation-delay: 5s; }
+    .bg-emojis span:nth-child(7) { left: 88%; animation-delay: 2.5s; font-size: 2.5rem; }
+    .bg-emojis span:nth-child(8) { left: 50%; animation-delay: 6s; font-size: 1.8rem; }
+
+    @keyframes bgEmojiRise {
+      0% { bottom: -10%; transform: rotate(0deg); opacity: 0; }
+      10% { opacity: 0.06; }
+      90% { opacity: 0.06; }
+      100% { bottom: 110%; transform: rotate(360deg); opacity: 0; }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .agent-grid {
+        grid-template-columns: 1fr;
+        max-width: 380px;
+      }
+      .agent-photo { height: 260px; }
+      .agent-photo img { max-height: 240px; }
+    }
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .agent-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 700px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="ImproveU Home">
+        <img src="images/logo.png" alt="ImproveU" width="140" height="40">
+      </a>
+      <div class="nav-links">
+        <div class="nav-dropdown">
+          <a href="#" aria-haspopup="true">Services &#9662;</a>
+          <div class="nav-dropdown-menu">
+            <a href="credit-repair.html">Credit Repair</a>
+            <a href="business-funding.html">Business Funding</a>
+            <a href="homeowner-program.html">90-Day Homeowner Program</a>
+          </div>
+        </div>
+        <a href="pricing.html">Pricing</a>
+        <a href="results.html">Results</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Blog</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <a href="portal.html" class="btn-login">Client Login</a>
+        <a href="get-started.html" class="btn btn-primary btn-sm">Get Started</a>
+      </div>
+      <button class="nav-toggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <a href="credit-repair.html">Credit Repair</a>
+    <a href="business-funding.html">Business Funding</a>
+    <a href="homeowner-program.html">Homeowner Program</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="results.html">Results</a>
+    <a href="about.html">About</a>
+    <a href="blog.html">Blog</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+    <a href="portal.html">Client Login</a>
+    <a href="get-started.html" class="btn btn-primary" style="margin-top:16px;">Get Started</a>
+  </div>
+
+  <!-- Background floating emojis -->
+  <div class="bg-emojis" aria-hidden="true">
+    <span>&#x1F4B0;</span>
+    <span>&#x1F3E0;</span>
+    <span>&#x1F4C8;</span>
+    <span>&#x2B50;</span>
+    <span>&#x1F525;</span>
+    <span>&#x1F4AA;</span>
+    <span>&#x1F4B5;</span>
+    <span>&#x1F680;</span>
+  </div>
+
+  <!-- ========== AGENT SELECTION ========== -->
+  <section class="agent-page">
+    <div class="container">
+
+      <div class="agent-header fade-up">
+        <div class="animated-emojis">
+          <span>&#x1F4C8;</span>
+          <span>&#x1F525;</span>
+          <span>&#x2B50;</span>
+          <span>&#x1F4AA;</span>
+          <span>&#x1F680;</span>
+        </div>
+        <h1>SELECT YOUR <span class="gradient-text">CREDIT SPECIALIST</span></h1>
+        <p>Pick the specialist you'd like to work with. They'll guide you through the entire process from signup to results.</p>
+      </div>
+
+      <div class="agent-grid">
+
+        <!-- JAMES -->
+        <div class="agent-card fade-up">
+          <div class="agent-card-glow"></div>
+          <div class="agent-photo">
+            <span class="card-emoji">&#x1F451;</span>
+            <span class="card-emoji">&#x1F525;</span>
+            <span class="card-emoji">&#x1F4AF;</span>
+            <img src="images/james-tux.png" alt="James — Founder & Lead Strategist">
+          </div>
+          <div class="agent-info">
+            <h3>JAMES</h3>
+            <div class="agent-title">Founder & Lead Strategist</div>
+            <p>8+ years in credit repair. Handles all Blueprint (Tier 3) clients personally. The man behind the movement.</p>
+            <a href="https://improveu.scorexer.com/portal-signUp/signup.jsp?id=dUxMczNhd2FxYlZPQjhrdmw1Q0Fwdz09" class="btn btn-primary">Start with James &#x1F525;</a>
+          </div>
+        </div>
+
+        <!-- JOSEPH -->
+        <div class="agent-card fade-up">
+          <div class="agent-card-glow"></div>
+          <div class="agent-photo">
+            <span class="card-emoji">&#x1F4BC;</span>
+            <span class="card-emoji">&#x1F4AA;</span>
+            <span class="card-emoji">&#x2705;</span>
+            <img src="images/joseph.png" alt="Joseph C. — Senior Credit Specialist">
+          </div>
+          <div class="agent-info">
+            <h3>JOSEPH C.</h3>
+            <div class="agent-title">Senior Credit Specialist</div>
+            <p>Expert in dispute strategy and bureau negotiations. Handles complex files with precision and speed.</p>
+            <a href="https://improveu.scorexer.com/portal-signUp/signup.jsp?id=ZGEvcXZHckNSMWJlTFNOWGc1UCtTZz09" class="btn btn-primary">Start with Joseph &#x1F4AA;</a>
+          </div>
+        </div>
+
+        <!-- HARLEY -->
+        <div class="agent-card fade-up">
+          <div class="agent-card-glow"></div>
+          <div class="agent-photo">
+            <span class="card-emoji">&#x1F4C8;</span>
+            <span class="card-emoji">&#x2B50;</span>
+            <span class="card-emoji">&#x1F3AF;</span>
+            <img src="images/harley.png" alt="Harley M. — Senior Credit Specialist">
+          </div>
+          <div class="agent-info">
+            <h3>HARLEY M.</h3>
+            <div class="agent-title">Senior Credit Specialist</div>
+            <p>Detail-oriented analyst focused on maximizing client results and fast turnarounds. Gets it done right.</p>
+            <a href="https://improveu.scorexer.com/portal-signUp/signup.jsp?id=aE5yUGNIemZjeHdycWJHeVRiMHVDZz09" class="btn btn-primary">Start with Harley &#x2B50;</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="select-hint fade-up">
+        <p><span class="point-emoji">&#x1F446;</span> Pick your specialist above to get started <span class="point-emoji">&#x1F446;</span></p>
+        <p style="margin-top:12px; font-size:0.8rem; color:var(--gray-dark);">Not sure who to pick? Any of our specialists can help you. You'll be in great hands.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="images/logo.png" alt="ImproveU" width="120" height="34">
+          <p style="margin-top:8px; font-style:italic; color:var(--accent); font-size:0.9rem;">Improve your credit. Improve your life.</p>
+          <div class="footer-contact" style="margin-top:16px;">
+            <a href="tel:5599810180">&#9742; (559) 981-0180</a>
+            <a href="mailto:help@improveu.net">&#9993; help@improveu.net</a>
+            <span style="font-size:0.85rem; color:var(--gray-dark);">Fresno, CA &bull; Mon-Fri 9am-6pm PST</span>
+          </div>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram">IG</a>
+            <a href="#" aria-label="TikTok">TT</a>
+            <a href="#" aria-label="YouTube">YT</a>
+          </div>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <div class="footer-links">
+            <a href="credit-repair.html">Credit Repair</a>
+            <a href="business-funding.html">Business Funding</a>
+            <a href="homeowner-program.html">Homeowner Program</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="results.html">Results</a>
+            <a href="about.html">About</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">CROA Disclosure</a>
+            <a href="#">Cookie Policy</a>
+            <a href="portal.html">Client Login</a>
+            <a href="book-a-call.html">Book a Call</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-croa">
+        <p><strong>CROA Disclosure:</strong> You have the right to dispute inaccurate information in your credit report by contacting the credit bureau directly. You may cancel your contract with ImproveU LLC, without penalty or obligation, within 5 business days from the date you signed it. ImproveU is not a law firm and does not provide legal advice. Results vary by file.</p>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span class="current-year">2026</span> ImproveU LLC. All rights reserved.</span>
+        <span>Fresno, California</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mobile-sticky-cta">
+    <a href="get-started.html" class="btn btn-primary">Get Started</a>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#0A0A0A"/>
+  <!-- Subtle gradient -->
+  <rect width="1200" height="630" fill="url(#bgGrad)" opacity="0.5"/>
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1200" y2="630">
+      <stop offset="0%" stop-color="#1a1700"/>
+      <stop offset="100%" stop-color="#0A0A0A"/>
+    </linearGradient>
+  </defs>
+  <!-- Gold accent bar top -->
+  <rect width="1200" height="6" fill="#FFD600"/>
+  <!-- Logo U -->
+  <rect x="80" y="180" width="80" height="80" rx="16" fill="#FFD600"/>
+  <text x="120" y="235" dominant-baseline="middle" text-anchor="middle" font-family="Arial Black, sans-serif" font-weight="900" font-size="52" fill="#000">U</text>
+  <!-- Brand name -->
+  <text x="180" y="232" font-family="Arial Black, sans-serif" font-weight="900" font-size="42" fill="#FFFFFF">improveU</text>
+  <!-- Main headline -->
+  <text x="80" y="340" font-family="Arial Black, sans-serif" font-weight="900" font-size="64" fill="#FFFFFF">REAL CREDIT REPAIR.</text>
+  <text x="80" y="420" font-family="Arial Black, sans-serif" font-weight="900" font-size="64" fill="#FFD600">REAL RESULTS.</text>
+  <!-- Subhead -->
+  <text x="80" y="480" font-family="Arial, sans-serif" font-weight="400" font-size="24" fill="#B5B5B5">Credit Repair · Business Funding · Fresno, CA</text>
+  <!-- Website -->
+  <text x="80" y="560" font-family="Arial, sans-serif" font-weight="700" font-size="22" fill="#FFD600">improveu.net</text>
+  <!-- 8 years badge -->
+  <rect x="920" y="480" width="200" height="60" rx="30" fill="#FFD600"/>
+  <text x="1020" y="518" dominant-baseline="middle" text-anchor="middle" font-family="Arial Black, sans-serif" font-weight="900" font-size="20" fill="#000">8+ YEARS</text>
+  <!-- Gold accent bar bottom -->
+  <rect y="624" width="1200" height="6" fill="#FFD600"/>
+</svg>
