@@ -25,6 +25,101 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* === Homeowner Page Animations === */
+    .hero-image { position: relative; }
+
+    .house-emoji {
+      position: absolute;
+      font-size: 2.5rem;
+      z-index: 0;
+      animation: houseBounce 3s ease-in-out infinite;
+      filter: drop-shadow(0 4px 12px rgba(255,214,0,0.3));
+      pointer-events: none;
+    }
+    .house-emoji:nth-child(1) { top: 5%; left: -10%; animation-delay: 0s; font-size: 3rem; }
+    .house-emoji:nth-child(2) { top: 25%; right: -8%; animation-delay: 0.5s; font-size: 2rem; }
+    .house-emoji:nth-child(3) { bottom: 20%; left: -15%; animation-delay: 1s; font-size: 2.8rem; }
+    .house-emoji:nth-child(4) { bottom: 5%; right: -12%; animation-delay: 1.5s; font-size: 2.2rem; }
+    .house-emoji:nth-child(5) { top: 50%; left: -20%; animation-delay: 0.8s; font-size: 1.8rem; }
+    .house-emoji:nth-child(6) { top: 10%; right: -18%; animation-delay: 1.2s; font-size: 2.4rem; }
+
+    @keyframes houseBounce {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-18px) scale(1.1); }
+    }
+
+    /* Rising emojis background */
+    .home-rising-emojis {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .rising-emoji {
+      position: absolute;
+      bottom: -60px;
+      font-size: 2rem;
+      opacity: 0.08;
+      animation: riseUp 12s linear infinite;
+    }
+    .rising-emoji:nth-child(1) { left: 5%; animation-delay: 0s; font-size: 1.8rem; }
+    .rising-emoji:nth-child(2) { left: 15%; animation-delay: 2s; font-size: 2.4rem; }
+    .rising-emoji:nth-child(3) { left: 28%; animation-delay: 4s; font-size: 1.5rem; }
+    .rising-emoji:nth-child(4) { left: 42%; animation-delay: 1s; font-size: 2rem; }
+    .rising-emoji:nth-child(5) { left: 55%; animation-delay: 3s; font-size: 2.2rem; }
+    .rising-emoji:nth-child(6) { left: 68%; animation-delay: 5s; font-size: 1.6rem; }
+    .rising-emoji:nth-child(7) { left: 80%; animation-delay: 2.5s; font-size: 2.5rem; }
+    .rising-emoji:nth-child(8) { left: 92%; animation-delay: 0.5s; font-size: 1.9rem; }
+
+    @keyframes riseUp {
+      0% { transform: translateY(0) rotate(0deg); opacity: 0.08; }
+      50% { opacity: 0.12; }
+      100% { transform: translateY(-110vh) rotate(20deg); opacity: 0; }
+    }
+
+    /* Pulsing glow on steps */
+    .card-step { transition: transform 0.4s, box-shadow 0.4s; }
+    .card-step:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 0 40px rgba(255,214,0,0.15), 0 20px 60px rgba(0,0,0,0.3);
+    }
+
+    /* Animated gradient border on hero pill */
+    .hero-pill {
+      animation: pillGlow 3s ease-in-out infinite alternate;
+    }
+    @keyframes pillGlow {
+      0% { box-shadow: 0 0 8px rgba(255,214,0,0.2); }
+      100% { box-shadow: 0 0 24px rgba(255,214,0,0.5); }
+    }
+
+    /* Bouncing CTA */
+    .cta-banner .btn-primary {
+      animation: ctaPulse 2s ease-in-out infinite;
+    }
+    @keyframes ctaPulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 4px 20px rgba(255,214,0,0.3); }
+      50% { transform: scale(1.05); box-shadow: 0 8px 32px rgba(255,214,0,0.5); }
+    }
+
+    /* Step number glow */
+    .step-num {
+      animation: stepGlow 2s ease-in-out infinite alternate;
+    }
+    @keyframes stepGlow {
+      0% { text-shadow: 0 0 0 transparent; }
+      100% { text-shadow: 0 0 20px rgba(255,214,0,0.4); }
+    }
+
+    @media (max-width: 768px) {
+      .house-emoji:nth-child(1) { left: 0; }
+      .house-emoji:nth-child(3) { left: -5%; }
+      .house-emoji:nth-child(5) { left: -5%; }
+      .house-emoji { font-size: 1.8rem !important; }
+    }
+  </style>
   <!-- Schema: Service -->
   <script type="application/ld+json">
   {
@@ -92,12 +187,24 @@
     <a href="get-started.html" class="btn btn-primary" style="margin-top:16px;">Get Started</a>
   </div>
 
+  <!-- Rising background emojis -->
+  <div class="home-rising-emojis" aria-hidden="true">
+    <span class="rising-emoji">&#x1F3E0;</span>
+    <span class="rising-emoji">&#x1F511;</span>
+    <span class="rising-emoji">&#x1F3E1;</span>
+    <span class="rising-emoji">&#x1F3E0;</span>
+    <span class="rising-emoji">&#x1F511;</span>
+    <span class="rising-emoji">&#x1F3E1;</span>
+    <span class="rising-emoji">&#x1F3E0;</span>
+    <span class="rising-emoji">&#x1F511;</span>
+  </div>
+
   <!-- ========== HERO ========== -->
-  <section class="hero">
+  <section class="hero" style="position:relative; z-index:1;">
     <div class="container-wide">
       <div class="hero-grid">
         <div class="hero-content fade-up">
-          <div class="hero-pill">&#9733; 90-Day Program &bull; Approval Focused</div>
+          <div class="hero-pill">&#x1F3E0; 90-Day Program &bull; Approval Focused &#x1F511;</div>
           <h1>THE 90-DAY<br><span class="gradient-text">HOMEOWNER</span> PROGRAM</h1>
           <p class="subhead">Fix your credit, get pre-approved, and walk into your new home &mdash; with a proven step-by-step system built for real results. You don't need years to change your situation. With the right strategy, you can go from denied to approved in as little as 90 days.</p>
           <div class="hero-ctas">
@@ -111,7 +218,13 @@
           </div>
         </div>
         <div class="hero-image fade-up">
-          <img src="images/james-hero.png" alt="James — Founder of ImproveU" width="500" height="580">
+          <span class="house-emoji">&#x1F3E0;</span>
+          <span class="house-emoji">&#x1F511;</span>
+          <span class="house-emoji">&#x1F3E1;</span>
+          <span class="house-emoji">&#x1F3E0;</span>
+          <span class="house-emoji">&#x1F511;</span>
+          <span class="house-emoji">&#x1F3E1;</span>
+          <img src="images/james-hero.png" alt="James — Founder of ImproveU" width="500" height="580" style="position:relative; z-index:1;">
         </div>
       </div>
     </div>
@@ -230,6 +343,7 @@
   <!-- ========== FINAL CTA BAND ========== -->
   <section class="cta-banner" style="background:var(--bg-secondary);">
     <div class="container fade-up">
+      <p style="font-size:3rem; margin-bottom:16px;">&#x1F3E0; &#x1F511; &#x1F3E1;</p>
       <h2>READY TO BECOME A <span class="gradient-text">HOMEOWNER?</span></h2>
       <p>Your next 90 days can change everything &mdash; if you take action today.</p>
       <a href="book-a-call.html" class="btn btn-primary">Apply Now</a>
