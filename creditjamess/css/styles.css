@@ -816,11 +816,21 @@ h3 { font-size: 1.25rem; font-weight: 700; line-height: 1.2; }
   background: var(--rise);
   box-shadow: 0 0 0 3px rgba(0, 200, 83, 0.25);
 }
-.embed-card iframe {
-  display: block;
-  width: 100%;
-  background: #fff;
+/* The form page paints a 24px dark gutter on all four sides; the viewport
+   crops it so only the white form shows, and JS sets the exact height so
+   the whole form fits with no internal scrolling. */
+.embed-viewport {
+  overflow: hidden;
   border-radius: 20px;
+  background: #fff;
+  height: 1417px;
+}
+.embed-viewport iframe {
+  display: block;
+  border: none;
+  width: calc(100% + 48px);
+  margin: -24px 0 0 -24px;
+  background: #fff;
 }
 
 /* ---------- Steps ---------- */

@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="/creditjamess/css/styles.css">
 </head>
 <body>
 
@@ -49,16 +49,16 @@
         <div class="hero-proof">
           <span>Disputed at</span>
           <span class="bureaus">
-            <img src="images/equifax.png" alt="Equifax">
-            <img src="images/experian.png" alt="Experian">
-            <img src="images/transunion.png" alt="TransUnion">
+            <img src="/creditjamess/images/equifax.png" alt="Equifax">
+            <img src="/creditjamess/images/experian.png" alt="Experian">
+            <img src="/creditjamess/images/transunion.png" alt="TransUnion">
           </span>
         </div>
       </div>
 
       <div class="hero-visual">
         <div class="hero-photo-panel">
-          <img src="images/james-tux-cut.png" alt="James — your credit repair specialist">
+          <img src="/creditjamess/images/james-tux-cut.png" alt="James — your credit repair specialist">
         </div>
 
         <!-- Signature: live rising score gauge -->
@@ -240,7 +240,7 @@
             <p class="price-was">Normally <s>$1,497</s> minimum</p>
             <div class="price-now"><span class="cur">$</span>49<span class="tag">One-time</span></div>
             <div class="price-cond">
-              <img src="images/smartcredit-color.png" alt="Smart Credit">
+              <img src="/creditjamess/images/smartcredit-color.png" alt="Smart Credit">
               <span>Just keep your <strong>Smart Credit</strong> monitoring active — that's how we track your reports and pull your scores every month.</span>
             </div>
             <ul class="price-includes">
@@ -281,14 +281,16 @@
           <span class="embed-dot"></span>
           <span>Secure sign-up · CreditJamess</span>
         </div>
-        <iframe
-          src="https://www.myrepairportal.com/form/james-form-with-smart-credit-6ygxn9"
-          width="460"
-          height="700"
-          frameborder="0"
-          style="border: none; max-width: 100%;"
-          title="CreditJamess sign-up form"
-        ></iframe>
+        <div class="embed-viewport" id="embedViewport">
+          <iframe
+            id="signupFrame"
+            src="https://www.myrepairportal.com/form/james-form-with-smart-credit-6ygxn9"
+            height="1465"
+            frameborder="0"
+            scrolling="no"
+            title="CreditJamess sign-up form"
+          ></iframe>
+        </div>
       </div>
     </div>
   </section>
@@ -327,7 +329,7 @@
   <section class="section about-section" id="james">
     <div class="container about-grid">
       <div class="about-photo fade-up">
-        <img src="images/james-hero-web.png" alt="James — CreditJamess">
+        <img src="/creditjamess/images/james-hero-web.png" alt="James — CreditJamess">
         <div class="about-badge">
           <div><div class="ab-name">James</div><div class="ab-role">Credit specialist · ImproveU</div></div>
           <a class="ab-ig" href="https://instagram.com/prepaidonly" target="_blank" rel="noopener">@prepaidonly</a>
@@ -444,6 +446,6 @@
     <a href="#signup" class="btn btn-primary">Claim my $49 spot — 13 left</a>
   </div>
 
-  <script src="js/main.js"></script>
+  <script src="/creditjamess/js/main.js"></script>
 </body>
 </html>
