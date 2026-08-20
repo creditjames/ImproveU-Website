@@ -6,258 +6,148 @@
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   <link rel="apple-touch-icon" href="images/favicon.svg">
   <title>Get Started — Choose Your Credit Specialist | ImproveU</title>
-  <meta name="description" content="Pick your ImproveU credit specialist and get started on your credit repair journey today.">
-  <!-- Open Graph -->
+  <meta name="description" content="Pick your ImproveU credit specialist and start your file today. Work directly with James, Joseph, or Harley from signup to results.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="ImproveU Credit Repair">
   <meta property="og:title" content="Get Started — Choose Your Credit Specialist | ImproveU">
-  <meta property="og:description" content="Pick your ImproveU credit specialist and get started on your credit repair journey today.">
+  <meta property="og:description" content="Pick your ImproveU credit specialist and start your file today.">
   <meta property="og:image" content="https://www.improveu.net/images/og-image.png">
   <meta property="og:url" content="https://www.improveu.net/get-started.html">
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Get Started — Choose Your Credit Specialist | ImproveU">
-  <meta name="twitter:description" content="Pick your ImproveU credit specialist and get started on your credit repair journey today.">
-  <meta name="twitter:image" content="https://www.improveu.net/images/og-image.png">
-  <!-- Canonical -->
   <link rel="canonical" href="https://www.improveu.net/get-started.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Hanken+Grotesk:ital,wght@0,300..800;1,300..800&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <style>
-    /* === Agent Selection Page Styles === */
-    .agent-page {
+    .specialist-page {
+      padding: calc(var(--nav-height) + 70px) 0 100px;
       min-height: 100vh;
-      padding: calc(var(--nav-height) + 40px) 0 80px;
+      background:
+        radial-gradient(ellipse 70% 60% at 50% -5%, rgba(201, 162, 78, 0.1) 0%, transparent 60%),
+        var(--ink-950);
       position: relative;
       overflow: hidden;
     }
-    .agent-page::before {
+    .specialist-page::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(ellipse at center top, rgba(255,214,0,0.05) 0%, transparent 60%);
+      inset: 0;
+      background-image:
+        linear-gradient(var(--hairline-gold-soft) 1px, transparent 1px),
+        linear-gradient(90deg, var(--hairline-gold-soft) 1px, transparent 1px);
+      background-size: 84px 84px;
+      -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 10%, black 0%, transparent 75%);
+      mask-image: radial-gradient(ellipse 70% 70% at 50% 10%, black 0%, transparent 75%);
+      opacity: 0.4;
       pointer-events: none;
     }
-
-    .agent-header {
-      text-align: center;
-      margin-bottom: 60px;
-      position: relative;
-      z-index: 1;
-    }
-    .agent-header h1 {
-      margin-bottom: 12px;
-    }
-    .agent-header p {
-      max-width: 550px;
-      margin: 0 auto;
-      font-size: 1.1rem;
-    }
-    .agent-header .animated-emojis {
-      font-size: 2rem;
-      margin-bottom: 16px;
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-    }
-    .agent-header .animated-emojis span {
-      display: inline-block;
-      animation: emojiBounce 2s ease-in-out infinite;
-    }
-    .agent-header .animated-emojis span:nth-child(1) { animation-delay: 0s; }
-    .agent-header .animated-emojis span:nth-child(2) { animation-delay: 0.15s; }
-    .agent-header .animated-emojis span:nth-child(3) { animation-delay: 0.3s; }
-    .agent-header .animated-emojis span:nth-child(4) { animation-delay: 0.45s; }
-    .agent-header .animated-emojis span:nth-child(5) { animation-delay: 0.6s; }
-
-    @keyframes emojiBounce {
-      0%, 100% { transform: translateY(0) scale(1); }
-      25% { transform: translateY(-12px) scale(1.1); }
-      50% { transform: translateY(0) scale(1); }
-    }
-
-    /* Agent Cards Grid */
-    .agent-grid {
+    .specialist-header { text-align: center; margin-bottom: 60px; position: relative; z-index: 1; }
+    .specialist-header p { max-width: 540px; margin: 18px auto 0; }
+    .specialist-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-      max-width: 1000px;
+      gap: 26px;
+      max-width: 1080px;
       margin: 0 auto;
       position: relative;
       z-index: 1;
     }
-
-    .agent-card {
-      background: var(--bg-card);
-      border: 2px solid var(--border);
-      border-radius: 20px;
-      padding: 0;
+    .specialist-card {
+      background: linear-gradient(170deg, var(--ink-700), var(--ink-800));
+      border: 1px solid var(--hairline-cream);
+      border-radius: var(--radius-lg);
       overflow: hidden;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      cursor: pointer;
       text-align: center;
+      transition: var(--transition);
       position: relative;
+      display: flex;
+      flex-direction: column;
     }
-    .agent-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 0 40px var(--accent-glow), 0 20px 50px rgba(0,0,0,0.4);
+    .specialist-card:hover {
+      border-color: var(--gold-500);
+      transform: translateY(-8px);
+      box-shadow: 0 0 0 1px rgba(201,162,78,0.2), 0 44px 80px -30px rgba(0,0,0,0.75);
     }
-    .agent-card:hover .agent-card-glow {
-      opacity: 1;
+    .specialist-card.lead {
+      border-color: var(--hairline-gold);
+      background:
+        radial-gradient(ellipse 90% 40% at 50% 0%, rgba(201, 162, 78, 0.12) 0%, transparent 60%),
+        linear-gradient(170deg, var(--ink-600), var(--ink-800));
     }
-
-    .agent-card-glow {
+    .specialist-flag {
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 200px;
-      background: radial-gradient(ellipse at center top, rgba(255,214,0,0.1) 0%, transparent 70%);
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      pointer-events: none;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      background: linear-gradient(140deg, var(--gold-300), var(--gold-500));
+      color: var(--ink-950);
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 7px 18px;
+      border-radius: var(--radius-pill);
+      white-space: nowrap;
     }
-
-    .agent-photo {
+    .specialist-photo {
       height: 320px;
       display: flex;
       align-items: flex-end;
       justify-content: center;
       overflow: hidden;
       position: relative;
-      background: linear-gradient(180deg, transparent, var(--bg-card));
+      background:
+        radial-gradient(ellipse 85% 55% at 50% 100%, rgba(201, 162, 78, 0.16) 0%, transparent 65%),
+        var(--ink-800);
     }
-    .agent-photo img {
+    .specialist-photo::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--hairline-gold-soft) 1px, transparent 1px),
+        linear-gradient(90deg, var(--hairline-gold-soft) 1px, transparent 1px);
+      background-size: 42px 42px;
+      opacity: 0.45;
+      -webkit-mask-image: linear-gradient(to bottom, black, transparent 85%);
+      mask-image: linear-gradient(to bottom, black, transparent 85%);
+    }
+    .specialist-photo img {
       max-height: 300px;
       width: auto;
       position: relative;
       z-index: 1;
-      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+      filter: drop-shadow(0 14px 26px rgba(0,0,0,0.4));
+      transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
     }
-
-    /* Floating emojis on each card */
-    .card-emoji {
-      position: absolute;
-      font-size: 1.5rem;
-      z-index: 2;
-      animation: cardEmojiFloat 3s ease-in-out infinite;
-      pointer-events: none;
-    }
-    .card-emoji:nth-child(1) { top: 12px; right: 15px; animation-delay: 0s; }
-    .card-emoji:nth-child(2) { top: 40px; left: 12px; animation-delay: 0.5s; }
-    .card-emoji:nth-child(3) { top: 70px; right: 20px; animation-delay: 1s; }
-
-    @keyframes cardEmojiFloat {
-      0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
-      50% { transform: translateY(-10px) rotate(10deg); opacity: 1; }
-    }
-
-    .agent-info {
-      padding: 24px 24px 32px;
-      position: relative;
-      z-index: 1;
-    }
-    .agent-info h3 {
-      font-size: 1.8rem;
-      margin-bottom: 4px;
-      color: var(--white);
-    }
-    .agent-info .agent-title {
-      font-family: var(--font-body);
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--accent);
+    .specialist-card:hover .specialist-photo img { transform: scale(1.045); }
+    .specialist-info { padding: 28px 26px 34px; display: flex; flex-direction: column; flex: 1; }
+    .specialist-info h3 { font-size: 1.75rem; margin-bottom: 4px; }
+    .specialist-info .role {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--gold-500);
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 12px;
+      letter-spacing: 0.22em;
+      margin-bottom: 14px;
     }
-    .agent-info p {
-      font-size: 0.9rem;
-      line-height: 1.5;
-      margin-bottom: 20px;
-      min-height: 54px;
-    }
-    .agent-info .btn {
-      width: 100%;
-      font-size: 1rem;
-    }
-
-    /* Pulsing arrow hint */
-    .select-hint {
-      text-align: center;
-      margin-top: 40px;
-      position: relative;
-      z-index: 1;
-    }
-    .select-hint p {
-      color: var(--gray);
-      font-size: 0.9rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-    .select-hint .point-emoji {
-      animation: pointBounce 1.5s ease-in-out infinite;
+    .specialist-info p { font-size: 0.9rem; line-height: 1.6; margin-bottom: 14px; }
+    .specialist-info .ig {
       display: inline-block;
-      font-size: 1.3rem;
+      margin-bottom: 20px;
+      font-size: 0.82rem;
+      color: var(--gold-400);
+      font-weight: 600;
     }
-    @keyframes pointBounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
-    }
-
-    /* Background floating emojis */
-    .bg-emojis {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
-    }
-    .bg-emojis span {
-      position: absolute;
-      font-size: 2rem;
-      opacity: 0.06;
-      animation: bgEmojiRise 12s linear infinite;
-    }
-    .bg-emojis span:nth-child(1) { left: 5%; animation-delay: 0s; font-size: 2.5rem; }
-    .bg-emojis span:nth-child(2) { left: 15%; animation-delay: 2s; }
-    .bg-emojis span:nth-child(3) { left: 30%; animation-delay: 4s; font-size: 1.5rem; }
-    .bg-emojis span:nth-child(4) { left: 45%; animation-delay: 1s; }
-    .bg-emojis span:nth-child(5) { left: 60%; animation-delay: 3s; font-size: 3rem; }
-    .bg-emojis span:nth-child(6) { left: 75%; animation-delay: 5s; }
-    .bg-emojis span:nth-child(7) { left: 88%; animation-delay: 2.5s; font-size: 2.5rem; }
-    .bg-emojis span:nth-child(8) { left: 50%; animation-delay: 6s; font-size: 1.8rem; }
-
-    @keyframes bgEmojiRise {
-      0% { bottom: -10%; transform: rotate(0deg); opacity: 0; }
-      10% { opacity: 0.06; }
-      90% { opacity: 0.06; }
-      100% { bottom: 110%; transform: rotate(360deg); opacity: 0; }
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .agent-grid {
-        grid-template-columns: 1fr;
-        max-width: 380px;
-      }
-      .agent-photo { height: 260px; }
-      .agent-photo img { max-height: 240px; }
-    }
-    @media (min-width: 769px) and (max-width: 1024px) {
-      .agent-grid {
-        grid-template-columns: repeat(2, 1fr);
-        max-width: 700px;
-      }
+    .specialist-info .ig:hover { color: var(--gold-300); }
+    .specialist-info .btn { width: 100%; margin-top: auto; }
+    .select-hint { text-align: center; margin-top: 48px; position: relative; z-index: 1; }
+    .select-hint p { font-size: 0.9rem; }
+    .select-hint .sub { margin-top: 10px; font-size: 0.8rem; color: var(--cream-faint); }
+    @media (max-width: 1024px) {
+      .specialist-grid { grid-template-columns: 1fr; max-width: 420px; }
     }
   </style>
 </head>
@@ -312,107 +202,74 @@
     <a href="about.html">About</a>
     <a href="blog.html">Blog</a>
     <a href="faq.html">FAQ</a>
-        <div class="nav-dropdown">
-          <a href="#" aria-haspopup="true">Partner &#9662;</a>
-          <div class="nav-dropdown-menu">
-            <a href="affiliate.html">Affiliate Program</a>
-            <a href="franchise.html">Own a Franchise</a>
-          </div>
-        </div>
+    <a href="affiliate.html">Affiliate Program</a>
+    <a href="franchise.html">Own a Franchise</a>
     <a href="contact.html">Contact</a>
     <a href="portal.html">Client Login</a>
-    <a href="get-started.html" class="btn btn-primary" style="margin-top:16px;">Get Started</a>
+    <a href="get-started.html" class="btn btn-primary">Get Started</a>
   </div>
 
-  <!-- Background floating emojis -->
-  <div class="bg-emojis" aria-hidden="true">
-    <span>&#x1F4B0;</span>
-    <span>&#x1F3E0;</span>
-    <span>&#x1F4C8;</span>
-    <span>&#x2B50;</span>
-    <span>&#x1F525;</span>
-    <span>&#x1F4AA;</span>
-    <span>&#x1F4B5;</span>
-    <span>&#x1F680;</span>
-  </div>
-
-  <!-- ========== AGENT SELECTION ========== -->
-  <section class="agent-page">
+  <!-- ========== SPECIALIST SELECTION ========== -->
+  <section class="specialist-page">
     <div class="container">
 
-      <div class="agent-header fade-up">
-        <div class="animated-emojis">
-          <span>&#x1F4C8;</span>
-          <span>&#x1F525;</span>
-          <span>&#x2B50;</span>
-          <span>&#x1F4AA;</span>
-          <span>&#x1F680;</span>
-        </div>
-        <h1>SELECT YOUR <span class="gradient-text">CREDIT SPECIALIST</span></h1>
+      <div class="specialist-header fade-up">
+        <p class="section-label centered">Get Started</p>
+        <h1>Select your <em class="flourish">credit specialist</em></h1>
         <p>Pick the specialist you'd like to work with. They'll guide you through the entire process from signup to results.</p>
       </div>
 
-      <div class="agent-grid">
+      <div class="specialist-grid">
 
         <!-- JAMES -->
-        <div class="agent-card fade-up">
-          <div class="agent-card-glow"></div>
-          <div class="agent-photo">
-            <span class="card-emoji">&#x1F451;</span>
-            <span class="card-emoji">&#x1F525;</span>
-            <span class="card-emoji">&#x1F4AF;</span>
-            <img src="images/james-tux.png" alt="James — Founder & Lead Strategist">
+        <div class="specialist-card lead fade-up">
+          <span class="specialist-flag">Founder</span>
+          <div class="specialist-photo">
+            <img src="images/james-tux-web.png" alt="James — Founder &amp; Lead Strategist">
           </div>
-          <div class="agent-info">
-            <h3>JAMES</h3>
-            <div class="agent-title">Founder & Lead Strategist</div>
+          <div class="specialist-info">
+            <h3>James</h3>
+            <div class="role">Founder &amp; Lead Strategist</div>
             <p>8+ years in credit repair. Handles all Blueprint (Tier 3) clients personally. The man behind the movement.</p>
-            <a href="https://instagram.com/boostwithjames" target="_blank" rel="noopener" style="display:inline-block; margin-bottom:12px; font-size:0.82rem; color:var(--accent); font-weight:600;">@boostwithjames</a>
-            <a href="https://improveu.scorexer.com/portal-signUp/signup.jsp?id=dUxMczNhd2FxYlZPQjhrdmw1Q0Fwdz09" class="btn btn-primary">Start with James &#x1F525;</a>
+            <a href="https://instagram.com/boostwithjames" target="_blank" rel="noopener" class="ig">@boostwithjames</a>
+            <a href="https://improveu.scorexer.com/portal-signUp/signup.jsp?id=dUxMczNhd2FxYlZPQjhrdmw1Q0Fwdz09" class="btn btn-primary">Start with James <span class="arr">&rarr;</span></a>
           </div>
         </div>
 
         <!-- JOSEPH -->
-        <div class="agent-card fade-up">
-          <div class="agent-card-glow"></div>
-          <div class="agent-photo">
-            <span class="card-emoji">&#x1F4BC;</span>
-            <span class="card-emoji">&#x1F4AA;</span>
-            <span class="card-emoji">&#x2705;</span>
-            <img src="images/joseph.png" alt="Joseph C. — Senior Credit Specialist">
+        <div class="specialist-card fade-up">
+          <div class="specialist-photo">
+            <img src="images/joseph-web.png" alt="Joseph C. — Senior Credit Specialist">
           </div>
-          <div class="agent-info">
-            <h3>JOSEPH C.</h3>
-            <div class="agent-title">Senior Credit Specialist</div>
+          <div class="specialist-info">
+            <h3>Joseph C.</h3>
+            <div class="role">Senior Credit Specialist</div>
             <p>Expert in dispute strategy and bureau negotiations. Handles complex files with precision and speed.</p>
-            <a href="https://instagram.com/creditwithjoseph_" target="_blank" rel="noopener" style="display:inline-block; margin-bottom:12px; font-size:0.82rem; color:var(--accent); font-weight:600;">@creditwithjoseph_</a>
-            <a href="https://improveu.scorexer.com/portal-signUp/signup.jsp?id=ZGEvcXZHckNSMWJlTFNOWGc1UCtTZz09" class="btn btn-primary">Start with Joseph &#x1F4AA;</a>
+            <a href="https://instagram.com/creditwithjoseph_" target="_blank" rel="noopener" class="ig">@creditwithjoseph_</a>
+            <a href="https://improveu.scorexer.com/portal-signUp/signup.jsp?id=ZGEvcXZHckNSMWJlTFNOWGc1UCtTZz09" class="btn btn-primary">Start with Joseph <span class="arr">&rarr;</span></a>
           </div>
         </div>
 
         <!-- HARLEY -->
-        <div class="agent-card fade-up">
-          <div class="agent-card-glow"></div>
-          <div class="agent-photo">
-            <span class="card-emoji">&#x1F4C8;</span>
-            <span class="card-emoji">&#x2B50;</span>
-            <span class="card-emoji">&#x1F3AF;</span>
-            <img src="images/harley.png" alt="Harley M. — Senior Credit Specialist">
+        <div class="specialist-card fade-up">
+          <div class="specialist-photo">
+            <img src="images/harley-web.png" alt="Harley M. — Senior Credit Specialist">
           </div>
-          <div class="agent-info">
-            <h3>HARLEY M.</h3>
-            <div class="agent-title">Senior Credit Specialist</div>
+          <div class="specialist-info">
+            <h3>Harley M.</h3>
+            <div class="role">Senior Credit Specialist</div>
             <p>Detail-oriented analyst focused on maximizing client results and fast turnarounds. Gets it done right.</p>
-            <a href="https://instagram.com/creditharley" target="_blank" rel="noopener" style="display:inline-block; margin-bottom:12px; font-size:0.82rem; color:var(--accent); font-weight:600;">@creditharley</a>
-            <a href="https://improveu.scorexer.com/portal-signUp/signup.jsp?id=aE5yUGNIemZjeHdycWJHeVRiMHVDZz09" class="btn btn-primary">Start with Harley &#x2B50;</a>
+            <a href="https://instagram.com/creditharley" target="_blank" rel="noopener" class="ig">@creditharley</a>
+            <a href="https://improveu.scorexer.com/portal-signUp/signup.jsp?id=aE5yUGNIemZjeHdycWJHeVRiMHVDZz09" class="btn btn-primary">Start with Harley <span class="arr">&rarr;</span></a>
           </div>
         </div>
 
       </div>
 
       <div class="select-hint fade-up">
-        <p><span class="point-emoji">&#x1F446;</span> Pick your specialist above to get started <span class="point-emoji">&#x1F446;</span></p>
-        <p style="margin-top:12px; font-size:0.8rem; color:var(--gray-dark);">Not sure who to pick? Any of our specialists can help you. You'll be in great hands.</p>
+        <p>Pick your specialist above to get started.</p>
+        <p class="sub">Not sure who to pick? Any of our specialists can help you. You'll be in great hands.</p>
+        <p class="sub" style="margin-top:20px;">Questions first? <a href="book-a-call.html" class="link-gold" style="font-size:0.85rem;">Book a free strategy call</a> &nbsp;or call&nbsp; <a href="tel:5599810180" class="link-gold" style="font-size:0.85rem;">(559) 981-0180</a></p>
       </div>
 
     </div>
@@ -424,14 +281,14 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <img src="images/logo.png" alt="ImproveU" width="120" height="34">
-          <p style="margin-top:8px; font-style:italic; color:var(--accent); font-size:0.9rem;">Improve your credit. Improve your life.</p>
+          <p>Improve your credit. Improve your life.</p>
           <div class="footer-contact" style="margin-top:16px;">
-            <a href="tel:5599810180">&#9742; (559) 981-0180</a>
-            <a href="mailto:help@improveu.net">&#9993; help@improveu.net</a>
-            <span style="font-size:0.85rem; color:var(--gray-dark);">Fresno, CA &bull; Mon-Fri 9am-6pm PST</span>
+            <a href="tel:5599810180">(559) 981-0180</a>
+            <a href="mailto:help@improveu.net">help@improveu.net</a>
+            <span style="font-size:0.85rem; color:var(--cream-faint);">Fresno, CA &bull; Mon&ndash;Fri 9am&ndash;6pm PST</span>
           </div>
           <div class="footer-social">
-            <a href="#" aria-label="Instagram">IG</a>
+            <a href="https://instagram.com/boostwithjames" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
             <a href="#" aria-label="TikTok">TT</a>
             <a href="#" aria-label="YouTube">YT</a>
           </div>
@@ -472,10 +329,6 @@
       </div>
     </div>
   </footer>
-
-  <div class="mobile-sticky-cta">
-    <a href="get-started.html" class="btn btn-primary">Get Started</a>
-  </div>
 
   <script src="js/main.js"></script>
 </body>

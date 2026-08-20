@@ -23,7 +23,7 @@
   <link rel="canonical" href="https://www.improveu.net/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Hanken+Grotesk:ital,wght@0,300..800;1,300..800&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <!-- Schema: LocalBusiness -->
   <script type="application/ld+json">
@@ -90,16 +90,11 @@
     <a href="about.html">About</a>
     <a href="blog.html">Blog</a>
     <a href="faq.html">FAQ</a>
-        <div class="nav-dropdown">
-          <a href="#" aria-haspopup="true">Partner &#9662;</a>
-          <div class="nav-dropdown-menu">
-            <a href="affiliate.html">Affiliate Program</a>
-            <a href="franchise.html">Own a Franchise</a>
-          </div>
-        </div>
+    <a href="affiliate.html">Affiliate Program</a>
+    <a href="franchise.html">Own a Franchise</a>
     <a href="contact.html">Contact</a>
     <a href="portal.html">Client Login</a>
-    <a href="get-started.html" class="btn btn-primary" style="margin-top:16px;">Get Started</a>
+    <a href="get-started.html" class="btn btn-primary">Get Started</a>
   </div>
 
   <!-- ========== HERO ========== -->
@@ -107,54 +102,47 @@
     <div class="container-wide">
       <div class="hero-grid">
         <div class="hero-content fade-up">
-          <div class="hero-pill">&#9733; 8 Years Strong &bull; Fresno Built</div>
-          <h1>REAL CREDIT REPAIR.<br><span class="gradient-text">REAL RESULTS.</span></h1>
-          <p class="subhead">For people done with guesswork, gimmicks, and excuses. We fix credit and fund futures.</p>
+          <div class="hero-pill"><span class="dot"></span> 8 Years Strong &middot; Fresno Built</div>
+          <h1>Real credit repair.<br><em class="flourish">Real results.</em></h1>
+          <p class="subhead">For people done with guesswork, gimmicks, and excuses. We fix credit and fund futures &mdash; by hand, by law, and on the record.</p>
           <div class="hero-ctas">
-            <a href="get-started.html" class="btn btn-primary">Get Started</a>
-            <a href="pricing.html" class="btn btn-outline">See Pricing</a>
+            <a href="get-started.html" class="btn btn-primary btn-lg">Start My File <span class="arr">&rarr;</span></a>
+            <a href="pricing.html" class="btn btn-outline btn-lg">See Pricing</a>
           </div>
           <div class="social-proof">
             <div class="avatar-stack">
               <span>J</span><span>M</span><span>A</span><span>R</span><span>K</span>
             </div>
-            <p class="social-proof-text"><strong>5.0 &#9733;</strong> Trustpilot &middot; Verified Reviews</p>
+            <p class="social-proof-text"><strong>5.0 &#9733;</strong> on Google &amp; Trustpilot &middot; Verified Reviews</p>
           </div>
         </div>
         <div class="hero-image fade-up">
-          <!-- Animated Credit Score Dial -->
-          <div class="score-dial" id="scoreDial">
-            <svg viewBox="0 0 300 300" class="score-dial-svg">
-              <!-- Background arc -->
-              <circle cx="150" cy="150" r="120" fill="none" stroke="#222" stroke-width="18" stroke-dasharray="565.5" stroke-dashoffset="141.4" transform="rotate(135 150 150)" stroke-linecap="round"/>
-              <!-- Animated score arc -->
-              <circle cx="150" cy="150" r="120" fill="none" stroke="url(#scoreGradient)" stroke-width="18" stroke-dasharray="565.5" stroke-dashoffset="565.5" transform="rotate(135 150 150)" stroke-linecap="round" class="score-arc" id="scoreArc"/>
-              <!-- Gradient definition -->
-              <defs>
-                <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="#FF3B3B"/>
-                  <stop offset="40%" stop-color="#FFD600"/>
-                  <stop offset="100%" stop-color="#4AE08C"/>
-                </linearGradient>
-              </defs>
-            </svg>
-            <div class="score-dial-center">
-              <div class="score-dial-label">CREDIT SCORE</div>
-              <div class="score-dial-number" id="scoreNumber">300</div>
-              <div class="score-dial-rating" id="scoreRating">POOR</div>
+          <div style="position:relative;">
+            <div class="score-dial" id="scoreDial">
+              <svg viewBox="0 0 300 300" class="score-dial-svg" aria-hidden="true">
+                <circle cx="150" cy="150" r="120" fill="none" stroke="#1C4130" stroke-width="14" stroke-dasharray="565.5" stroke-dashoffset="141.4" transform="rotate(135 150 150)" stroke-linecap="round"/>
+                <circle cx="150" cy="150" r="120" fill="none" stroke="url(#scoreGradient)" stroke-width="14" stroke-dasharray="565.5" stroke-dashoffset="565.5" transform="rotate(135 150 150)" stroke-linecap="round" class="score-arc" id="scoreArc"/>
+                <defs>
+                  <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#A6813A"/>
+                    <stop offset="55%" stop-color="#C9A24E"/>
+                    <stop offset="100%" stop-color="#5FB68E"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+              <div class="score-dial-center">
+                <div class="score-dial-label">Credit Score</div>
+                <div class="score-dial-number" id="scoreNumber">300</div>
+                <div class="score-dial-rating" id="scoreRating">Poor</div>
+              </div>
+              <div class="score-dial-range">
+                <span>300</span>
+                <span>850</span>
+              </div>
+              <div class="dial-chip dial-chip-1">Collections <span class="mono">removed</span></div>
+              <div class="dial-chip dial-chip-2"><span class="mono">+142 pts</span> in 90 days</div>
+              <div class="dial-chip dial-chip-3">Mortgage <span class="mono">approved</span></div>
             </div>
-            <!-- Score range labels -->
-            <div class="score-dial-range">
-              <span>300</span>
-              <span>850</span>
-            </div>
-            <!-- Floating emoji particles -->
-            <div class="emoji-float emoji-1">&#x1F4B0;</div>
-            <div class="emoji-float emoji-2">&#x1F3E0;</div>
-            <div class="emoji-float emoji-3">&#x1F4C8;</div>
-            <div class="emoji-float emoji-4">&#x1F525;</div>
-            <div class="emoji-float emoji-5">&#x2B50;</div>
-            <div class="emoji-float emoji-6">&#x1F4AA;</div>
           </div>
         </div>
       </div>
@@ -167,21 +155,33 @@
       <div class="trust-strip-inner">
         <p>We work with all 3 major bureaus</p>
         <div class="trust-logos">
-          <img src="images/experian.png" alt="Experian" height="36">
-          <img src="images/equifax.png" alt="Equifax" height="32">
-          <img src="images/transunion.png" alt="TransUnion" height="36">
-          <img src="images/smartcredit-color.png" alt="SmartCredit" height="28">
+          <img src="images/experian.png" alt="Experian" height="32">
+          <img src="images/equifax.png" alt="Equifax" height="28">
+          <img src="images/transunion.png" alt="TransUnion" height="32">
+          <img src="images/smartcredit-white.png" alt="SmartCredit" height="24">
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ========== RESULTS TICKER ========== -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span><span class="mono">+180 pts</span> approved for a $385K mortgage</span>
+      <span><span class="mono">+197 pts</span> new auto loan in 4 months</span>
+      <span><span class="mono">+190 pts</span> $150K business line funded</span>
+      <span><span class="mono">+165 pts</span> closed on a first home</span>
+      <span><span class="mono">+210 pts</span> 14 negative items gone in 90 days</span>
+    </div>
+  </div>
+
   <!-- ========== WHAT WE FIX ========== -->
   <section class="section section-dark text-center">
     <div class="container">
       <p class="section-label fade-up">Credit Repair</p>
-      <h2 class="fade-up">WHAT WE FIX</h2>
-      <div style="height:40px"></div>
+      <h2 class="fade-up">What we <em class="flourish">remove</em></h2>
+      <p class="fade-up" style="margin:18px auto 0; max-width:560px;">Every inaccurate, unverifiable, or non-compliant item on your report is a target. This is the hit list.</p>
+      <div style="height:44px"></div>
       <div class="badge-grid fade-up">
         <span class="badge"><svg viewBox="0 0 20 20"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg> Late Payments</span>
         <span class="badge"><svg viewBox="0 0 20 20"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg> Collections</span>
@@ -196,33 +196,50 @@
         <span class="badge"><svg viewBox="0 0 20 20"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg> Hard Inquiries</span>
         <span class="badge"><svg viewBox="0 0 20 20"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg> Identity Errors</span>
       </div>
-      <p style="margin-top:24px; font-size:0.8rem; font-style:italic; color:var(--gray-dark);">Results vary by file. All items are challenged based on accuracy, compliance, and applicable consumer protection laws.</p>
+      <p style="margin-top:28px; font-size:0.78rem; font-style:italic; color:var(--cream-faint);">Results vary by file. All items are challenged based on accuracy, compliance, and applicable consumer protection laws.</p>
     </div>
   </section>
 
-  <!-- ========== MARQUEE ========== -->
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee-track">
-      <span>IMPROVEU</span><span>IMPROVEU</span><span>IMPROVEU</span><span>IMPROVEU</span><span>IMPROVEU</span><span>IMPROVEU</span><span>IMPROVEU</span><span>IMPROVEU</span><span>IMPROVEU</span><span>IMPROVEU</span>
+  <!-- ========== STAT BAND ========== -->
+  <section class="section-darker" style="padding:0;">
+    <div class="stat-band">
+      <div class="stat-cell fade-up">
+        <div class="num"><span data-count="8">0</span><span class="unit">+</span></div>
+        <div class="lbl">Years in Business</div>
+      </div>
+      <div class="stat-cell fade-up">
+        <div class="num">5.0<span class="unit">&#9733;</span></div>
+        <div class="lbl">Google &amp; Trustpilot</div>
+      </div>
+      <div class="stat-cell fade-up">
+        <div class="num"><span data-count="90">0</span><span class="unit">-day</span></div>
+        <div class="lbl">Money-Back Guarantee</div>
+      </div>
+      <div class="stat-cell fade-up">
+        <div class="num"><span data-count="3">0</span></div>
+        <div class="lbl">Bureaus, One Strategy</div>
+      </div>
     </div>
-  </div>
+  </section>
 
   <!-- ========== MEET JAMES ========== -->
   <section class="section section-dark">
     <div class="container">
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;">
-        <div class="fade-up" style="display:flex; justify-content:center;">
-          <img src="images/james-about.png" alt="James — Founder of ImproveU" style="max-height:500px; width:auto; filter:drop-shadow(0 20px 40px rgba(0,0,0,0.5));">
+      <div class="split">
+        <div class="split-img fade-up">
+          <div class="frame">
+            <img src="images/james-about-web.png" alt="James — Founder of ImproveU" style="max-height:520px; width:auto;" loading="lazy">
+          </div>
         </div>
         <div class="fade-up">
           <p class="section-label">The Founder</p>
-          <h2>MEET JAMES &mdash;<br><span class="gradient-text">THE MAN BUILDING THE MOVEMENT</span></h2>
-          <div style="height:20px"></div>
+          <h2>Meet James &mdash;<br><em class="flourish">the man building the movement</em></h2>
+          <div style="height:22px"></div>
           <p>James started ImproveU 8 years ago in Fresno with one goal: do credit repair the right way. No empty promises. No bots sending generic letters.</p>
-          <div style="height:12px"></div>
-          <p>Just real strategy, real legal pressure, and real outcomes for people who've been told "no" for too long.</p>
-          <div style="height:24px"></div>
-          <a href="about.html" class="btn btn-primary">Read James's Story</a>
+          <div style="height:14px"></div>
+          <p>Just real strategy, real legal pressure, and real outcomes for people who've been told &ldquo;no&rdquo; for too long.</p>
+          <div style="height:30px"></div>
+          <a href="about.html" class="btn btn-primary">Read James's Story <span class="arr">&rarr;</span></a>
         </div>
       </div>
     </div>
@@ -233,145 +250,70 @@
     <div class="container">
       <div class="text-center fade-up">
         <p class="section-label">The Process</p>
-        <h2>HOW IT WORKS</h2>
-        <p style="margin:12px auto 0; max-width:500px;">We don't waste time. You're in motion the same day you enroll.</p>
+        <h2>How it works</h2>
+        <p style="margin:16px auto 0; max-width:480px;">We don't waste time. You're in motion the same day you enroll.</p>
       </div>
-      <div style="height:50px"></div>
+      <div style="height:56px"></div>
       <div class="steps-grid">
         <div class="card card-step fade-up">
-          <div class="step-num">01</div>
+          <span class="step-num">01</span>
           <h4>Book Your Strategy Call</h4>
           <p>Sit down with James or a senior credit expert. No middlemen, no scripts.</p>
         </div>
         <div class="card card-step fade-up">
-          <div class="step-num">02</div>
+          <span class="step-num">02</span>
           <h4>Activate Credit Monitoring</h4>
-          <p>Sync all 3 bureaus through SmartCredit so we can see exactly what we're working with.</p>
+          <p>Sync all 3 bureaus through SmartCredit so we see exactly what we're working with.</p>
         </div>
         <div class="card card-step fade-up">
-          <div class="step-num">03</div>
+          <span class="step-num">03</span>
           <h4>We Build Your Game Plan</h4>
           <p>Every file gets a custom dispute and rebuild strategy. No copy-paste templates.</p>
         </div>
         <div class="card card-step fade-up">
-          <div class="step-num">04</div>
+          <span class="step-num">04</span>
           <h4>We Go to Work</h4>
           <p>Disputes, escalations, and rebuilding &mdash; we handle it. You watch your score climb.</p>
         </div>
       </div>
-      <div class="text-center" style="margin-top:40px;">
-        <a href="book-a-call.html" class="btn btn-primary fade-up">Book a 1-on-1 Call</a>
+      <div class="text-center" style="margin-top:48px;">
+        <a href="book-a-call.html" class="btn btn-primary fade-up">Book a 1-on-1 Call <span class="arr">&rarr;</span></a>
       </div>
     </div>
   </section>
 
-  <!-- ========== SMARTCREDIT PARTNER SECTION ========== -->
-  <section class="section section-dark" style="border-top:1px solid var(--border);">
-    <style>
-      .sc-section { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
-      .sc-logo { max-width:280px; margin:0 auto 32px; }
-      .sc-prices { display:flex; flex-wrap:wrap; gap:16px; align-items:center; margin-top:24px; }
-      .sc-price-box { background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:20px 24px; text-align:center; }
-
-      /* Dropdown toggle */
-      .sc-dropdown-toggle {
-        width:100%; display:flex; align-items:center; justify-content:space-between;
-        background:var(--bg-card); border:1px solid var(--border); border-radius:16px;
-        padding:20px 24px; cursor:pointer; transition:var(--transition);
-      }
-      .sc-dropdown-toggle:hover { border-color:var(--accent); box-shadow:0 0 20px rgba(255,214,0,0.1); }
-      .sc-dropdown-toggle h4 { margin:0; font-size:1.1rem; display:flex; align-items:center; gap:10px; }
-      .sc-dropdown-arrow {
-        font-size:1.4rem; color:var(--accent); transition:transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-      .sc-dropdown-toggle.active .sc-dropdown-arrow { transform:rotate(180deg); }
-      .sc-dropdown-toggle.active { border-color:var(--accent); background:rgba(255,214,0,0.05); }
-
-      /* Dropdown content */
-      .sc-dropdown-content {
-        max-height:0; overflow:hidden; transition:max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s, padding 0.4s;
-        opacity:0; border-radius:0 0 16px 16px;
-      }
-      .sc-dropdown-content.open {
-        max-height:500px; opacity:1;
-      }
-      .sc-dropdown-inner { padding:0 24px 24px; }
-      .sc-feature {
-        display:flex; align-items:center; gap:10px; padding:12px 0;
-        border-bottom:1px solid var(--border); font-size:0.9rem; color:var(--gray);
-        opacity:0; transform:translateY(10px);
-        transition:opacity 0.3s, transform 0.3s;
-      }
-      .sc-feature:last-child { border-bottom:none; }
-      .sc-dropdown-content.open .sc-feature {
-        opacity:1; transform:translateY(0);
-      }
-      .sc-dropdown-content.open .sc-feature:nth-child(1) { transition-delay:0.05s; }
-      .sc-dropdown-content.open .sc-feature:nth-child(2) { transition-delay:0.1s; }
-      .sc-dropdown-content.open .sc-feature:nth-child(3) { transition-delay:0.15s; }
-      .sc-dropdown-content.open .sc-feature:nth-child(4) { transition-delay:0.2s; }
-      .sc-dropdown-content.open .sc-feature:nth-child(5) { transition-delay:0.25s; }
-      .sc-dropdown-content.open .sc-feature:nth-child(6) { transition-delay:0.3s; }
-      .sc-feature-icon { font-size:1.3rem; flex-shrink:0; }
-
-      /* Pulse animation on the card */
-      .sc-card { position:relative; overflow:hidden; }
-      .sc-card::before {
-        content:''; position:absolute; top:-50%; left:-50%; width:200%; height:200%;
-        pointer-events:none;
-        background:radial-gradient(circle, rgba(255,214,0,0.06) 0%, transparent 60%);
-        animation:scPulse 4s ease-in-out infinite;
-      }
-      @keyframes scPulse {
-        0%, 100% { transform:scale(0.8); opacity:0; }
-        50% { transform:scale(1.2); opacity:1; }
-      }
-
-      @media (max-width:768px) {
-        .sc-section { grid-template-columns:1fr; gap:32px; }
-        .sc-logo { max-width:200px; margin-bottom:20px; }
-        .sc-prices { justify-content:center; }
-      }
-    </style>
+  <!-- ========== SMARTCREDIT PARTNER ========== -->
+  <section class="section section-dark" style="border-top:1px solid var(--hairline-gold-soft);">
     <div class="container">
-      <div class="sc-section">
+      <div class="split">
         <div class="fade-up">
-          <div style="display:inline-flex; align-items:center; gap:8px; background:rgba(255,214,0,0.1); border:1px solid rgba(255,214,0,0.25); border-radius:50px; padding:6px 16px; margin-bottom:20px;">
-            <span style="font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent);">&#x1F91D; Official Partner</span>
-          </div>
-          <h2>POWERED BY <span class="gradient-text">SMARTCREDIT</span></h2>
-          <p style="margin-top:16px;">SmartCredit is the credit monitoring tool that makes our process work. It gives us real-time access to all 3 bureau reports so we can track your progress, identify items to dispute, and measure results &mdash; all in one place.</p>
-          <p style="margin-top:12px; color:var(--white); font-weight:600;">Every ImproveU client needs SmartCredit active to get started.</p>
+          <p class="section-label">Official Partner</p>
+          <h2>Powered by <em class="flourish">SmartCredit</em></h2>
+          <p style="margin-top:18px;">SmartCredit is the credit monitoring tool that makes our process work. It gives us real-time access to all 3 bureau reports so we can track your progress, identify items to dispute, and measure results &mdash; all in one place.</p>
+          <p style="margin-top:14px; color:var(--cream); font-weight:600;">Every ImproveU client needs SmartCredit active to get started.</p>
           <div class="sc-prices">
             <div class="sc-price-box">
-              <div style="font-family:var(--font-display); font-size:2.5rem; color:var(--accent);">$1</div>
-              <div style="font-size:0.8rem; color:var(--gray);">to sign up</div>
+              <div class="val">$1</div>
+              <div class="cap">to sign up</div>
             </div>
             <div class="sc-price-box">
-              <div style="font-family:var(--font-display); font-size:2.5rem; color:var(--white);">$24.95</div>
-              <div style="font-size:0.8rem; color:var(--gray);">/month after</div>
+              <div class="val">$24.95</div>
+              <div class="cap">/month after</div>
             </div>
           </div>
-          <a href="https://www.smartcredit.com/WealthyAllianceClub" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:24px;">Sign Up for SmartCredit &mdash; $1 &#x1F680;</a>
-          <p style="margin-top:10px; font-size:0.78rem; color:var(--gray-dark);">&#x2B50; SmartCredit is INCLUDED FREE with The Blueprint (Tier 3)</p>
+          <a href="https://www.smartcredit.com/WealthyAllianceClub" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:28px;">Sign Up for SmartCredit &mdash; $1 <span class="arr">&rarr;</span></a>
+          <p style="margin-top:12px; font-size:0.78rem; color:var(--cream-faint);">SmartCredit is included free with The Blueprint (Tier 3).</p>
         </div>
         <div class="fade-up">
-          <div class="sc-card" style="background:var(--bg-card); border:1px solid var(--border); border-radius:20px; padding:32px; position:relative;">
-            <img src="images/smartcredit-color.png" alt="SmartCredit" class="sc-logo" style="display:block;">
-            <div class="sc-dropdown-toggle" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('open');" role="button" tabindex="0" aria-expanded="false">
-              <h4>&#x1F4CB; WHAT YOU GET</h4>
-              <span class="sc-dropdown-arrow">&#x25BC;</span>
-            </div>
-            <div class="sc-dropdown-content">
-              <div class="sc-dropdown-inner">
-                <div class="sc-feature"><span class="sc-feature-icon">&#x1F4CA;</span> All 3 Bureau Credit Reports</div>
-                <div class="sc-feature"><span class="sc-feature-icon">&#x1F4C8;</span> Score Tracker &amp; History</div>
-                <div class="sc-feature"><span class="sc-feature-icon">&#x1F3D7;&#xFE0F;</span> ScoreBuilder Tool</div>
-                <div class="sc-feature"><span class="sc-feature-icon">&#x1F514;</span> Real-Time Score Alerts</div>
-                <div class="sc-feature"><span class="sc-feature-icon">&#x1F512;</span> Dark Web Monitoring</div>
-                <div class="sc-feature"><span class="sc-feature-icon">&#x1F4B3;</span> Credit Action Plans</div>
-              </div>
-            </div>
+          <div class="sc-panel">
+            <img src="images/smartcredit-white.png" alt="SmartCredit" style="max-width:230px; margin:0 auto 28px; display:block;" loading="lazy">
+            <p style="font-size:0.7rem; font-weight:700; letter-spacing:0.28em; text-transform:uppercase; color:var(--gold-500); margin-bottom:8px;">What you get</p>
+            <div class="sc-feature"><svg viewBox="0 0 20 20"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg> All 3 Bureau Credit Reports</div>
+            <div class="sc-feature"><svg viewBox="0 0 20 20"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg> Score Tracker &amp; History</div>
+            <div class="sc-feature"><svg viewBox="0 0 20 20"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg> ScoreBuilder Tool</div>
+            <div class="sc-feature"><svg viewBox="0 0 20 20"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg> Real-Time Score Alerts</div>
+            <div class="sc-feature"><svg viewBox="0 0 20 20"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg> Dark Web Monitoring</div>
+            <div class="sc-feature"><svg viewBox="0 0 20 20"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg> Credit Action Plans</div>
           </div>
         </div>
       </div>
@@ -379,15 +321,16 @@
   </section>
 
   <!-- ========== PRICING TEASER ========== -->
-  <section class="section section-dark text-center">
+  <section class="section section-dark text-center" style="background:var(--ink-950);">
     <div class="container">
       <p class="section-label fade-up">Plans</p>
-      <h2 class="fade-up">OUR <span class="gradient-text">PLANS & PRICES</span></h2>
-      <div style="height:50px"></div>
+      <h2 class="fade-up">Our plans &amp; <em class="flourish">prices</em></h2>
+      <p class="fade-up" style="margin:16px auto 0; max-width:480px;">Flat fee. One payment. No contracts, no monthly drip.</p>
+      <div style="height:56px"></div>
       <div class="pricing-grid">
         <!-- Tier 1 -->
         <div class="pricing-card fade-up">
-          <h3>TIER 1</h3>
+          <h3>Tier 1</h3>
           <div class="tier-name">The Reset</div>
           <p class="desc">Start strong with a structured cleanup. Best for lighter files that need a focused tune-up.</p>
           <ul class="pricing-features">
@@ -399,12 +342,12 @@
           </ul>
           <div class="pricing-price">$1,497</div>
           <p class="pricing-note">One-Time Payment &middot; No Contract</p>
-          <a href="get-started.html" class="btn btn-primary" style="width:100%;">Get Started &mdash; $1,497</a>
+          <a href="get-started.html" class="btn btn-primary" style="width:100%;">Get Started</a>
         </div>
         <!-- Tier 2 -->
         <div class="pricing-card featured fade-up">
           <div class="pricing-badge">Most Popular</div>
-          <h3>TIER 2</h3>
+          <h3>Tier 2</h3>
           <div class="tier-name">The Unlimited</div>
           <p class="desc">Pay once. Unlimited dispute rounds until the job is done.</p>
           <ul class="pricing-features">
@@ -412,44 +355,54 @@
             <li><svg viewBox="0 0 20 20"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg> Certified mail disputes</li>
             <li><svg viewBox="0 0 20 20"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg> Advanced tactics + escalations</li>
             <li><svg viewBox="0 0 20 20"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg> Priority processing over Tier 1</li>
-            <li><svg viewBox="0 0 20 20"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg> ImproveU app</li>
             <li><svg viewBox="0 0 20 20"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg> Completely hands-off</li>
           </ul>
           <div class="pricing-price">$2,497</div>
           <p class="pricing-note">One-Time Payment &middot; No Contract</p>
-          <a href="get-started.html" class="btn btn-primary" style="width:100%;">Get Started &mdash; $2,497</a>
+          <a href="get-started.html" class="btn btn-primary" style="width:100%;">Get Started <span class="arr">&rarr;</span></a>
         </div>
         <!-- Tier 3 -->
         <div class="pricing-card fade-up">
-          <div class="pricing-badge" style="background:var(--red); color:#fff;">Fastest Results</div>
-          <h3>TIER 3</h3>
+          <div class="pricing-badge" style="background:var(--brick); color:var(--paper);">Fastest Results</div>
+          <h3>Tier 3</h3>
           <div class="tier-name">The Blueprint</div>
           <p class="desc">Our highest level. Tailored to your file. Built for maximum speed and results.</p>
           <ul class="pricing-features">
-            <li><svg viewBox="0 0 20 20"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg> 90-day money-back guarantee</li>
             <li><svg viewBox="0 0 20 20"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg> Handled personally by James</li>
             <li><svg viewBox="0 0 20 20"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg> Direct 1-on-1 access</li>
             <li><svg viewBox="0 0 20 20"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg> Advanced legal-based escalations</li>
             <li><svg viewBox="0 0 20 20"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg> Custom strategy + funding access</li>
             <li><svg viewBox="0 0 20 20"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg> 90-Day Homeowner Program included</li>
-            <li style="color:var(--accent); font-weight:600;"><svg viewBox="0 0 20 20" style="fill:var(--accent);"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg> &#x2B50; SmartCredit INCLUDED FREE</li>
+            <li style="color:var(--gold-300); font-weight:600;"><svg viewBox="0 0 20 20"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg> SmartCredit included free</li>
           </ul>
-          <div class="pricing-price">$3,500 &ndash; $7,500</div>
+          <div class="pricing-price" style="font-size:2rem;">$3,500&ndash;$7,500</div>
           <p class="pricing-note">Pricing Determined by Your Credit Profile</p>
-          <a href="book-a-call.html" class="btn btn-primary" style="width:100%;">Learn More</a>
+          <a href="book-a-call.html" class="btn btn-outline" style="width:100%;">Learn More</a>
         </div>
       </div>
-      <div style="margin-top:24px;">
-        <a href="pricing.html" style="color:var(--accent); font-weight:600; font-size:0.9rem;">See full plan details &rarr;</a>
+      <div style="margin-top:36px;">
+        <a href="pricing.html" class="link-gold fade-up">See full plan details <span class="arr">&rarr;</span></a>
       </div>
     </div>
   </section>
 
-  <!-- ========== GUARANTEE ========== -->
+  <!-- ========== GUARANTEE — THE CERTIFICATE ========== -->
   <section class="guarantee">
+    <svg class="guarantee-seal" viewBox="0 0 120 120" aria-hidden="true">
+      <defs>
+        <path id="sealCircle" d="M 60,60 m -44,0 a 44,44 0 1,1 88,0 a 44,44 0 1,1 -88,0"/>
+      </defs>
+      <circle cx="60" cy="60" r="56" fill="none" stroke="#A6813A" stroke-width="1"/>
+      <circle cx="60" cy="60" r="30" fill="none" stroke="#A6813A" stroke-width="1"/>
+      <text style="font-size:10.5px; letter-spacing:2.5px; fill:#A6813A; font-family:'Hanken Grotesk', sans-serif; font-weight:700;">
+        <textPath href="#sealCircle">90-DAY GUARANTEE &#x2726; IMPROVEU &#x2726; FRESNO CA &#x2726;</textPath>
+      </text>
+      <text x="60" y="66" text-anchor="middle" style="font-size:20px; fill:#A6813A; font-family:Georgia, serif; font-style:italic;">IU</text>
+    </svg>
     <div class="container fade-up">
-      <h2>THE IMPROVEU GUARANTEE</h2>
-      <h3>90 DAYS. REAL RESULTS. OR YOUR MONEY BACK.</h3>
+      <p class="section-label centered">The ImproveU Guarantee</p>
+      <h2>90 days. Real results.<br><em class="flourish" style="color:var(--gold-600);">Or your money back.</em></h2>
+      <div style="height:18px"></div>
       <p>Every client is protected by our written, contract-backed 90-day guarantee. If you don't see real, verifiable credit improvement in your first 90 days, you get a full refund of your program fee.</p>
       <p>No runaround. No fine print. That's the standard.</p>
       <div class="signature">James</div>
@@ -457,11 +410,11 @@
   </section>
 
   <!-- ========== REVIEWS ========== -->
-  <section class="section section-white text-center">
+  <section class="section section-paper text-center">
     <div class="container-wide">
-      <p class="section-label fade-up" style="color:var(--accent-dark);">Reviews</p>
-      <h2 class="fade-up">WHAT CLIENTS ARE SAYING</h2>
-      <p class="fade-up" style="margin:8px auto 40px; color:#666;">&#9733;&#9733;&#9733;&#9733;&#9733; 5.0 on Google &amp; Trustpilot</p>
+      <p class="section-label fade-up centered">Reviews</p>
+      <h2 class="fade-up">What clients are <em class="flourish" style="color:var(--gold-600);">saying</em></h2>
+      <p class="fade-up" style="margin:12px auto 44px;">&#9733;&#9733;&#9733;&#9733;&#9733; 5.0 on Google &amp; Trustpilot</p>
       <div class="reviews-grid">
         <div class="review-card fade-up">
           <div class="review-header"><div class="review-avatar">A</div><div><div class="review-name">Amy</div></div><span class="google-icon">G</span></div>
@@ -469,50 +422,124 @@
           <p class="review-text">5/5 stars &mdash; helped me with any questions I had and goes straight to the point. ImproveU was incredibly helpful and professional.</p>
         </div>
         <div class="review-card fade-up">
-          <div class="review-header"><div class="review-avatar" style="background:#4AEDC4;">P</div><div><div class="review-name">Pierre M.</div></div><span class="google-icon">G</span></div>
+          <div class="review-header"><div class="review-avatar">P</div><div><div class="review-name">Pierre M.</div></div><span class="google-icon">G</span></div>
           <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <p class="review-text">I personally love how involved the team is with everyone's accounts. I was speaking directly with James the night I signed up.</p>
         </div>
         <div class="review-card fade-up">
-          <div class="review-header"><div class="review-avatar" style="background:#FF6B6B;">J</div><div><div class="review-name">Josip T.</div></div><span class="google-icon">G</span></div>
+          <div class="review-header"><div class="review-avatar">J</div><div><div class="review-name">Josip T.</div></div><span class="google-icon">G</span></div>
           <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <p class="review-text">From the moment I first contacted them, the whole experience was seamless and professional. Highly recommend.</p>
         </div>
         <div class="review-card fade-up">
-          <div class="review-header"><div class="review-avatar" style="background:#A78BFA;">A</div><div><div class="review-name">Alexandra C.</div></div><span class="google-icon">G</span></div>
+          <div class="review-header"><div class="review-avatar">A</div><div><div class="review-name">Alexandra C.</div></div><span class="google-icon">G</span></div>
           <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <p class="review-text">ImproveU helped me fix my credit quickly. The staff were friendly, trustworthy and explained everything clearly.</p>
         </div>
         <div class="review-card fade-up">
-          <div class="review-header"><div class="review-avatar" style="background:#60A5FA;">R</div><div><div class="review-name">Robert R.</div></div><span class="google-icon">G</span></div>
+          <div class="review-header"><div class="review-avatar">R</div><div><div class="review-name">Robert R.</div></div><span class="google-icon">G</span></div>
           <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <p class="review-text">I was very impressed with their responsiveness. They answered my questions right away and kept me updated throughout.</p>
         </div>
         <div class="review-card fade-up">
-          <div class="review-header"><div class="review-avatar" style="background:#F472B6;">M</div><div><div class="review-name">Marlena &amp; Monique</div></div><span class="google-icon">G</span></div>
+          <div class="review-header"><div class="review-avatar">M</div><div><div class="review-name">Marlena &amp; Monique</div></div><span class="google-icon">G</span></div>
           <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <p class="review-text">We've been working with the team for the past 5 months. They are professional, trustworthy and responsive.</p>
         </div>
         <div class="review-card fade-up">
-          <div class="review-header"><div class="review-avatar" style="background:#FBBF24;">K</div><div><div class="review-name">Kathy M.</div></div><span class="google-icon">G</span></div>
+          <div class="review-header"><div class="review-avatar">K</div><div><div class="review-name">Kathy M.</div></div><span class="google-icon">G</span></div>
           <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <p class="review-text">I was nervous at first, but the staff made me feel comfortable right away. They know what they're doing.</p>
         </div>
         <div class="review-card fade-up">
-          <div class="review-header"><div class="review-avatar" style="background:#34D399;">C</div><div><div class="review-name">Charith R.</div></div><span class="google-icon">G</span></div>
+          <div class="review-header"><div class="review-avatar">C</div><div><div class="review-name">Charith R.</div></div><span class="google-icon">G</span></div>
           <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <p class="review-text">ImproveU has provided helpful, trustworthy, and effective credit repair. The staff genuinely cares about results.</p>
         </div>
       </div>
+      <div style="margin-top:40px;">
+        <a href="results.html" class="link-gold fade-up" style="color:var(--gold-600);">See the before &amp; after scores <span class="arr">&rarr;</span></a>
+      </div>
     </div>
   </section>
 
-  <!-- ========== CTA BANNER ========== -->
-  <section class="cta-banner" style="background:var(--bg-secondary);">
-    <div class="container fade-up">
-      <h2>READY TO <span class="gradient-text">IMPROVE YOUR LIFE?</span></h2>
-      <p>Your future doesn't have to look like your past. Take the first step today.</p>
-      <a href="pricing.html" class="btn btn-primary">Apply Now</a>
+  <!-- ========== LEAD CAPTURE ========== -->
+  <section class="lead-band" id="free-analysis">
+    <div class="container">
+      <div class="lead-band-grid">
+        <div class="fade-up">
+          <p class="section-label">Free Credit Analysis</p>
+          <h2>Find out what we'd<br><em class="flourish">remove from your report</em></h2>
+          <div style="height:20px"></div>
+          <p>Answer three quick questions and our team will personally review your situation &mdash; no charge, no pressure, no obligation. We'll tell you exactly what we see and what we'd go after first.</p>
+          <div style="height:26px"></div>
+          <ul class="checklist">
+            <li><svg viewBox="0 0 20 20"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg> Reviewed by a real specialist, not software</li>
+            <li><svg viewBox="0 0 20 20"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg> Response within 2&ndash;4 business hours</li>
+            <li><svg viewBox="0 0 20 20"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg> Your information stays private &mdash; always</li>
+          </ul>
+        </div>
+        <div class="fade-up">
+          <div class="lead-form" id="qualifier">
+            <div class="q-progress"><div class="q-progress-fill"></div></div>
+            <p class="q-step-label">Step 1 of 3</p>
+
+            <form data-form data-subject="Free Credit Analysis request — improveu.net">
+              <input type="hidden" name="goal" value="">
+              <input type="hidden" name="credit_range" value="">
+
+              <div class="q-step active">
+                <h4>What's your #1 goal right now?</h4>
+                <div class="q-choices">
+                  <button type="button" class="q-choice" data-next data-field="goal" data-value="Buy a home">&#127968;&#xFE0E; Buy a home</button>
+                  <button type="button" class="q-choice" data-next data-field="goal" data-value="Get business funding">Get business funding</button>
+                  <button type="button" class="q-choice" data-next data-field="goal" data-value="Raise my score">Raise my score</button>
+                  <button type="button" class="q-choice" data-next data-field="goal" data-value="Fix report errors">Fix report errors</button>
+                </div>
+              </div>
+
+              <div class="q-step">
+                <h4>Where's your credit today?</h4>
+                <div class="q-choices">
+                  <button type="button" class="q-choice" data-next data-field="credit_range" data-value="Below 550">Below 550</button>
+                  <button type="button" class="q-choice" data-next data-field="credit_range" data-value="550-649">550&ndash;649</button>
+                  <button type="button" class="q-choice" data-next data-field="credit_range" data-value="650-719">650&ndash;719</button>
+                  <button type="button" class="q-choice" data-next data-field="credit_range" data-value="Not sure">Not sure</button>
+                </div>
+                <button type="button" class="q-back" data-back>&larr; Back</button>
+              </div>
+
+              <div class="q-step">
+                <h4>Where should we send your analysis?</h4>
+                <div class="form-group">
+                  <label for="lead-name">Name</label>
+                  <input type="text" id="lead-name" name="name" placeholder="Your full name" required>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="lead-phone">Phone</label>
+                    <input type="tel" id="lead-phone" name="phone" placeholder="(559) 555-0123" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="lead-email">Email</label>
+                    <input type="email" id="lead-email" name="email" placeholder="you@example.com" required>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width:100%;">Get My Free Analysis <span class="arr">&rarr;</span></button>
+                <button type="button" class="q-back" data-back>&larr; Back</button>
+                <p class="form-note">By submitting, you agree to be contacted by ImproveU about your credit analysis. No spam. No selling your data.</p>
+              </div>
+            </form>
+
+            <div class="form-success">
+              <div class="success-mark">&#10003;</div>
+              <h4 style="margin-bottom:10px;">You're on the list.</h4>
+              <p style="font-size:0.92rem;">A specialist will reach out within 2&ndash;4 business hours. Want to skip the line?</p>
+              <a href="book-a-call.html" class="btn btn-outline btn-sm" style="margin-top:18px;">Book a Call Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -522,20 +549,29 @@
       <div class="follow-grid">
         <div class="fade-up">
           <p class="section-label">@boostwithjames</p>
-          <h2>FOLLOW <span class="gradient-text">THE MOVEMENT</span></h2>
-          <p style="margin-top:12px;">Free credit education, every day on social.</p>
+          <h2>Follow <em class="flourish">the movement</em></h2>
+          <p style="margin-top:14px;">Free credit education, every day on social.</p>
           <div class="follow-buttons">
-            <a href="#" class="btn btn-dark btn-sm">&#9654; Instagram</a>
-            <a href="#" class="btn btn-dark btn-sm">&#9654; TikTok</a>
-            <a href="#" class="btn btn-dark btn-sm">&#9654; YouTube</a>
+            <a href="https://instagram.com/boostwithjames" target="_blank" rel="noopener" class="btn btn-dark btn-sm">Instagram</a>
+            <a href="#" class="btn btn-dark btn-sm">TikTok</a>
+            <a href="#" class="btn btn-dark btn-sm">YouTube</a>
           </div>
         </div>
         <div class="fade-up">
           <div class="phone-mockup" style="padding:0; overflow:hidden;">
-            <img src="images/instagram-profile.png" alt="@boostwithjames Instagram" style="width:100%; height:100%; object-fit:cover; object-position:top; border-radius:37px;">
+            <img src="images/instagram-profile-web.png" alt="@boostwithjames Instagram" style="width:100%; height:100%; object-fit:cover; object-position:top;" loading="lazy">
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA BANNER ========== -->
+  <section class="cta-banner">
+    <div class="container fade-up">
+      <h2>Ready to <em class="flourish">improve your life?</em></h2>
+      <p>Your future doesn't have to look like your past. Take the first step today.</p>
+      <a href="get-started.html" class="btn btn-primary btn-lg">Start My File <span class="arr">&rarr;</span></a>
     </div>
   </section>
 
@@ -545,14 +581,14 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <img src="images/logo.png" alt="ImproveU" width="120" height="34">
-          <p style="margin-top:8px; font-style:italic; color:var(--accent); font-size:0.9rem;">Improve your credit. Improve your life.</p>
+          <p>Improve your credit. Improve your life.</p>
           <div class="footer-contact" style="margin-top:16px;">
-            <a href="tel:5599810180">&#9742; (559) 981-0180</a>
-            <a href="mailto:help@improveu.net">&#9993; help@improveu.net</a>
-            <span style="font-size:0.85rem; color:var(--gray-dark);">Fresno, CA &bull; Mon-Fri 9am-6pm PST</span>
+            <a href="tel:5599810180">(559) 981-0180</a>
+            <a href="mailto:help@improveu.net">help@improveu.net</a>
+            <span style="font-size:0.85rem; color:var(--cream-faint);">Fresno, CA &bull; Mon&ndash;Fri 9am&ndash;6pm PST</span>
           </div>
           <div class="footer-social">
-            <a href="#" aria-label="Instagram">IG</a>
+            <a href="https://instagram.com/boostwithjames" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
             <a href="#" aria-label="TikTok">TT</a>
             <a href="#" aria-label="YouTube">YT</a>
           </div>

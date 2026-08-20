@@ -5,121 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   <link rel="apple-touch-icon" href="images/favicon.svg">
-  <title>90-Day Homeowner Program — ImproveU</title>
-  <meta name="description" content="Go from denied to approved in as little as 90 days. ImproveU's 90-Day Homeowner Program fixes your credit, gets you pre-approved, and walks you into your new home.">
-  <!-- Open Graph -->
+  <title>90-Day Homeowner Program — ImproveU | From Denied to Approved</title>
+  <meta name="description" content="Fix your credit, get pre-approved, and walk into your new home with a proven 90-day step-by-step system. From denied to approved in as little as 90 days.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="ImproveU Credit Repair">
-  <meta property="og:title" content="90-Day Homeowner Program | ImproveU">
-  <meta property="og:description" content="Go from renter to homeowner in 90 days. ImproveU's program combines credit repair, financial coaching, and lender connections.">
+  <meta property="og:title" content="The 90-Day Homeowner Program — ImproveU">
+  <meta property="og:description" content="Fix your credit, get pre-approved, and walk into your new home with a proven 90-day system.">
   <meta property="og:image" content="https://www.improveu.net/images/og-image.png">
   <meta property="og:url" content="https://www.improveu.net/homeowner-program.html">
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="90-Day Homeowner Program | ImproveU">
-  <meta name="twitter:description" content="Go from renter to homeowner in 90 days. ImproveU's program combines credit repair, financial coaching, and lender connections.">
-  <meta name="twitter:image" content="https://www.improveu.net/images/og-image.png">
-  <!-- Canonical -->
   <link rel="canonical" href="https://www.improveu.net/homeowner-program.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Hanken+Grotesk:ital,wght@0,300..800;1,300..800&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
-  <style>
-    /* === Homeowner Page Animations === */
-    .hero-image { position: relative; }
-
-    .house-emoji {
-      position: absolute;
-      font-size: 2.5rem;
-      z-index: 0;
-      animation: houseBounce 3s ease-in-out infinite;
-      filter: drop-shadow(0 4px 12px rgba(255,214,0,0.3));
-      pointer-events: none;
-    }
-    .house-emoji:nth-child(1) { top: 5%; left: -10%; animation-delay: 0s; font-size: 3rem; }
-    .house-emoji:nth-child(2) { top: 25%; right: -8%; animation-delay: 0.5s; font-size: 2rem; }
-    .house-emoji:nth-child(3) { bottom: 20%; left: -15%; animation-delay: 1s; font-size: 2.8rem; }
-    .house-emoji:nth-child(4) { bottom: 5%; right: -12%; animation-delay: 1.5s; font-size: 2.2rem; }
-    .house-emoji:nth-child(5) { top: 50%; left: -20%; animation-delay: 0.8s; font-size: 1.8rem; }
-    .house-emoji:nth-child(6) { top: 10%; right: -18%; animation-delay: 1.2s; font-size: 2.4rem; }
-
-    @keyframes houseBounce {
-      0%, 100% { transform: translateY(0) scale(1); }
-      50% { transform: translateY(-18px) scale(1.1); }
-    }
-
-    /* Rising emojis background */
-    .home-rising-emojis {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
-    }
-    .rising-emoji {
-      position: absolute;
-      bottom: -60px;
-      font-size: 2rem;
-      opacity: 0.08;
-      animation: riseUp 12s linear infinite;
-    }
-    .rising-emoji:nth-child(1) { left: 5%; animation-delay: 0s; font-size: 1.8rem; }
-    .rising-emoji:nth-child(2) { left: 15%; animation-delay: 2s; font-size: 2.4rem; }
-    .rising-emoji:nth-child(3) { left: 28%; animation-delay: 4s; font-size: 1.5rem; }
-    .rising-emoji:nth-child(4) { left: 42%; animation-delay: 1s; font-size: 2rem; }
-    .rising-emoji:nth-child(5) { left: 55%; animation-delay: 3s; font-size: 2.2rem; }
-    .rising-emoji:nth-child(6) { left: 68%; animation-delay: 5s; font-size: 1.6rem; }
-    .rising-emoji:nth-child(7) { left: 80%; animation-delay: 2.5s; font-size: 2.5rem; }
-    .rising-emoji:nth-child(8) { left: 92%; animation-delay: 0.5s; font-size: 1.9rem; }
-
-    @keyframes riseUp {
-      0% { transform: translateY(0) rotate(0deg); opacity: 0.08; }
-      50% { opacity: 0.12; }
-      100% { transform: translateY(-110vh) rotate(20deg); opacity: 0; }
-    }
-
-    /* Pulsing glow on steps */
-    .card-step { transition: transform 0.4s, box-shadow 0.4s; }
-    .card-step:hover {
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 0 40px rgba(255,214,0,0.15), 0 20px 60px rgba(0,0,0,0.3);
-    }
-
-    /* Animated gradient border on hero pill */
-    .hero-pill {
-      animation: pillGlow 3s ease-in-out infinite alternate;
-    }
-    @keyframes pillGlow {
-      0% { box-shadow: 0 0 8px rgba(255,214,0,0.2); }
-      100% { box-shadow: 0 0 24px rgba(255,214,0,0.5); }
-    }
-
-    /* Bouncing CTA */
-    .cta-banner .btn-primary {
-      animation: ctaPulse 2s ease-in-out infinite;
-    }
-    @keyframes ctaPulse {
-      0%, 100% { transform: scale(1); box-shadow: 0 4px 20px rgba(255,214,0,0.3); }
-      50% { transform: scale(1.05); box-shadow: 0 8px 32px rgba(255,214,0,0.5); }
-    }
-
-    /* Step number glow */
-    .step-num {
-      animation: stepGlow 2s ease-in-out infinite alternate;
-    }
-    @keyframes stepGlow {
-      0% { text-shadow: 0 0 0 transparent; }
-      100% { text-shadow: 0 0 20px rgba(255,214,0,0.4); }
-    }
-
-    @media (max-width: 768px) {
-      .house-emoji:nth-child(1) { left: 0; }
-      .house-emoji:nth-child(3) { left: -5%; }
-      .house-emoji:nth-child(5) { left: -5%; }
-      .house-emoji { font-size: 1.8rem !important; }
-    }
-  </style>
   <!-- Schema: Service -->
   <script type="application/ld+json">
   {
@@ -148,7 +47,7 @@
       </a>
       <div class="nav-links">
         <div class="nav-dropdown">
-          <a href="#" aria-haspopup="true">Services &#9662;</a>
+          <a href="#" aria-haspopup="true" class="active">Services &#9662;</a>
           <div class="nav-dropdown-menu">
             <a href="credit-repair.html">Credit Repair</a>
             <a href="business-funding.html">Business Funding</a>
@@ -189,40 +88,24 @@
     <a href="about.html">About</a>
     <a href="blog.html">Blog</a>
     <a href="faq.html">FAQ</a>
-        <div class="nav-dropdown">
-          <a href="#" aria-haspopup="true">Partner &#9662;</a>
-          <div class="nav-dropdown-menu">
-            <a href="affiliate.html">Affiliate Program</a>
-            <a href="franchise.html">Own a Franchise</a>
-          </div>
-        </div>
+    <a href="affiliate.html">Affiliate Program</a>
+    <a href="franchise.html">Own a Franchise</a>
     <a href="contact.html">Contact</a>
     <a href="portal.html">Client Login</a>
-    <a href="get-started.html" class="btn btn-primary" style="margin-top:16px;">Get Started</a>
-  </div>
-
-  <!-- Rising background emojis -->
-  <div class="home-rising-emojis" aria-hidden="true">
-    <span class="rising-emoji">&#x1F3E0;</span>
-    <span class="rising-emoji">&#x1F511;</span>
-    <span class="rising-emoji">&#x1F3E1;</span>
-    <span class="rising-emoji">&#x1F3E0;</span>
-    <span class="rising-emoji">&#x1F511;</span>
-    <span class="rising-emoji">&#x1F3E1;</span>
-    <span class="rising-emoji">&#x1F3E0;</span>
-    <span class="rising-emoji">&#x1F511;</span>
+    <a href="get-started.html" class="btn btn-primary">Get Started</a>
   </div>
 
   <!-- ========== HERO ========== -->
-  <section class="hero" style="position:relative; z-index:1;">
+  <section class="hero">
     <div class="container-wide">
       <div class="hero-grid">
         <div class="hero-content fade-up">
-          <div class="hero-pill">&#x1F3E0; 90-Day Program &bull; Approval Focused &#x1F511;</div>
-          <h1>THE 90-DAY<br><span class="gradient-text">HOMEOWNER</span> PROGRAM</h1>
+          <div class="hero-pill"><span class="dot"></span> 90-Day Program &middot; Approval Focused</div>
+          <h1>The 90-day<br><em class="flourish">homeowner</em> program</h1>
           <p class="subhead">Fix your credit, get pre-approved, and walk into your new home &mdash; with a proven step-by-step system built for real results. You don't need years to change your situation. With the right strategy, you can go from denied to approved in as little as 90 days.</p>
           <div class="hero-ctas">
-            <a href="book-a-call.html" class="btn btn-primary">Apply Now</a>
+            <a href="book-a-call.html" class="btn btn-primary btn-lg">Apply Now <span class="arr">&rarr;</span></a>
+            <a href="pricing.html" class="btn btn-outline btn-lg">See Pricing</a>
           </div>
           <div class="social-proof">
             <div class="avatar-stack">
@@ -232,56 +115,53 @@
           </div>
         </div>
         <div class="hero-image fade-up">
-          <span class="house-emoji">&#x1F3E0;</span>
-          <span class="house-emoji">&#x1F511;</span>
-          <span class="house-emoji">&#x1F3E1;</span>
-          <span class="house-emoji">&#x1F3E0;</span>
-          <span class="house-emoji">&#x1F511;</span>
-          <span class="house-emoji">&#x1F3E1;</span>
-          <img src="images/james-hero.png" alt="James — Founder of ImproveU" width="500" height="580" style="position:relative; z-index:1;">
+          <img src="images/james-hero-web.png" alt="James — Founder of ImproveU" style="max-height:560px;">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== MARQUEE ========== -->
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee-track">
-      <span>IMPROVEU</span><span>IMPROVEU</span><span>IMPROVEU</span><span>IMPROVEU</span><span>IMPROVEU</span><span>IMPROVEU</span><span>IMPROVEU</span><span>IMPROVEU</span><span>IMPROVEU</span><span>IMPROVEU</span>
+  <!-- ========== RESULTS TICKER ========== -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span><span class="mono">+165 pts</span> closed on a first home in 5 months</span>
+      <span><span class="mono">+180 pts</span> approved for a $385K mortgage</span>
+      <span><span class="mono">90 days</span> from denied to pre-approved</span>
+      <span><span class="mono">24 hrs</span> pre-approval with our senior loan officer</span>
     </div>
   </div>
 
-  <!-- ========== OUR MOST AGGRESSIVE DISPUTE PROCESS ========== -->
-  <section class="section section-white">
+  <!-- ========== THE PROGRAM ========== -->
+  <section class="section section-paper">
     <div class="container">
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;">
+      <div class="split">
         <div class="fade-up">
-          <p class="section-label" style="color:var(--accent-dark);">The Program</p>
-          <h2>OUR MOST AGGRESSIVE DISPUTE PROCESS</h2>
-          <div style="height:12px;"></div>
+          <p class="section-label">The Program</p>
+          <h2>Our most aggressive<br><em class="flourish" style="color:var(--gold-600);">dispute process</em></h2>
+          <div style="height:14px;"></div>
           <p>This isn't a generic credit repair plan. The 90-Day Homeowner Program is built from the ground up for one outcome: getting you into a home.</p>
         </div>
         <div class="fade-up">
           <ul class="checklist">
             <li>
               <svg viewBox="0 0 20 20"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg>
-              <span><strong style="color:var(--bg-primary);">Structured 90-day timeline</strong> &mdash; Every day is mapped out with purpose.</span>
+              <span><strong style="color:var(--ink-900);">Structured 90-day timeline</strong> &mdash; Every day is mapped out with purpose.</span>
             </li>
             <li>
               <svg viewBox="0 0 20 20"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg>
-              <span><strong style="color:var(--bg-primary);">Step-by-step system</strong> &mdash; No guesswork. Follow the process.</span>
+              <span><strong style="color:var(--ink-900);">Step-by-step system</strong> &mdash; No guesswork. Follow the process.</span>
             </li>
             <li>
               <svg viewBox="0 0 20 20"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg>
-              <span><strong style="color:var(--bg-primary);">Approval-focused</strong> &mdash; Everything we do points toward one goal: your mortgage approval.</span>
+              <span><strong style="color:var(--ink-900);">Approval-focused</strong> &mdash; Everything we do points toward one goal: your mortgage approval.</span>
             </li>
             <li>
               <svg viewBox="0 0 20 20"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg>
-              <span><strong style="color:var(--bg-primary);">Built for speed and results</strong> &mdash; Aggressive dispute tactics, not passive waiting.</span>
+              <span><strong style="color:var(--ink-900);">Built for speed and results</strong> &mdash; Aggressive dispute tactics, not passive waiting.</span>
             </li>
             <li>
               <svg viewBox="0 0 20 20"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg>
-              <span><strong style="color:var(--bg-primary);">Direct founder access</strong> &mdash; Work with James personally, not a call center.</span>
+              <span><strong style="color:var(--ink-900);">Direct founder access</strong> &mdash; Work with James personally, not a call center.</span>
             </li>
           </ul>
         </div>
@@ -289,39 +169,39 @@
     </div>
   </section>
 
-  <!-- ========== YOUR PATH TO APPROVAL ========== -->
+  <!-- ========== PATH TO APPROVAL ========== -->
   <section class="section section-accent">
     <div class="container">
       <div class="text-center fade-up">
-        <p class="section-label">The Process</p>
-        <h2>YOUR PATH TO APPROVAL</h2>
-        <p style="margin:12px auto 0; max-width:560px;">Four clear steps. One goal. Homeownership.</p>
+        <p class="section-label centered">The Process</p>
+        <h2>Your path to <em class="flourish">approval</em></h2>
+        <p style="margin:16px auto 0; max-width:480px;">Four clear steps. One goal. Homeownership.</p>
       </div>
-      <div style="height:50px;"></div>
+      <div style="height:56px;"></div>
       <div class="steps-grid">
         <div class="card card-step fade-up">
-          <div class="step-num">01</div>
+          <span class="step-num">01</span>
           <h4>Credit Analysis</h4>
           <p>We identify what's holding you back &mdash; every derogatory mark, every error, every opportunity to improve your file.</p>
         </div>
         <div class="card card-step fade-up">
-          <div class="step-num">02</div>
+          <span class="step-num">02</span>
           <h4>Strategic Credit Repair</h4>
           <p>We dispute, escalate, and rebuild &mdash; using advanced tactics and legal-based strategies to clean your report fast.</p>
         </div>
         <div class="card card-step fade-up">
-          <div class="step-num">03</div>
+          <span class="step-num">03</span>
           <h4>Lender Prep</h4>
           <p>We position your file for approval &mdash; optimizing your credit profile to meet lender requirements head-on.</p>
         </div>
         <div class="card card-step fade-up">
-          <div class="step-num">04</div>
+          <span class="step-num">04</span>
           <h4>Pre-Approval</h4>
           <p>Connect with our in-house senior loan officer. Pre-approved in as little as 24 hours.</p>
         </div>
       </div>
-      <div class="text-center" style="margin-top:40px;">
-        <a href="book-a-call.html" class="btn btn-primary fade-up">Apply Now</a>
+      <div class="text-center" style="margin-top:48px;">
+        <a href="book-a-call.html" class="btn btn-primary fade-up">Apply Now <span class="arr">&rarr;</span></a>
       </div>
     </div>
   </section>
@@ -330,37 +210,33 @@
   <section class="section section-dark">
     <div class="container">
       <div class="text-center fade-up">
-        <p class="section-label">The Story</p>
-        <h2>WHY WE BUILT THIS</h2>
-        <p style="margin:12px auto 0; max-width:600px;">Too many people get denied for a home loan and don't know what to do next. We built this program to change that.</p>
+        <p class="section-label centered">The Story</p>
+        <h2>Why we <em class="flourish">built this</em></h2>
+        <p style="margin:16px auto 0; max-width:560px;">Too many people get denied for a home loan and don't know what to do next. We built this program to change that.</p>
       </div>
-      <div style="height:50px;"></div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
-        <div class="card fade-up" style="display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:320px; text-align:center; background:var(--bg-card); cursor:pointer; position:relative; overflow:hidden;">
-          <div style="width:80px; height:80px; border-radius:50%; background:rgba(255,214,0,0.1); border:2px solid rgba(255,214,0,0.25); display:flex; align-items:center; justify-content:center; margin-bottom:20px; transition:var(--transition);">
-            <span style="font-size:2rem; color:var(--accent); margin-left:4px;">&#9654;</span>
-          </div>
+      <div style="height:52px;"></div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;" class="video-split">
+        <div class="card video-card fade-up">
+          <div class="play">&#9654;</div>
           <h4 style="margin-bottom:8px;">Why Most Applications Get Denied</h4>
           <p style="max-width:320px; font-size:0.9rem;">The truth about what lenders see &mdash; and why most people never make it past the first step.</p>
         </div>
-        <div class="card fade-up" style="display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:320px; text-align:center; background:var(--bg-card); cursor:pointer; position:relative; overflow:hidden;">
-          <div style="width:80px; height:80px; border-radius:50%; background:rgba(255,214,0,0.1); border:2px solid rgba(255,214,0,0.25); display:flex; align-items:center; justify-content:center; margin-bottom:20px; transition:var(--transition);">
-            <span style="font-size:2rem; color:var(--accent); margin-left:4px;">&#9654;</span>
-          </div>
+        <div class="card video-card fade-up">
+          <div class="play">&#9654;</div>
           <h4 style="margin-bottom:8px;">How We Turn It Around in 90 Days</h4>
           <p style="max-width:320px; font-size:0.9rem;">The exact system we use to take clients from denied to pre-approved &mdash; and how fast it can happen.</p>
         </div>
       </div>
     </div>
   </section>
+  <style>@media (max-width: 768px) { .video-split { grid-template-columns: 1fr !important; } }</style>
 
-  <!-- ========== FINAL CTA BAND ========== -->
-  <section class="cta-banner" style="background:var(--bg-secondary);">
+  <!-- ========== CTA ========== -->
+  <section class="cta-banner">
     <div class="container fade-up">
-      <p style="font-size:3rem; margin-bottom:16px;">&#x1F3E0; &#x1F511; &#x1F3E1;</p>
-      <h2>READY TO BECOME A <span class="gradient-text">HOMEOWNER?</span></h2>
+      <h2>Ready to become a <em class="flourish">homeowner?</em></h2>
       <p>Your next 90 days can change everything &mdash; if you take action today.</p>
-      <a href="book-a-call.html" class="btn btn-primary">Apply Now</a>
+      <a href="book-a-call.html" class="btn btn-primary btn-lg">Apply Now <span class="arr">&rarr;</span></a>
     </div>
   </section>
 
@@ -370,14 +246,14 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <img src="images/logo.png" alt="ImproveU" width="120" height="34">
-          <p style="margin-top:8px; font-style:italic; color:var(--accent); font-size:0.9rem;">Improve your credit. Improve your life.</p>
+          <p>Improve your credit. Improve your life.</p>
           <div class="footer-contact" style="margin-top:16px;">
-            <a href="tel:5599810180">&#9742; (559) 981-0180</a>
-            <a href="mailto:help@improveu.net">&#9993; help@improveu.net</a>
-            <span style="font-size:0.85rem; color:var(--gray-dark);">Fresno, CA &bull; Mon-Fri 9am-6pm PST</span>
+            <a href="tel:5599810180">(559) 981-0180</a>
+            <a href="mailto:help@improveu.net">help@improveu.net</a>
+            <span style="font-size:0.85rem; color:var(--cream-faint);">Fresno, CA &bull; Mon&ndash;Fri 9am&ndash;6pm PST</span>
           </div>
           <div class="footer-social">
-            <a href="#" aria-label="Instagram">IG</a>
+            <a href="https://instagram.com/boostwithjames" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
             <a href="#" aria-label="TikTok">TT</a>
             <a href="#" aria-label="YouTube">YT</a>
           </div>

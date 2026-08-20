@@ -5,205 +5,130 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   <link rel="apple-touch-icon" href="images/favicon.svg">
-  <title>Become an Affiliate — Earn $100 Per Referral | ImproveU</title>
-  <meta name="description" content="Join the ImproveU affiliate program and earn $100 for every client you refer. No experience needed — just share your link and get paid.">
-  <!-- Open Graph -->
+  <title>Affiliate Program — Earn $100 Per Referral | ImproveU</title>
+  <meta name="description" content="Join the ImproveU affiliate program. Earn $100 for every referral who enrolls — no experience needed, no earning limits. Sign up in 5 minutes.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="ImproveU Credit Repair">
-  <meta property="og:title" content="Become an Affiliate — Earn $100 Per Referral | ImproveU">
-  <meta property="og:description" content="Join the ImproveU affiliate program and earn $100 for every client you refer.">
+  <meta property="og:title" content="Affiliate Program — Earn $100 Per Referral | ImproveU">
+  <meta property="og:description" content="Earn $100 for every referral who enrolls — no experience needed, no earning limits.">
   <meta property="og:image" content="https://www.improveu.net/images/og-image.png">
   <meta property="og:url" content="https://www.improveu.net/affiliate.html">
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Become an Affiliate — Earn $100 Per Referral | ImproveU">
-  <meta name="twitter:description" content="Join the ImproveU affiliate program and earn $100 for every client you refer.">
-  <meta name="twitter:image" content="https://www.improveu.net/images/og-image.png">
-  <!-- Canonical -->
   <link rel="canonical" href="https://www.improveu.net/affiliate.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Hanken+Grotesk:ital,wght@0,300..800;1,300..800&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <style>
-    /* === Affiliate Page Styles === */
-
-    /* Floating money emojis background */
-    .aff-bg-emojis {
-      position: fixed; top:0; left:0; right:0; bottom:0;
-      pointer-events: none; z-index:0; overflow:hidden;
-    }
-    .aff-rising {
-      position:absolute; bottom:-60px; font-size:2rem; opacity:0.07;
-      animation: affRise 14s linear infinite;
-    }
-    .aff-rising:nth-child(1) { left:3%; animation-delay:0s; font-size:1.8rem; }
-    .aff-rising:nth-child(2) { left:12%; animation-delay:2.5s; font-size:2.4rem; }
-    .aff-rising:nth-child(3) { left:24%; animation-delay:1s; font-size:1.6rem; }
-    .aff-rising:nth-child(4) { left:36%; animation-delay:4s; font-size:2rem; }
-    .aff-rising:nth-child(5) { left:50%; animation-delay:0.5s; font-size:2.2rem; }
-    .aff-rising:nth-child(6) { left:62%; animation-delay:3s; font-size:1.5rem; }
-    .aff-rising:nth-child(7) { left:75%; animation-delay:1.5s; font-size:2.6rem; }
-    .aff-rising:nth-child(8) { left:88%; animation-delay:3.5s; font-size:1.9rem; }
-    .aff-rising:nth-child(9) { left:95%; animation-delay:2s; font-size:2.1rem; }
-    @keyframes affRise {
-      0% { transform:translateY(0) rotate(0deg); opacity:0.07; }
-      50% { opacity:0.12; }
-      100% { transform:translateY(-110vh) rotate(15deg); opacity:0; }
-    }
-
-    /* Hero */
     .aff-hero {
-      position:relative; z-index:1;
-      padding:calc(var(--nav-height) + 60px) 0 80px;
-      text-align:center; overflow:hidden;
+      padding: calc(var(--nav-height) + 90px) 0 90px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse 70% 70% at 50% -10%, rgba(201, 162, 78, 0.13) 0%, transparent 60%),
+        var(--ink-950);
     }
     .aff-hero::before {
-      content:''; position:absolute; top:0; left:50%; transform:translateX(-50%);
-      width:600px; height:600px; border-radius:50%;
-      background:radial-gradient(circle, rgba(255,214,0,0.08) 0%, transparent 70%);
-      pointer-events:none;
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--hairline-gold-soft) 1px, transparent 1px),
+        linear-gradient(90deg, var(--hairline-gold-soft) 1px, transparent 1px);
+      background-size: 84px 84px;
+      -webkit-mask-image: radial-gradient(ellipse 70% 90% at 50% 0%, black 0%, transparent 75%);
+      mask-image: radial-gradient(ellipse 70% 90% at 50% 0%, black 0%, transparent 75%);
+      opacity: 0.4;
+      pointer-events: none;
     }
-    .aff-big-money {
-      font-size:4rem; display:block; margin-bottom:16px;
-      animation: moneyBounce 2s ease-in-out infinite;
-    }
-    @keyframes moneyBounce {
-      0%,100% { transform:scale(1); }
-      50% { transform:scale(1.15) rotate(-5deg); }
-    }
+    .aff-hero .container { position: relative; z-index: 1; }
     .aff-amount {
-      font-family:var(--font-display); font-size:clamp(4rem, 12vw, 8rem);
-      color:var(--accent); line-height:1; display:block; margin:16px 0;
-      text-shadow:0 0 40px rgba(255,214,0,0.3);
+      display: block;
+      font-family: var(--font-mono);
+      font-weight: 500;
+      font-size: clamp(4.5rem, 12vw, 8.5rem);
+      line-height: 1;
+      letter-spacing: -0.05em;
+      margin: 28px auto 6px;
+      background: linear-gradient(100deg, var(--gold-600) 0%, var(--gold-300) 30%, var(--gold-200) 48%, var(--gold-400) 64%, var(--gold-600) 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: foilSheen 6s ease-in-out infinite;
+      width: fit-content;
     }
     .aff-per {
-      font-size:1.3rem; color:var(--gray); font-weight:500;
+      display: block;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--cream-dim);
     }
-
-    /* How it works */
     .aff-steps {
-      display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
-      margin-top:48px;
-    }
-    .aff-step {
-      background:var(--bg-card); border:1px solid var(--border); border-radius:16px;
-      padding:32px 24px; text-align:center; position:relative; overflow:hidden;
-      transition:transform 0.4s, box-shadow 0.4s;
-    }
-    .aff-step:hover {
-      transform:translateY(-6px);
-      box-shadow:0 0 30px rgba(255,214,0,0.1), 0 20px 40px rgba(0,0,0,0.3);
-    }
-    .aff-step-emoji {
-      font-size:2.5rem; display:block; margin-bottom:16px;
-      animation:stepFloat 3s ease-in-out infinite;
-    }
-    .aff-step:nth-child(2) .aff-step-emoji { animation-delay:0.3s; }
-    .aff-step:nth-child(3) .aff-step-emoji { animation-delay:0.6s; }
-    @keyframes stepFloat {
-      0%,100% { transform:translateY(0); }
-      50% { transform:translateY(-8px); }
-    }
-    .aff-step h4 { margin-bottom:8px; }
-    .aff-step-num {
-      position:absolute; top:12px; left:16px;
-      font-family:var(--font-display); font-size:1.2rem; color:var(--accent); opacity:0.5;
-    }
-
-    /* Perks */
-    .aff-perks {
-      display:grid; grid-template-columns:repeat(2,1fr); gap:20px;
-      max-width:700px; margin:40px auto 0;
-    }
-    .aff-perk {
-      display:flex; align-items:center; gap:12px;
-      background:var(--bg-card); border:1px solid var(--border); border-radius:12px;
-      padding:16px 20px; transition:border-color 0.3s;
-    }
-    .aff-perk:hover { border-color:var(--accent); }
-    .aff-perk-icon { font-size:1.5rem; flex-shrink:0; }
-    .aff-perk-text { font-size:0.9rem; color:var(--gray); }
-
-    /* Form section */
-    .aff-form-section {
-      position:relative; z-index:1;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 52px;
     }
     .aff-form-card {
-      background:var(--bg-card); border:1px solid var(--border); border-radius:20px;
-      padding:40px; max-width:640px; margin:0 auto; position:relative; overflow:hidden;
-    }
-    .aff-form-card::before {
-      content:''; position:absolute; top:-100px; right:-100px;
-      width:300px; height:300px; border-radius:50%;
-      background:radial-gradient(circle, rgba(255,214,0,0.06) 0%, transparent 70%);
-      pointer-events:none;
+      background: rgba(7, 19, 16, 0.55);
+      border: 1px solid var(--hairline-gold);
+      border-radius: var(--radius-lg);
+      padding: 44px;
+      max-width: 720px;
+      margin: 0 auto;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 40px 80px -30px rgba(0,0,0,0.6);
     }
     .aff-form-grid {
-      display:grid; grid-template-columns:1fr 1fr; gap:16px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
     }
-    .aff-field { display:flex; flex-direction:column; gap:4px; }
     .aff-field label {
-      font-size:0.8rem; font-weight:700; text-transform:uppercase;
-      letter-spacing:0.05em; color:var(--accent);
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      color: var(--gold-400);
     }
-    .aff-field input,
+    .aff-field input, .aff-field select {
+      width: 100%;
+      padding: 15px 18px;
+      background: rgba(241, 236, 220, 0.03);
+      border: 1px solid var(--hairline-cream);
+      border-radius: var(--radius-sm);
+      color: var(--cream);
+      font-size: 0.98rem;
+      transition: var(--transition);
+      outline: none;
+    }
+    .aff-field input::placeholder { color: var(--cream-faint); }
+    .aff-field input:focus, .aff-field select:focus {
+      border-color: var(--gold-500);
+      background: rgba(201, 162, 78, 0.05);
+      box-shadow: 0 0 0 3px rgba(201, 162, 78, 0.12);
+    }
     .aff-field select {
-      height:48px; padding:0 14px;
-      background:var(--bg-secondary); border:1px solid var(--border); border-radius:8px;
-      color:var(--white); font-size:0.95rem; font-family:var(--font-body);
-      transition:border-color 0.3s, box-shadow 0.3s;
-      width:100%; box-sizing:border-box;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C9A24E' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 18px center;
+      cursor: pointer;
     }
-    .aff-field input:focus,
-    .aff-field select:focus {
-      outline:none; border-color:var(--accent);
-      box-shadow:0 0 0 3px rgba(255,214,0,0.15);
-    }
-    .aff-field input::placeholder { color:var(--gray-dark); }
-    .aff-field select option { background:var(--bg-secondary); color:var(--white); }
-    .aff-submit {
-      margin-top:24px; width:100%; padding:16px;
-      background:var(--accent); color:#000; border:none; border-radius:10px;
-      font-family:var(--font-display); font-size:1.3rem; letter-spacing:0.05em;
-      cursor:pointer; transition:transform 0.3s, box-shadow 0.3s;
-    }
-    .aff-submit:hover {
-      transform:translateY(-2px);
-      box-shadow:0 8px 30px rgba(255,214,0,0.35);
-    }
-    .aff-submit:active { transform:translateY(0); }
-
-    /* Pulse on form card */
-    .aff-form-card { animation: formGlow 4s ease-in-out infinite alternate; }
-    @keyframes formGlow {
-      0% { box-shadow:0 0 0 rgba(255,214,0,0); }
-      100% { box-shadow:0 0 60px rgba(255,214,0,0.06); }
-    }
-
-    @media (max-width:768px) {
-      .aff-steps { grid-template-columns:1fr; }
-      .aff-perks { grid-template-columns:1fr; }
-      .aff-form-grid { grid-template-columns:1fr; }
-      .aff-form-card { padding:24px 20px; }
-      .aff-amount { font-size:4.5rem; }
+    .aff-field select option { background: var(--ink-800); color: var(--cream); }
+    @media (max-width: 900px) { .aff-steps { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) {
+      .aff-form-grid { grid-template-columns: 1fr; }
+      .aff-form-card { padding: 30px 22px; }
     }
   </style>
 </head>
 <body>
-
-  <!-- Floating background emojis -->
-  <div class="aff-bg-emojis" aria-hidden="true">
-    <span class="aff-rising">&#x1F4B0;</span>
-    <span class="aff-rising">&#x1F4B5;</span>
-    <span class="aff-rising">&#x1F91D;</span>
-    <span class="aff-rising">&#x1F4B0;</span>
-    <span class="aff-rising">&#x1F4B8;</span>
-    <span class="aff-rising">&#x1F91D;</span>
-    <span class="aff-rising">&#x1F4B5;</span>
-    <span class="aff-rising">&#x1F4B0;</span>
-    <span class="aff-rising">&#x1F4B8;</span>
-  </div>
 
   <!-- ========== NAVIGATION ========== -->
   <nav class="nav" role="navigation" aria-label="Main navigation">
@@ -226,7 +151,7 @@
         <a href="blog.html">Blog</a>
         <a href="faq.html">FAQ</a>
         <div class="nav-dropdown">
-          <a href="#" aria-haspopup="true">Partner &#9662;</a>
+          <a href="#" aria-haspopup="true" class="active">Partner &#9662;</a>
           <div class="nav-dropdown-menu">
             <a href="affiliate.html">Affiliate Program</a>
             <a href="franchise.html">Own a Franchise</a>
@@ -254,108 +179,82 @@
     <a href="about.html">About</a>
     <a href="blog.html">Blog</a>
     <a href="faq.html">FAQ</a>
-        <div class="nav-dropdown">
-          <a href="#" aria-haspopup="true">Partner &#9662;</a>
-          <div class="nav-dropdown-menu">
-            <a href="affiliate.html">Affiliate Program</a>
-            <a href="franchise.html">Own a Franchise</a>
-          </div>
-        </div>
+    <a href="affiliate.html">Affiliate Program</a>
+    <a href="franchise.html">Own a Franchise</a>
     <a href="contact.html">Contact</a>
-    <a href="affiliate.html">Become an Affiliate</a>
-            <a href="franchise.html">Own a Franchise</a>
     <a href="portal.html">Client Login</a>
-    <a href="get-started.html" class="btn btn-primary" style="margin-top:16px;">Get Started</a>
+    <a href="get-started.html" class="btn btn-primary">Get Started</a>
   </div>
 
   <!-- ========== HERO ========== -->
   <section class="aff-hero">
     <div class="container fade-up">
-      <span class="aff-big-money">&#x1F4B0;</span>
-      <p class="section-label">Affiliate Program</p>
-      <h1>EARN <span class="gradient-text">MONEY</span> WITH IMPROVEU</h1>
+      <p class="section-label centered">Affiliate Program</p>
+      <h1>Earn <em class="flourish">money</em> with ImproveU</h1>
       <span class="aff-amount">$100</span>
       <span class="aff-per">per referral &mdash; paid out every time</span>
-      <p style="margin-top:20px; max-width:560px; margin-left:auto; margin-right:auto;">
+      <p style="margin:24px auto 0; max-width:560px;">
         Know someone who needs credit repair? Send them our way and get paid. No experience needed, no limits on earnings. Just share your link and stack your commissions.
       </p>
-      <a href="#affiliate-form" class="btn btn-primary" style="margin-top:32px;">Become an Affiliate &#x1F680;</a>
+      <a href="#affiliate-form" class="btn btn-primary btn-lg" style="margin-top:34px;">Become an Affiliate <span class="arr">&rarr;</span></a>
     </div>
   </section>
 
   <!-- ========== HOW IT WORKS ========== -->
-  <section class="section section-dark" style="position:relative; z-index:1;">
+  <section class="section section-dark">
     <div class="container">
       <div class="text-center fade-up">
-        <p class="section-label">How It Works</p>
-        <h2>THREE STEPS. <span class="gradient-text">GET PAID.</span></h2>
+        <p class="section-label centered">How It Works</p>
+        <h2>Three steps. <em class="flourish">Get paid.</em></h2>
       </div>
       <div class="aff-steps">
-        <div class="aff-step fade-up">
-          <span class="aff-step-num">01</span>
-          <span class="aff-step-emoji">&#x1F4DD;</span>
+        <div class="card card-step fade-up">
+          <span class="step-num">01</span>
           <h4>Sign Up</h4>
-          <p style="color:var(--gray); font-size:0.9rem;">Fill out the form below and you'll get login access to your affiliate portal within 5 minutes.</p>
+          <p>Fill out the form below and you'll get login access to your affiliate portal within 5 minutes.</p>
         </div>
-        <div class="aff-step fade-up">
-          <span class="aff-step-num">02</span>
-          <span class="aff-step-emoji">&#x1F517;</span>
+        <div class="card card-step fade-up">
+          <span class="step-num">02</span>
           <h4>Share Your Link</h4>
-          <p style="color:var(--gray); font-size:0.9rem;">Share your unique referral link with friends, family, followers &mdash; anyone who could benefit from credit repair.</p>
+          <p>Share your unique referral link with friends, family, followers &mdash; anyone who could benefit from credit repair.</p>
         </div>
-        <div class="aff-step fade-up">
-          <span class="aff-step-num">03</span>
-          <span class="aff-step-emoji">&#x1F4B0;</span>
+        <div class="card card-step fade-up">
+          <span class="step-num">03</span>
           <h4>Get Paid $100</h4>
-          <p style="color:var(--gray); font-size:0.9rem;">When your referral enrolls, you earn $100. No cap on how many people you can refer. Stack it up.</p>
+          <p>When your referral enrolls, you earn $100. No cap on how many people you can refer. Stack it up.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ========== PERKS ========== -->
-  <section class="section section-dark" style="position:relative; z-index:1; padding-top:0;">
+  <section class="section section-dark" style="padding-top:0;">
     <div class="container">
       <div class="text-center fade-up">
-        <p class="section-label">Why Join</p>
-        <h2>AFFILIATE <span class="gradient-text">PERKS</span></h2>
+        <p class="section-label centered">Why Join</p>
+        <h2>Affiliate <em class="flourish">perks</em></h2>
       </div>
-      <div class="aff-perks">
-        <div class="aff-perk fade-up">
-          <span class="aff-perk-icon">&#x1F4B5;</span>
-          <span class="aff-perk-text"><strong style="color:var(--white);">$100 per referral</strong> &mdash; no limits</span>
-        </div>
-        <div class="aff-perk fade-up">
-          <span class="aff-perk-icon">&#x1F4F1;</span>
-          <span class="aff-perk-text"><strong style="color:var(--white);">Affiliate portal</strong> &mdash; track everything</span>
-        </div>
-        <div class="aff-perk fade-up">
-          <span class="aff-perk-icon">&#x26A1;</span>
-          <span class="aff-perk-text"><strong style="color:var(--white);">Instant setup</strong> &mdash; live in 5 minutes</span>
-        </div>
-        <div class="aff-perk fade-up">
-          <span class="aff-perk-icon">&#x1F3AF;</span>
-          <span class="aff-perk-text"><strong style="color:var(--white);">No experience needed</strong> &mdash; just share</span>
-        </div>
-        <div class="aff-perk fade-up">
-          <span class="aff-perk-icon">&#x1F4CA;</span>
-          <span class="aff-perk-text"><strong style="color:var(--white);">Real-time tracking</strong> &mdash; see your earnings</span>
-        </div>
-        <div class="aff-perk fade-up">
-          <span class="aff-perk-icon">&#x1F91D;</span>
-          <span class="aff-perk-text"><strong style="color:var(--white);">Trusted brand</strong> &mdash; 8+ years, real results</span>
-        </div>
+      <div style="height:44px"></div>
+      <div class="fade-up" style="max-width:760px; margin:0 auto;">
+        <ul class="checklist" style="columns:1;">
+          <li><svg viewBox="0 0 20 20"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg> <span><strong style="color:var(--cream);">$100 per referral</strong> &mdash; no limits on earnings</span></li>
+          <li><svg viewBox="0 0 20 20"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg> <span><strong style="color:var(--cream);">Affiliate portal</strong> &mdash; track everything in one place</span></li>
+          <li><svg viewBox="0 0 20 20"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg> <span><strong style="color:var(--cream);">Instant setup</strong> &mdash; live in 5 minutes</span></li>
+          <li><svg viewBox="0 0 20 20"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg> <span><strong style="color:var(--cream);">No experience needed</strong> &mdash; just share your link</span></li>
+          <li><svg viewBox="0 0 20 20"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg> <span><strong style="color:var(--cream);">Real-time tracking</strong> &mdash; see your earnings as they land</span></li>
+          <li><svg viewBox="0 0 20 20"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg> <span><strong style="color:var(--cream);">Trusted brand</strong> &mdash; 8+ years, real results</span></li>
+        </ul>
       </div>
     </div>
   </section>
 
   <!-- ========== SIGNUP FORM ========== -->
-  <section id="affiliate-form" class="section aff-form-section section-dark" style="padding-top:20px;">
+  <section id="affiliate-form" class="section section-accent" style="padding-top:80px;">
     <div class="container">
-      <div class="text-center fade-up" style="margin-bottom:40px;">
-        <span style="font-size:3rem; display:block; margin-bottom:12px;">&#x1F4B8;&#x1F525;&#x1F4B0;</span>
-        <h2>BECOME AN <span class="gradient-text">AFFILIATE</span></h2>
-        <p style="margin-top:8px; max-width:480px; margin-left:auto; margin-right:auto;">Fill out the form below. You'll receive an email within 5 minutes with access to your affiliate portal.</p>
+      <div class="text-center fade-up" style="margin-bottom:44px;">
+        <p class="section-label centered">Join Now</p>
+        <h2>Become an <em class="flourish">affiliate</em></h2>
+        <p style="margin:14px auto 0; max-width:480px;">Fill out the form below. You'll receive an email within 5 minutes with access to your affiliate portal.</p>
       </div>
 
       <form class="aff-form-card fade-up" action="https://pulse.disputeprocess.com/CustumFieldController" onsubmit="return submitForm(this);" enctype="multipart/form-data" method="POST">
@@ -392,7 +291,7 @@
             <input type="email" id="aff-email" name="email" placeholder="you@email.com" required>
           </div>
         </div>
-        <div class="aff-field" style="margin-top:16px;">
+        <div class="aff-field" style="margin-top:18px;">
           <label for="aff-agent">Who are you becoming an affiliate for?</label>
           <select id="aff-agent" name="select1" required>
             <option value="james">James</option>
@@ -403,18 +302,18 @@
           </select>
         </div>
 
-        <button type="submit" class="aff-submit">BECOME AN AFFILIATE &#x1F4B0;</button>
-        <p style="text-align:center; margin-top:12px; font-size:0.78rem; color:var(--gray-dark);">You'll receive portal access via email within 5 minutes.</p>
+        <button type="submit" class="btn btn-primary" style="width:100%; margin-top:28px;">Become an Affiliate <span class="arr">&rarr;</span></button>
+        <p style="text-align:center; margin-top:14px; font-size:0.78rem; color:var(--cream-faint);">You'll receive portal access via email within 5 minutes.</p>
       </form>
     </div>
   </section>
 
-  <!-- ========== CTA BANNER ========== -->
-  <section class="cta-banner" style="background:var(--bg-secondary); position:relative; z-index:1;">
+  <!-- ========== CTA ========== -->
+  <section class="cta-banner">
     <div class="container fade-up">
-      <h2>START EARNING <span class="gradient-text">TODAY</span></h2>
+      <h2>Start earning <em class="flourish">today</em></h2>
       <p>Every referral is $100 in your pocket. No limits. No catch.</p>
-      <a href="#affiliate-form" class="btn btn-primary">Sign Up Now &#x1F4B0;</a>
+      <a href="#affiliate-form" class="btn btn-primary btn-lg">Sign Up Now <span class="arr">&rarr;</span></a>
     </div>
   </section>
 
@@ -424,14 +323,14 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <img src="images/logo.png" alt="ImproveU" width="120" height="34">
-          <p style="margin-top:8px; font-style:italic; color:var(--accent); font-size:0.9rem;">Improve your credit. Improve your life.</p>
+          <p>Improve your credit. Improve your life.</p>
           <div class="footer-contact" style="margin-top:16px;">
-            <a href="tel:5599810180">&#9742; (559) 981-0180</a>
-            <a href="mailto:help@improveu.net">&#9993; help@improveu.net</a>
-            <span style="font-size:0.85rem; color:var(--gray-dark);">Fresno, CA &bull; Mon-Fri 9am-6pm PST</span>
+            <a href="tel:5599810180">(559) 981-0180</a>
+            <a href="mailto:help@improveu.net">help@improveu.net</a>
+            <span style="font-size:0.85rem; color:var(--cream-faint);">Fresno, CA &bull; Mon&ndash;Fri 9am&ndash;6pm PST</span>
           </div>
           <div class="footer-social">
-            <a href="#" aria-label="Instagram">IG</a>
+            <a href="https://instagram.com/boostwithjames" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
             <a href="#" aria-label="TikTok">TT</a>
             <a href="#" aria-label="YouTube">YT</a>
           </div>
@@ -474,7 +373,7 @@
 
   <!-- Sticky Mobile CTA -->
   <div class="mobile-sticky-cta">
-    <a href="#affiliate-form" class="btn btn-primary">Become an Affiliate &#x1F4B0;</a>
+    <a href="#affiliate-form" class="btn btn-primary">Become an Affiliate</a>
   </div>
 
   <script src="js/main.js"></script>

@@ -1,18 +1,21 @@
-/* ============================================
-   IMPROVEU — Main JavaScript
-   ============================================ */
+/* ==========================================================================
+   IMPROVEU — Main JavaScript v2
+   ========================================================================== */
+
+// Gate reveal-hiding behind JS availability so content is never invisible without scripts
+document.documentElement.classList.add('js');
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // --- Navbar scroll effect ---
+  /* --- Navbar scroll state --- */
   const nav = document.querySelector('.nav');
   if (nav) {
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 40);
-    });
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 40);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
   }
 
-  // --- Mobile menu toggle ---
+  /* --- Mobile menu --- */
   const toggle = document.querySelector('.nav-toggle');
   const mobileMenu = document.querySelector('.mobile-menu');
   if (toggle && mobileMenu) {
@@ -21,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
       mobileMenu.classList.toggle('active');
       document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
     });
-    // Close on link click
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         toggle.classList.remove('active');
@@ -31,18 +33,64 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- FAQ Accordion ---
+  /* --- Reveal on scroll (with automatic sibling stagger) --- */
+  const revealEls = document.querySelectorAll('.fade-up, [data-reveal]');
+  if ('IntersectionObserver' in window && revealEls.length) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        // Stagger elements that share the same parent and became visible together
+        const parent = el.parentElement;
+        if (parent && !el.style.getPropertyValue('--reveal-delay')) {
+          const siblings = [...parent.children].filter(c => c.matches('.fade-up, [data-reveal]') && !c.classList.contains('visible'));
+          siblings.forEach((sib, i) => sib.style.setProperty('--reveal-delay', `${Math.min(i * 0.09, 0.55)}s`));
+        }
+        el.classList.add('visible');
+        observer.unobserve(el);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -36px 0px' });
+    revealEls.forEach(el => observer.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('visible'));
+  }
+
+  /* --- Animated counters: <span data-count="720" data-prefix="+" data-suffix="pts"> --- */
+  const counters = document.querySelectorAll('[data-count]');
+  if (counters.length) {
+    const countObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        countObserver.unobserve(el);
+        const target = parseFloat(el.dataset.count);
+        const prefix = el.dataset.prefix || '';
+        const suffix = el.dataset.suffix || '';
+        const duration = parseInt(el.dataset.duration || '2000', 10);
+        const start = performance.now();
+        const step = (now) => {
+          const p = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = prefix + Math.round(target * eased).toLocaleString() + suffix;
+          if (p < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      });
+    }, { threshold: 0.4 });
+    counters.forEach(el => countObserver.observe(el));
+  }
+
+  /* --- FAQ accordion --- */
   document.querySelectorAll('.faq-question').forEach(btn => {
     btn.addEventListener('click', () => {
       const item = btn.closest('.faq-item');
       const answer = item.querySelector('.faq-answer');
       const isActive = item.classList.contains('active');
-      // Close all
       document.querySelectorAll('.faq-item').forEach(i => {
         i.classList.remove('active');
-        i.querySelector('.faq-answer').style.maxHeight = null;
+        const a = i.querySelector('.faq-answer');
+        if (a) a.style.maxHeight = null;
       });
-      // Open clicked
       if (!isActive) {
         item.classList.add('active');
         answer.style.maxHeight = answer.scrollHeight + 'px';
@@ -50,34 +98,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // --- Scroll animations ---
-  const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -40px 0px' };
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-  // --- Marquee clone for infinite scroll ---
-  document.querySelectorAll('.marquee-track').forEach(track => {
-    const clone = track.innerHTML;
-    track.innerHTML = clone + clone;
+  /* --- Ticker / marquee: duplicate track for seamless loop --- */
+  document.querySelectorAll('.marquee-track, .ticker-track').forEach(track => {
+    track.innerHTML = track.innerHTML + track.innerHTML;
   });
 
-  // --- Copyright year ---
+  /* --- Copyright year --- */
   document.querySelectorAll('.current-year').forEach(el => {
     el.textContent = new Date().getFullYear();
   });
 
-  // --- Smooth scroll for anchor links ---
+  /* --- Smooth scroll for hash links --- */
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', (e) => {
       const id = a.getAttribute('href');
-      if (id === '#') return;
+      if (id === '#') { e.preventDefault(); return; }
       const target = document.querySelector(id);
       if (target) {
         e.preventDefault();
@@ -86,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // --- Animated Credit Score Dial ---
+  /* --- Credit score gauge --- */
   const scoreDial = document.getElementById('scoreDial');
   const scoreArc = document.getElementById('scoreArc');
   const scoreNumber = document.getElementById('scoreNumber');
@@ -97,67 +132,160 @@ document.addEventListener('DOMContentLoaded', () => {
     const startScore = 300;
     const maxScore = 850;
     const minScore = 300;
-    // The arc covers 270 degrees (3/4 of circle). Full dasharray = 2*PI*120 = 753.98, 3/4 = 565.5
-    const fullArc = 565.5;
-    const arcOffset = 141.4; // 1/4 gap
+    const fullArc = 565.5;   // 270° of a r=120 circle
+    const arcOffset = 141.4; // remaining 90° gap
     const scorePercent = (targetScore - minScore) / (maxScore - minScore);
     const targetDashoffset = fullArc - (scorePercent * (fullArc - arcOffset));
 
-    function getRating(score) {
-      if (score < 580) return { text: 'POOR', color: '#FF3B3B' };
-      if (score < 670) return { text: 'FAIR', color: '#FF8C00' };
-      if (score < 740) return { text: 'GOOD', color: '#FFD600' };
-      if (score < 800) return { text: 'VERY GOOD', color: '#4AE08C' };
-      return { text: 'EXCELLENT', color: '#4AE08C' };
-    }
+    const getRating = (score) => {
+      if (score < 580) return { text: 'Poor', color: '#C4523E' };
+      if (score < 670) return { text: 'Fair', color: '#DCB966' };
+      if (score < 740) return { text: 'Good', color: '#C9A24E' };
+      if (score < 800) return { text: 'Very Good', color: '#5FB68E' };
+      return { text: 'Excellent', color: '#5FB68E' };
+    };
 
     const dialObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          // Animate the arc
-          setTimeout(() => {
-            scoreArc.style.strokeDashoffset = targetDashoffset;
-            scoreDial.classList.add('animate');
-          }, 300);
+        if (!entry.isIntersecting) return;
+        setTimeout(() => {
+          scoreArc.style.strokeDashoffset = targetDashoffset;
+          scoreDial.classList.add('animate');
+        }, 350);
 
-          // Animate the number counter
-          const duration = 2500;
-          const startTime = performance.now();
-          function updateNumber(currentTime) {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            // Ease out cubic
-            const eased = 1 - Math.pow(1 - progress, 3);
-            const currentScore = Math.round(startScore + (targetScore - startScore) * eased);
-            scoreNumber.textContent = currentScore;
-            const rating = getRating(currentScore);
+        const duration = 2600;
+        const startTime = performance.now();
+        const updateNumber = (now) => {
+          const p = Math.min((now - startTime) / duration, 1);
+          const eased = 1 - Math.pow(1 - p, 3);
+          const current = Math.round(startScore + (targetScore - startScore) * eased);
+          scoreNumber.textContent = current;
+          const rating = getRating(current);
+          if (scoreRating) {
             scoreRating.textContent = rating.text;
             scoreRating.style.color = rating.color;
-            if (progress < 1) requestAnimationFrame(updateNumber);
           }
-          setTimeout(() => requestAnimationFrame(updateNumber), 300);
-
-          dialObserver.unobserve(entry.target);
-        }
+          if (p < 1) requestAnimationFrame(updateNumber);
+        };
+        setTimeout(() => requestAnimationFrame(updateNumber), 350);
+        dialObserver.unobserve(entry.target);
       });
     }, { threshold: 0.3 });
     dialObserver.observe(scoreDial);
   }
 
-  // --- Services dropdown keyboard accessibility ---
+  /* --- Dropdown keyboard accessibility --- */
   document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
     const trigger = dropdown.querySelector('a');
-    const menu = dropdown.querySelector('.nav-dropdown-menu');
-    if (trigger && menu) {
+    if (trigger) {
       trigger.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          menu.style.opacity = menu.style.opacity === '1' ? '0' : '1';
-          menu.style.visibility = menu.style.visibility === 'visible' ? 'hidden' : 'visible';
-          menu.style.transform = menu.style.visibility === 'visible' ? 'translateY(0)' : 'translateY(8px)';
+          dropdown.classList.toggle('open');
+          const menu = dropdown.querySelector('.nav-dropdown-menu');
+          if (menu) {
+            const open = dropdown.classList.contains('open');
+            menu.style.opacity = open ? '1' : '';
+            menu.style.visibility = open ? 'visible' : '';
+            menu.style.transform = open ? 'translateY(0)' : '';
+          }
         }
       });
     }
   });
+
+  /* --- Card spotlight: gold sheen follows the cursor --- */
+  const fine = window.matchMedia('(pointer: fine)').matches;
+  if (fine) {
+    document.querySelectorAll('.card, .pricing-card, .funding-card, .team-card, .score-card, .blog-card').forEach(card => {
+      card.addEventListener('pointermove', (e) => {
+        const r = card.getBoundingClientRect();
+        card.style.backgroundImage =
+          `radial-gradient(420px circle at ${e.clientX - r.left}px ${e.clientY - r.top}px, rgba(201,162,78,0.07), transparent 45%)`;
+      });
+      card.addEventListener('pointerleave', () => {
+        card.style.backgroundImage = '';
+      });
+    });
+  }
+
+  /* --- Magnetic primary buttons (desktop only, subtle) --- */
+  if (fine) {
+    document.querySelectorAll('.btn-primary').forEach(btn => {
+      btn.addEventListener('pointermove', (e) => {
+        const r = btn.getBoundingClientRect();
+        const x = (e.clientX - r.left - r.width / 2) / r.width;
+        const y = (e.clientY - r.top - r.height / 2) / r.height;
+        btn.style.transform = `translate(${x * 6}px, ${y * 5 - 2}px)`;
+      });
+      btn.addEventListener('pointerleave', () => {
+        btn.style.transform = '';
+      });
+    });
+  }
+
+  /* --- AJAX form handling (FormSubmit) --- */
+  document.querySelectorAll('form[data-form]').forEach(form => {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('button[type="submit"]');
+      const original = btn ? btn.innerHTML : '';
+      if (btn) { btn.disabled = true; btn.innerHTML = 'Sending…'; }
+
+      const data = new FormData(form);
+      data.append('_subject', form.dataset.subject || 'New website inquiry — improveu.net');
+      try {
+        const res = await fetch('https://formsubmit.co/ajax/help@improveu.net', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: data
+        });
+        if (!res.ok) throw new Error('send failed');
+        form.style.display = 'none';
+        const success = form.parentElement.querySelector('.form-success');
+        if (success) success.classList.add('visible');
+      } catch (err) {
+        if (btn) { btn.disabled = false; btn.innerHTML = original; }
+        // Fallback: open the visitor's mail client with the message pre-filled
+        const body = [...data.entries()]
+          .filter(([k]) => !k.startsWith('_'))
+          .map(([k, v]) => `${k}: ${v}`).join('%0D%0A');
+        window.location.href = `mailto:help@improveu.net?subject=Website inquiry&body=${body}`;
+      }
+    });
+  });
+
+  /* --- Multi-step qualifier (homepage lead form) --- */
+  const qualifier = document.getElementById('qualifier');
+  if (qualifier) {
+    const steps = qualifier.querySelectorAll('.q-step');
+    const progress = qualifier.querySelector('.q-progress-fill');
+    const stepLabel = qualifier.querySelector('.q-step-label');
+    let current = 0;
+
+    const show = (i) => {
+      steps.forEach((s, idx) => s.classList.toggle('active', idx === i));
+      if (progress) progress.style.width = `${((i + 1) / steps.length) * 100}%`;
+      if (stepLabel) stepLabel.textContent = `Step ${i + 1} of ${steps.length}`;
+      current = i;
+    };
+
+    qualifier.querySelectorAll('[data-next]').forEach(el => {
+      el.addEventListener('click', () => {
+        // choice buttons record their value
+        if (el.dataset.value !== undefined) {
+          const input = qualifier.querySelector(`input[name="${el.dataset.field}"]`);
+          if (input) input.value = el.dataset.value;
+          el.closest('.q-choices')?.querySelectorAll('[data-next]').forEach(b => b.classList.remove('selected'));
+          el.classList.add('selected');
+        }
+        if (current < steps.length - 1) setTimeout(() => show(current + 1), 160);
+      });
+    });
+    qualifier.querySelectorAll('[data-back]').forEach(el => {
+      el.addEventListener('click', () => { if (current > 0) show(current - 1); });
+    });
+    show(0);
+  }
 
 });
