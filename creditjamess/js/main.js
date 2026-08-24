@@ -3,8 +3,6 @@
   "use strict";
 
   var prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var SPOTS_TAKEN = 7;
-  var SPOTS_TOTAL = 20;
   var SCORE_START = 487;
   var SCORE_END = 751;
 
@@ -192,76 +190,6 @@
       });
     }, { threshold: 0.45 });
     chartObserver.observe(riseCard);
-  }
-
-  /* ---------- Spots grid ---------- */
-  var spotsGrid = document.getElementById("spotsGrid");
-  if (spotsGrid) {
-    for (var s = 0; s < SPOTS_TOTAL; s++) {
-      var spot = document.createElement("span");
-      spot.className = "spot";
-      spotsGrid.appendChild(spot);
-    }
-    var spotEls = spotsGrid.children;
-    var spotsObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        spotsObserver.unobserve(e.target);
-        for (var i = 0; i < SPOTS_TAKEN; i++) {
-          (function (i) {
-            setTimeout(function () {
-              spotEls[i].classList.add("taken");
-            }, prefersReduced ? 0 : 250 + i * 180);
-          })(i);
-        }
-      });
-    }, { threshold: 0.5 });
-    spotsObserver.observe(spotsGrid);
-  }
-
-  /* ---------- Spots copy (single source of truth) ---------- */
-  var left = SPOTS_TOTAL - SPOTS_TAKEN;
-  var leftText = left + " of " + SPOTS_TOTAL;
-  var spotsLeftEl = document.getElementById("spotsLeft");
-  var spotsFlashEl = document.getElementById("spotsFlash");
-  var finalSpotsEl = document.getElementById("finalSpots");
-  if (spotsLeftEl) spotsLeftEl.textContent = left;
-  if (spotsFlashEl) spotsFlashEl.textContent = leftText + " spots left";
-  if (finalSpotsEl) finalSpotsEl.textContent = "⚡ " + leftText + " launch spots left";
-
-  /* ---------- Signup embed sizing ---------- */
-  // The embedded form's height depends on its width (measured points below,
-  // 24px dark gutter on every side is cropped by .embed-viewport).
-  var embedViewport = document.getElementById("embedViewport");
-  var signupFrame = document.getElementById("signupFrame");
-  if (embedViewport && signupFrame) {
-    // [iframe content width, form height] measured on the live form
-    var POINTS = [[325, 1611], [345, 1533], [480, 1417]];
-    function formHeightFor(w) {
-      if (w <= POINTS[0][0]) {
-        return POINTS[0][1] + (POINTS[0][0] - w) * 4; // extrapolate narrow
-      }
-      for (var i = 1; i < POINTS.length; i++) {
-        if (w <= POINTS[i][0]) {
-          var a = POINTS[i - 1], b = POINTS[i];
-          return Math.round(a[1] + (b[1] - a[1]) * (w - a[0]) / (b[0] - a[0]));
-        }
-      }
-      var last = POINTS[POINTS.length - 1];
-      return Math.max(1200, Math.round(last[1] - (w - last[0]) * 0.86));
-    }
-    function sizeEmbed() {
-      var w = embedViewport.clientWidth + 48; // iframe content width incl. cropped gutters
-      var h = formHeightFor(w);
-      embedViewport.style.height = h + "px";
-      signupFrame.style.height = (h + 48) + "px";
-    }
-    sizeEmbed();
-    var embedResizeTimer;
-    window.addEventListener("resize", function () {
-      clearTimeout(embedResizeTimer);
-      embedResizeTimer = setTimeout(sizeEmbed, 150);
-    });
   }
 
   /* ---------- Year ---------- */
