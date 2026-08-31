@@ -149,8 +149,7 @@
           return Math.round(a[1] + (b[1] - a[1]) * (w - a[0]) / (b[0] - a[0]));
         }
       }
-      var last = POINTS[POINTS.length - 1];
-      return Math.max(1150, Math.round(last[1] - (w - last[0]) * 0.86));
+      return POINTS[POINTS.length - 1][1]; // form card is max-width capped — constant beyond 480
     }
     function sizeEmbed() {
       var w = embedViewport.clientWidth + 48;

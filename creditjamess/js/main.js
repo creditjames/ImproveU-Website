@@ -192,6 +192,37 @@
     chartObserver.observe(riseCard);
   }
 
+  /* ---------- Signup embed sizing ---------- */
+  // Measured on the live form (re-measured 2026-08-31): [iframe content width, form height].
+  // The form page paints a 24px dark gutter on every side, cropped by .embed-viewport.
+  var embedViewport = document.getElementById("embedViewport");
+  var signupFrame = document.getElementById("signupFrame");
+  if (embedViewport && signupFrame) {
+    var POINTS = [[325, 1707], [345, 1629], [480, 1513]];
+    function formHeightFor(w) {
+      if (w <= POINTS[0][0]) return POINTS[0][1] + (POINTS[0][0] - w) * 4;
+      for (var i = 1; i < POINTS.length; i++) {
+        if (w <= POINTS[i][0]) {
+          var a = POINTS[i - 1], b = POINTS[i];
+          return Math.round(a[1] + (b[1] - a[1]) * (w - a[0]) / (b[0] - a[0]));
+        }
+      }
+      return POINTS[POINTS.length - 1][1]; // form card is max-width capped — constant beyond 480
+    }
+    function sizeEmbed() {
+      var w = embedViewport.clientWidth + 48;
+      var h = formHeightFor(w);
+      embedViewport.style.height = h + "px";
+      signupFrame.style.height = (h + 48) + "px";
+    }
+    sizeEmbed();
+    var embedResizeTimer;
+    window.addEventListener("resize", function () {
+      clearTimeout(embedResizeTimer);
+      embedResizeTimer = setTimeout(sizeEmbed, 150);
+    });
+  }
+
   /* ---------- Year ---------- */
   var yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
