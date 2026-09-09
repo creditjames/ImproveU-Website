@@ -1448,6 +1448,7 @@ body.past-hero .mobile-sticky-cta, html:not(.js) .mobile-sticky-cta { transform:
 .avatar-stack { display: flex; }
 .avatar-stack span { width: 36px; height: 36px; border-radius: 50%; background: #0A0A0B; border: 2px solid #FFFFFF; margin-left: -10px; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: .7rem; font-weight: 700; color: #DDDFE3; }
 .avatar-stack span:first-child { margin-left: 0; }
+.avatar-stack span { font-size: .8rem; line-height: 1; background: linear-gradient(135deg, #26272B, #0A0A0B); color: #F4F5F7; }
 .social-proof-text { font-size: .9rem; color: #26272B; }
 .social-proof-text strong { color: #0A0A0B; }
 .hero-image { position: relative; display: flex; justify-content: center; align-items: center; }
