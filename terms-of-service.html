@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
-  <link rel="apple-touch-icon" href="images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="512x512" href="images/favicon.png">
+  <link rel="apple-touch-icon" href="images/favicon.png">
   <title>Terms of Service — ImproveU Credit Repair</title>
   <meta name="description" content="ImproveU LLC Terms of Service. Read the terms and conditions governing the use of our credit repair and business funding services.">
   <!-- Open Graph -->
@@ -23,24 +23,25 @@
   <link rel="canonical" href="https://www.improveu.net/terms-of-service.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Hanken+Grotesk:ital,wght@0,300..800;1,300..800&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pages/legal.css">
 </head>
 <body>
 
-  <!-- ========== NAVIGATION ========== -->
+<!-- ========== NAVIGATION (canonical — paste verbatim on every page) ========== -->
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo" aria-label="ImproveU Home">
-        <img src="images/logo.png" alt="ImproveU" width="140" height="40">
+        <img src="images/logo.png" alt="ImproveU" width="104" height="104">
       </a>
       <div class="nav-links">
         <div class="nav-dropdown">
-          <a href="#" aria-haspopup="true">Services &#9662;</a>
+          <a href="#" aria-haspopup="true" aria-expanded="false">Services <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
           <div class="nav-dropdown-menu">
             <a href="credit-repair.html">Credit Repair</a>
             <a href="business-funding.html">Business Funding</a>
-            <a href="homeowner-program.html">90-Day Homeowner Program</a>
+            <a href="homeowner-program.html">Homeowner Program</a>
           </div>
         </div>
         <a href="pricing.html">Pricing</a>
@@ -49,7 +50,7 @@
         <a href="blog.html">Blog</a>
         <a href="faq.html">FAQ</a>
         <div class="nav-dropdown">
-          <a href="#" aria-haspopup="true">Partner &#9662;</a>
+          <a href="#" aria-haspopup="true" aria-expanded="false">Partner <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
           <div class="nav-dropdown-menu">
             <a href="affiliate.html">Affiliate Program</a>
             <a href="franchise.html">Own a Franchise</a>
@@ -58,17 +59,18 @@
         <a href="contact.html">Contact</a>
       </div>
       <div class="nav-actions">
-        <a href="portal.html" class="btn-login">Client Login</a>
+        <a href="tel:5599009326" class="nav-phone">(559) 900-9326</a>
+        <a href="portal.html" class="btn btn-ghost btn-sm btn-login">Client Login</a>
         <a href="get-started.html" class="btn btn-primary btn-sm">Get Started</a>
       </div>
-      <button class="nav-toggle" aria-label="Open menu">
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
   <!-- Mobile Menu -->
-  <div class="mobile-menu">
+  <div class="mobile-menu" id="mobile-menu">
     <a href="credit-repair.html">Credit Repair</a>
     <a href="business-funding.html">Business Funding</a>
     <a href="homeowner-program.html">Homeowner Program</a>
@@ -77,36 +79,62 @@
     <a href="about.html">About</a>
     <a href="blog.html">Blog</a>
     <a href="faq.html">FAQ</a>
-        <div class="nav-dropdown">
-          <a href="#" aria-haspopup="true">Partner &#9662;</a>
-          <div class="nav-dropdown-menu">
-            <a href="affiliate.html">Affiliate Program</a>
-            <a href="franchise.html">Own a Franchise</a>
-          </div>
-        </div>
+    <a href="affiliate.html">Affiliate Program</a>
+    <a href="franchise.html">Own a Franchise</a>
     <a href="contact.html">Contact</a>
     <a href="portal.html">Client Login</a>
-    <a href="get-started.html" class="btn btn-primary" style="margin-top:16px;">Get Started</a>
+    <a href="tel:5599009326" class="mobile-phone">(559) 900-9326</a>
+    <a href="get-started.html" class="btn btn-primary">Get Started <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
   </div>
 
-  <!-- ========== PAGE HEADER ========== -->
-  <section class="page-header">
+  <!-- ========== DOC 02 · TERMS — document mode ========== -->
+  <header class="page-head doc show">
     <div class="container">
-      <h1>Terms of <em class="flourish">service</em></h1>
-      <p>Last Updated: May 6, 2026</p>
+      <span class="doc-folio" aria-hidden="true">02</span>
+      <p class="eyebrow rv"><span class="eyebrow-dash" aria-hidden="true"></span>DOC 02 &middot; Terms</p>
+      <h1 class="h1 hl">Terms of <em class="flourish chrome-dark">service</em></h1>
+      <p class="doc-meta rv" style="--i:1">Last Updated: May 6, 2026</p>
     </div>
-  </section>
+  </header>
 
-  <!-- ========== CONTENT ========== -->
-  <section class="section section-dark">
-    <div class="container" style="max-width:800px;">
+  <section class="doc-body mist">
+    <div class="container doc-grid">
 
-      <h2>1. Agreement to Terms</h2>
+      <aside class="doc-side">
+        <nav class="doc-toc" aria-label="On this page">
+          <span class="doc-toc-label mono-label">Contents</span>
+          <div class="doc-toc-list">
+            <span class="doc-toc-rail" aria-hidden="true"><span class="doc-puck"></span></span>
+            <a href="#s01"><span class="n">01</span>Agreement to Terms</a>
+            <a href="#s02"><span class="n">02</span>Description of Services</a>
+            <a href="#s03"><span class="n">03</span>Eligibility</a>
+            <a href="#s04"><span class="n">04</span>Payment Terms</a>
+            <a href="#s05"><span class="n">05</span>90-Day Money-Back Guarantee</a>
+            <a href="#s06"><span class="n">06</span>CROA Rights and Disclosures</a>
+            <a href="#s07"><span class="n">07</span>5-Day Right to Cancel</a>
+            <a href="#s08"><span class="n">08</span>Client Responsibilities</a>
+            <a href="#s09"><span class="n">09</span>Limitation of Liability</a>
+            <a href="#s10"><span class="n">10</span>Dispute Resolution</a>
+            <a href="#s11"><span class="n">11</span>Termination</a>
+            <a href="#s12"><span class="n">12</span>Intellectual Property</a>
+            <a href="#s13"><span class="n">13</span>Third-Party Services</a>
+            <a href="#s14"><span class="n">14</span>Modifications to Terms</a>
+            <a href="#s15"><span class="n">15</span>Severability</a>
+            <a href="#s16"><span class="n">16</span>Contact Information</a>
+          </div>
+        </nav>
+      </aside>
+
+      <article class="doc-paper">
+        <div class="doc-runhead" aria-hidden="true"><span>ImproveU LLC</span><span>Terms of Service</span><span>Rev. May 6, 2026</span></div>
+        <div class="doc-content">
+
+      <h2 class="hl" id="s01">1. Agreement to Terms</h2>
       <p>These Terms of Service ("Terms") constitute a legally binding agreement between you ("Client," "you," or "your") and ImproveU LLC ("ImproveU," "we," "us," or "our"), a California limited liability company located in Fresno, California. By enrolling in our services, accessing our website (www.improveu.net), or using any of our platforms, you agree to be bound by these Terms.</p>
       <p>If you do not agree to these Terms, you must not use our services or access our website.</p>
 
-      <h2>2. Description of Services</h2>
-      <h3>Credit Repair Services</h3>
+      <h2 class="hl" id="s02">2. Description of Services</h2>
+      <h3 class="hl">Credit Repair Services</h3>
       <p>ImproveU provides credit repair services, which include but are not limited to:</p>
       <ul>
         <li>Reviewing and analyzing your credit reports from Equifax, Experian, and TransUnion</li>
@@ -116,13 +144,13 @@
         <li>Providing credit education and strategy recommendations</li>
       </ul>
 
-      <h3>Business Funding Referrals</h3>
+      <h3 class="hl">Business Funding Referrals</h3>
       <p>ImproveU may provide referrals to third-party business funding partners. We act as a referral source only and are not a lender, broker, or financial institution. Any business funding arrangement is between you and the third-party provider, subject to their own terms and conditions.</p>
 
-      <h3>90-Day Homeowner Program</h3>
+      <h3 class="hl">90-Day Homeowner Program</h3>
       <p>Our 90-Day Homeowner Program is a specialized credit repair and preparation service designed to help clients become mortgage-ready within 90 days. This program is included with Tier 3 (The Blueprint) and involves an accelerated dispute strategy combined with credit-building recommendations.</p>
 
-      <h2>3. Eligibility</h2>
+      <h2 class="hl" id="s03">3. Eligibility</h2>
       <p>To use our services, you must:</p>
       <ul>
         <li>Be at least 18 years of age</li>
@@ -132,7 +160,7 @@
         <li>Have the legal capacity to enter into a binding agreement</li>
       </ul>
 
-      <h2>4. Payment Terms</h2>
+      <h2 class="hl" id="s04">4. Payment Terms</h2>
       <ul>
         <li><strong>Pricing:</strong> All service fees are one-time payments as listed on our pricing page. Tier 1 (The Reset) is $1,497. Tier 2 (The Unlimited) is $2,497. Tier 3 (The Blueprint) ranges from $3,500 to $7,500 based on your credit profile.</li>
         <li><strong>Payment Methods:</strong> We accept major credit cards, debit cards, and other payment methods as specified at the time of enrollment.</li>
@@ -141,7 +169,7 @@
         <li><strong>Refund Policy:</strong> Once work has begun on your file (disputes sent), program fees are generally non-refundable. However, qualifying Tier 1 and Tier 3 clients are protected by our 90-day money-back guarantee (see Section 5).</li>
       </ul>
 
-      <h2>5. 90-Day Money-Back Guarantee</h2>
+      <h2 class="hl" id="s05">5. 90-Day Money-Back Guarantee</h2>
       <p>Clients enrolled in Tier 1 (The Reset) and Tier 3 (The Blueprint) are eligible for our 90-day money-back guarantee, subject to the following conditions:</p>
       <ul>
         <li>You must maintain an active SmartCredit subscription throughout the 90-day period</li>
@@ -151,7 +179,7 @@
         <li>Refund requests must be submitted in writing within 10 days after the 90-day period ends</li>
       </ul>
 
-      <h2>6. CROA Rights and Disclosures</h2>
+      <h2 class="hl" id="s06">6. CROA Rights and Disclosures</h2>
       <p>Under the Credit Repair Organizations Act (CROA), 15 U.S.C. 1679 et seq., you have the following rights:</p>
       <ul>
         <li>You have the right to dispute inaccurate information in your credit report by contacting the credit bureau directly</li>
@@ -161,17 +189,17 @@
         <li>Credit repair organizations are prohibited from making false or misleading claims about their services</li>
         <li>You have the right to sue a credit repair organization that violates the CROA</li>
       </ul>
-      <p>For the full CROA disclosure, please see our <a href="croa-disclosure.html" style="color:var(--accent);">CROA Disclosure</a> page.</p>
+      <p>For the full CROA disclosure, please see our <a href="croa-disclosure.html">CROA Disclosure</a> page.</p>
 
-      <h2>7. 5-Day Right to Cancel</h2>
+      <h2 class="hl" id="s07">7. 5-Day Right to Cancel</h2>
       <p>In accordance with the Credit Repair Organizations Act, you have the right to cancel your contract with ImproveU LLC without any penalty or obligation within 5 business days from the date you signed the service agreement. To cancel, you must provide written notice to:</p>
       <ul>
-        <li><strong>Email:</strong> help@improveu.net</li>
-        <li><strong>Phone:</strong> (559) 981-0180</li>
+        <li><strong>Email:</strong> <a href="mailto:help@improveu.net">help@improveu.net</a></li>
+        <li><strong>Phone:</strong> <a href="tel:5599009326">(559) 900-9326</a></li>
       </ul>
       <p>If you cancel within the 5-day period, you will receive a full refund of any fees paid.</p>
 
-      <h2>8. Client Responsibilities</h2>
+      <h2 class="hl" id="s08">8. Client Responsibilities</h2>
       <p>As a client, you agree to:</p>
       <ul>
         <li>Provide accurate, complete, and truthful information at all times</li>
@@ -183,12 +211,12 @@
         <li>Understand that credit repair takes time and results vary by individual</li>
       </ul>
 
-      <h2>9. Limitation of Liability</h2>
+      <h2 class="hl" id="s09">9. Limitation of Liability</h2>
       <p><strong>Results Vary:</strong> Credit repair results vary by individual. The outcome of your case depends on the specific items on your credit report, the accuracy of the information reported, and the responses received from credit bureaus and creditors. We do not and cannot guarantee specific credit score increases, specific item removals, or specific timelines.</p>
       <p><strong>Not a Law Firm:</strong> ImproveU LLC is not a law firm and does not provide legal advice. Our services are limited to credit repair as defined under applicable law. If you need legal advice, we recommend consulting with a qualified attorney.</p>
       <p><strong>Limitation:</strong> To the maximum extent permitted by law, ImproveU LLC shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, or other intangible losses, resulting from your use of our services. Our total liability shall not exceed the amount you paid for services.</p>
 
-      <h2>10. Dispute Resolution</h2>
+      <h2 class="hl" id="s10">10. Dispute Resolution</h2>
       <p>Any disputes arising from or relating to these Terms or our services shall be resolved as follows:</p>
       <ul>
         <li><strong>Informal Resolution:</strong> You agree to first attempt to resolve any dispute informally by contacting us at help@improveu.net. We will work in good faith to resolve the issue within 30 days.</li>
@@ -197,53 +225,67 @@
         <li><strong>Jurisdiction:</strong> Any legal proceedings shall be conducted in the state or federal courts located in Fresno County, California.</li>
       </ul>
 
-      <h2>11. Termination</h2>
+      <h2 class="hl" id="s11">11. Termination</h2>
       <ul>
         <li><strong>By You:</strong> You may terminate your services at any time by providing written notice to help@improveu.net. Fees paid prior to termination are non-refundable except as provided by the 5-day cancellation right or the 90-day guarantee.</li>
         <li><strong>By Us:</strong> We may terminate or suspend your services if you breach these Terms, provide false information, fail to maintain credit monitoring, become unresponsive for more than 30 days, or engage in fraudulent activity.</li>
         <li><strong>Effect of Termination:</strong> Upon termination, we will cease all dispute activity on your behalf. Any pending disputes already sent will continue through the normal bureau response process.</li>
       </ul>
 
-      <h2>12. Intellectual Property</h2>
+      <h2 class="hl" id="s12">12. Intellectual Property</h2>
       <p>All content on our website, including text, graphics, logos, images, software, and the design and layout of our website and client portal, is the property of ImproveU LLC and is protected by United States copyright, trademark, and other intellectual property laws. You may not reproduce, distribute, modify, or create derivative works from any content without our prior written consent.</p>
       <p>The ImproveU name, logo, and all related names, logos, product and service names, designs, and slogans are trademarks of ImproveU LLC.</p>
 
-      <h2>13. Third-Party Services</h2>
+      <h2 class="hl" id="s13">13. Third-Party Services</h2>
       <p>Our services may integrate with or refer you to third-party services, including but not limited to SmartCredit, Scorexer/Pulse, and business funding partners. These third-party services have their own terms of service and privacy policies. We are not responsible for the practices, content, or availability of third-party services.</p>
 
-      <h2>14. Modifications to Terms</h2>
+      <h2 class="hl" id="s14">14. Modifications to Terms</h2>
       <p>We reserve the right to modify these Terms at any time. Changes will be effective upon posting to our website with an updated "Last Updated" date. Your continued use of our services after modifications constitutes acceptance of the revised Terms. We will make reasonable efforts to notify active clients of material changes.</p>
 
-      <h2>15. Severability</h2>
+      <h2 class="hl" id="s15">15. Severability</h2>
       <p>If any provision of these Terms is found to be unenforceable or invalid, that provision shall be limited or eliminated to the minimum extent necessary, and the remaining provisions shall remain in full force and effect.</p>
 
-      <h2>16. Contact Information</h2>
+      <h2 class="hl" id="s16">16. Contact Information</h2>
       <p>For questions about these Terms of Service, please contact us:</p>
       <ul>
-        <li><strong>Email:</strong> <a href="mailto:help@improveu.net" style="color:var(--accent);">help@improveu.net</a></li>
-        <li><strong>Phone:</strong> <a href="tel:5599810180" style="color:var(--accent);">(559) 981-0180</a></li>
+        <li><strong>Email:</strong> <a href="mailto:help@improveu.net">help@improveu.net</a></li>
+        <li><strong>Phone:</strong> <a href="tel:5599009326">(559) 900-9326</a></li>
         <li><strong>Mail:</strong> ImproveU LLC, Fresno, California</li>
       </ul>
+
+        </div>
+        <div class="doc-end">
+          <span class="mono-label">End of DOC 02 &middot; Terms of Service</span>
+          <nav class="doc-set" aria-label="Other legal documents">
+            <a href="privacy-policy.html">DOC 01 &middot; Privacy</a>
+            <a href="croa-disclosure.html">DOC 03 &middot; CROA</a>
+            <a href="cookie-policy.html">DOC 04 &middot; Cookies</a>
+          </nav>
+        </div>
+      </article>
 
     </div>
   </section>
 
-  <!-- ========== FOOTER ========== -->
-  <footer class="footer">
+<!-- ========== FOOTER (canonical — paste verbatim on every page, right after the CTA banner) ========== -->
+  <div class="seam" aria-hidden="true"></div>
+  <footer class="footer vault">
+    <div class="wordmark" aria-hidden="true">IMPROVEU</div>
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="images/logo.png" alt="ImproveU" width="120" height="34">
-          <p style="margin-top:8px; font-style:italic; color:var(--accent); font-size:0.9rem;">Improve your credit. Improve your life.</p>
-          <div class="footer-contact" style="margin-top:16px;">
-            <a href="tel:5599810180">&#9742; (559) 981-0180</a>
-            <a href="mailto:help@improveu.net">&#9993; help@improveu.net</a>
-            <span style="font-size:0.85rem; color:var(--gray-dark);">Fresno, CA &bull; Mon-Fri 9am-6pm PST</span>
+          <a href="index.html" class="footer-logo" aria-label="ImproveU Home">
+            <img src="images/logo.png" alt="ImproveU" width="160" height="160" loading="lazy">
+          </a>
+          <p>Improve your credit. Improve your life.</p>
+          <div class="footer-contact">
+            <a href="tel:5599009326" class="mono">(559) 900-9326</a>
+            <a href="mailto:help@improveu.net">help@improveu.net</a>
+            <span>Fresno, CA &bull; Mon&ndash;Fri 9am&ndash;6pm PST</span>
           </div>
           <div class="footer-social">
-            <a href="#" aria-label="Instagram">IG</a>
-            <a href="#" aria-label="TikTok">TT</a>
-            <a href="#" aria-label="YouTube">YT</a>
+            <a href="https://instagram.com/boostwithjames" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+            <!-- TikTok / YouTube circles return here only when real profile URLs exist — never ship href="#" -->
           </div>
         </div>
         <div>
@@ -289,5 +331,6 @@
   </div>
 
   <script src="js/main.js"></script>
+  <script src="js/pages/legal.js"></script>
 </body>
 </html>

@@ -1,0 +1,130 @@
+/* ==========================================================================
+   business-funding.html — page-local styles ("The Funding Fan")
+   Loaded AFTER css/styles.css. Tokens only: white / black / silver.
+   ========================================================================== */
+
+/* ---- page head: CTA row + mono meta line ---- */
+.page-head .head-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 36px; }
+.page-head .head-meta { display: flex; flex-wrap: wrap; gap: 10px 0; margin-top: 30px; font-family: var(--font-mono); font-weight: 500; font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: #26272B; }
+.page-head .head-meta span + span::before { content: '\00B7'; margin: 0 16px; color: #8E9199; }
+
+/* ---- the fan (vault) ---- */
+.fund-split { display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(40px, 6vw, 88px); align-items: center; }
+.fund-fan {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  padding: 44px 0 64px;
+  perspective: 1400px;
+}
+/* chrome floor line + soft pool of shadow under the hand of cards */
+.fund-fan::before { content: ''; position: absolute; left: 6%; right: 6%; bottom: 22px; height: 1px; background: var(--chrome-edge); opacity: .7; }
+.fund-fan::after { content: ''; position: absolute; left: 12%; right: 12%; bottom: 8px; height: 40px; border-radius: 50%; background: radial-gradient(ellipse, rgba(255,255,255,.10), transparent 70%); pointer-events: none; }
+.fund-fan > * { grid-area: 1 / 1; perspective: 1200px; transform-origin: 50% 135%; transition: transform .9s var(--ease-out); }
+/* held like a hand: each card overlaps the one to its left, so every embossed label (top-left) stays readable */
+.fund-fan > :nth-child(1) { z-index: 1; }
+.fund-fan > :nth-child(2) { z-index: 2; }
+.fund-fan > :nth-child(3) { z-index: 3; }
+/* deck at rest (before reveal) — a tidy stack with 2° of slack */
+.js .fund-fan > :nth-child(1) { transform: translate(-4%, 2%) rotate(-2deg); }
+.js .fund-fan > :nth-child(3) { transform: translate(4%, 2%) rotate(2deg); }
+/* fanned (styles.css's .fan.in rule is out-ranked by its own .js .fan reset — restated here at higher specificity) */
+.js .fund-fan.in > :nth-child(1), html:not(.js) .fund-fan > :nth-child(1) { transform: translateX(-44%) rotate(-8deg); }
+.js .fund-fan.in > :nth-child(3), html:not(.js) .fund-fan > :nth-child(3) { transform: translateX(44%) rotate(8deg); }
+.js .fund-fan.in:hover > :nth-child(1) { transform: translateX(-50%) rotate(-12deg); }
+.js .fund-fan.in:hover > :nth-child(3) { transform: translateX(50%) rotate(12deg); }
+/* the whole hand tilts as one — --mx/--my come from [data-tilt] on the fan and inherit */
+.fund-fan .iu-card.mini {
+  width: clamp(250px, 24vw, 350px);
+  border-radius: 18px;
+  transform: rotateX(calc(var(--my, 0) * -8deg)) rotateY(calc(var(--mx, 0) * 8deg));
+  transition: transform .15s ease-out;
+  box-shadow: 0 30px 60px -20px rgba(0,0,0,.85);
+}
+.fund-fan > :nth-child(2) .iu-card.mini { box-shadow: 0 30px 60px -20px rgba(0,0,0,.85), var(--glow-white); }
+/* embossed face copy (sized up: these cards are the hero object, not a tier thumbnail) */
+.fund-fan .iu-tag { left: 7cqw; top: 22cqw; font-family: var(--font-mono); font-weight: 500; font-size: 2.4cqw; letter-spacing: .22em; text-transform: uppercase; color: #8E9199; text-shadow: 0 1px 0 rgba(255,255,255,.12), 0 -1px 0 rgba(0,0,0,.9); white-space: nowrap; z-index: 3; }
+.fund-fan .iu-label { top: 42cqw; font-size: 4.4cqw; letter-spacing: .08em; font-variation-settings: 'wdth' 118, 'wght' 800; }
+.fund-fan .iu-amt { left: 7cqw; bottom: 9cqw; font-family: var(--font-mono); font-weight: 500; font-size: 3.6cqw; letter-spacing: .14em; line-height: 1; color: #DDDFE3; text-shadow: 0 1px 0 rgba(255,255,255,.2), 0 -1px 0 rgba(0,0,0,.9); white-space: nowrap; font-variant-numeric: tabular-nums; z-index: 3; display: inline-flex; align-items: baseline; gap: .5em; }
+.fund-fan .iu-amt .odo { font-weight: 700; }
+.fund-fan .iu-card.silver .iu-tag { color: #26272B; text-shadow: 0 1px 0 #FFFFFF; }
+.fund-fan .iu-card.silver .iu-amt { color: #0A0A0B; text-shadow: 0 1px 0 #FFFFFF; }
+.fund-fan .iu-card.mini .iu-meta { font-size: 2.4cqw; }
+
+/* legend: which face holds which products */
+.fund-legend { margin-top: 30px; border-top: 1px solid #26272B; }
+.fund-legend li { display: grid; grid-template-columns: 34px 1fr; gap: 14px; align-items: start; padding: 14px 0; border-bottom: 1px solid #26272B; }
+.fund-legend .fund-swatch { margin-top: 3px; }
+.fund-legend strong { display: block; font-family: var(--font-display); font-variation-settings: 'wdth' 108, 'wght' 700; font-size: .98rem; color: #FFFFFF; margin-bottom: 2px; }
+.fund-legend span { font-size: .88rem; color: #C9CCD2; }
+.fund-swatch { display: inline-block; width: 30px; height: 19px; border-radius: 4px; box-shadow: inset 0 0 0 1px #8E9199; flex-shrink: 0; }
+.fund-swatch.silver { background: var(--chrome); background-size: 200% 100%; background-position: calc(var(--light) * 100%) 0; }
+.fund-swatch.black { background: var(--card-face); }
+.fund-swatch.blueprint { background-color: #0A0A0B; background-image: linear-gradient(#26272B 1px, transparent 1px), linear-gradient(90deg, #26272B 1px, transparent 1px); background-size: 5px 5px; }
+
+/* ---- the product sheet (vault ledger of six products) ---- */
+.fund-sheet { background: #141416; border: 1px solid #26272B; border-radius: 18px; overflow: hidden; }
+.fund-head, .fund-row { display: grid; grid-template-columns: 44px 1.5fr 1.05fr .95fr auto; gap: 24px; align-items: center; padding: 24px 28px; border-bottom: 1px solid #26272B; }
+.fund-head { padding: 16px 28px; }
+.fund-head .mono-label { color: #8E9199; }
+.fund-row { position: relative; transition: background-color .3s; }
+.fund-row:last-of-type { border-bottom: 0; }
+.fund-row:hover { background: #1A1B1E; }
+.fund-row::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(180deg, #8E9199, #FFFFFF 50%, #8E9199); transform: scaleY(0); transform-origin: top; transition: transform .4s var(--ease-out); }
+.fund-row:hover::before, .fund-row:focus-within::before { transform: scaleY(1); }
+.fund-n { font-family: var(--font-mono); font-size: .78rem; color: #8E9199; transition: color .3s; }
+.fund-row:hover .fund-n { color: #FFFFFF; }
+.fund-type { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-weight: 500; font-size: .64rem; letter-spacing: .2em; text-transform: uppercase; color: #8E9199; margin-bottom: 8px; }
+.fund-type .fund-swatch { width: 22px; height: 14px; border-radius: 3px; }
+.fund-row h3 { font-size: 1.22rem; color: #FFFFFF; margin-bottom: 6px; letter-spacing: -.01em; }
+.fund-what p, .fund-best p { font-size: .92rem; line-height: 1.55; color: #C9CCD2; }
+.fund-best .mono-label { display: none; font-size: .62rem; letter-spacing: .2em; color: #8E9199; margin-bottom: 4px; } /* the sheet head carries the column name on desktop */
+.fund-amt { font-family: var(--font-mono); font-weight: 700; font-size: 1.3rem; line-height: 1; color: #FFFFFF; white-space: nowrap; letter-spacing: -.01em; font-variant-numeric: tabular-nums; display: inline-flex; align-items: baseline; gap: .3em; }
+.fund-amt .dash { color: #8E9199; font-weight: 400; }
+.fund-amt .odo { display: inline-flex; }
+.fund-foot { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding: 16px 28px; border-top: 1px solid #26272B; background: rgba(255,255,255,.02); font-size: .8rem; color: #8E9199; }
+.fund-foot .mono-label { color: #8E9199; }
+.fund-foot .mono-label b { color: #FFFFFF; font-weight: 700; }
+
+/* ---- the edge (mist): checklist sheet ---- */
+.edge-sheet { position: relative; background: #FFFFFF; border: 1px solid #DDDFE3; border-radius: 18px; padding: clamp(26px, 3vw, 40px); box-shadow: var(--shadow-1); }
+.edge-sheet::before { content: ''; position: absolute; top: 0; left: 18px; right: 18px; height: 1px; background: var(--chrome-edge-dark); opacity: .8; }
+.edge-sheet .mono-label { display: block; margin-bottom: 8px; }
+.edge-sheet .checklist li { padding: 16px 0; font-size: .98rem; line-height: 1.55; color: #26272B; }
+.edge-sheet .checklist strong { color: #0A0A0B; }
+.edge-sheet .link { margin-top: 22px; }
+.edge-copy p + p { margin-top: 14px; }
+.edge-copy h2 { margin-bottom: 22px; }
+
+/* ---- responsive ---- */
+@media (max-width: 1100px) {
+  .fund-head { display: none; }
+  .fund-best .mono-label { display: block; }
+  .fund-row { grid-template-columns: 36px 1fr auto; grid-template-areas: "n what amt" "n best btn"; row-gap: 14px; padding: 22px 22px; }
+  .fund-row .fund-n { grid-area: n; align-self: start; padding-top: 4px; }
+  .fund-row .fund-what { grid-area: what; }
+  .fund-row .fund-best { grid-area: best; }
+  .fund-row .fund-amt { grid-area: amt; justify-self: end; align-self: start; }
+  .fund-row .btn { grid-area: btn; justify-self: end; }
+}
+@media (max-width: 900px) {
+  .fund-split { grid-template-columns: 1fr; gap: 40px; }
+  .fund-fan { order: -1; }
+}
+@media (max-width: 640px) {
+  .fund-fan { display: flex; flex-direction: column; align-items: center; gap: 18px; padding: 10px 0 34px; perspective: none; }
+  .fund-fan > * { transform: none !important; perspective: none; width: 100%; max-width: 330px; }
+  .fund-fan .iu-card.mini { width: 100%; transform: none; }
+  .fund-fan::before { bottom: 12px; }
+  .fund-fan::after { display: none; }
+  .fund-row { grid-template-columns: 1fr; grid-template-areas: "n" "what" "best" "amt" "btn"; row-gap: 12px; padding: 22px 18px; }
+  .fund-row .fund-n { padding-top: 0; }
+  .fund-row .fund-amt { justify-self: start; font-size: 1.45rem; }
+  .fund-row .btn { justify-self: start; }
+  .fund-foot { padding: 16px 18px; }
+  .page-head .head-ctas { flex-direction: column; gap: 10px; margin-top: 28px; }
+  .page-head .head-ctas .btn { width: 100%; }
+  .page-head .head-meta { font-size: .64rem; letter-spacing: .14em; }
+  .page-head .head-meta span + span::before { margin: 0 10px; }
+}

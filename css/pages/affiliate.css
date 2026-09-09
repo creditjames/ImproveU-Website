@@ -1,0 +1,96 @@
+/* ==========================================================================
+   affiliate.html — page-local styles ("Commission Counter")
+   Loads AFTER css/styles.css. Tokens only; palette = white / black / silver.
+   ========================================================================== */
+
+/* ---- 1. Page head: copy left, the AFFILIATE card right ---- */
+.aff-head-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
+.aff-head h1 { font-size: clamp(2.8rem, 5.6vw, 5.2rem); margin-top: 6px; }
+.aff-head .lead { margin-top: 24px; max-width: 34rem; }
+.aff-head-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 34px; }
+.aff-head-note { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 28px; font-size: .95rem; color: var(--steel); }
+.aff-head-note .pill { font-weight: 700; }
+.aff-stage { display: flex; justify-content: center; align-items: center; }
+.aff-stage .card-stage { margin: 0 auto; }
+.aff-stage .card-flip { transform-style: flat; }
+
+/* ---- 2. Steps ledger on the rail (mist): three cells, not four ---- */
+.aff-steps { grid-template-columns: repeat(3, 1fr); }
+.aff-steps .rail-step h3 { font-size: 1.15rem; margin-bottom: 10px; padding: 0; color: #0A0A0B; } /* mirrors shared .rail-step h4 */
+.aff-steps-cta { display: flex; justify-content: center; margin-top: 44px; }
+
+/* ---- 3. Perks: a numbered terms sheet (white) ---- */
+.aff-perks-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(40px, 6vw, 88px); align-items: start; }
+.aff-perks .sec-head { margin-bottom: 26px; }
+.aff-perks .checklist { border-top: 1px solid var(--silver-4); }
+.aff-perks .checklist li { padding: 18px 0; font-size: 1.02rem; align-items: center; gap: 18px; }
+.aff-perks .checklist li strong { color: var(--black); font-variation-settings: 'wdth' 108, 'wght' 700; }
+.aff-perks .checklist li svg { margin-top: 0; }
+.aff-perk-n { font-family: var(--font-mono); font-weight: 500; font-size: .72rem; letter-spacing: .18em; color: var(--steel); flex-shrink: 0; width: 26px; }
+.aff-perk-t { flex: 1; }
+
+/* ---- 4. Vault: the counter beside the (sacred) webform ---- */
+.aff-join-grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: clamp(40px, 6vw, 80px); align-items: center; }
+.aff-join-copy .sec-sub { margin-top: 18px; }
+.aff-counter { position: relative; margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--steel); }
+.aff-counter::before { content: ''; position: absolute; left: 0; top: -1px; width: 72px; height: 1px; background: var(--chrome-edge); }
+.aff-num {
+  position: relative;
+  display: inline-flex;
+  align-items: baseline;
+  margin-top: 14px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: clamp(4.2rem, 9vw, 8rem);
+  line-height: 1;
+  letter-spacing: -.04em;
+  color: #FFFFFF;
+  font-variant-numeric: tabular-nums;
+}
+.aff-num .odo-c { font-size: .55em; margin-right: .08em; }
+/* the stamp lands beside the amount, never over the digits */
+.aff-paid { align-self: center; margin-left: .32em; font-size: clamp(.9rem, 1.4vw, 1.15rem); z-index: 2; -webkit-text-fill-color: #DDDFE3; --rot: -9deg; }
+/* the stamp lands the moment the odometer settles (JS adds .is-done to the .odo) */
+.aff-num .odo.is-done ~ .aff-paid { transform: translateX(var(--sx)) rotate(var(--rot)) scale(1); opacity: var(--ink); }
+.aff-per { display: block; margin-top: 12px; font-family: var(--font-serif); font-style: italic; font-size: 1.55rem; line-height: 1.2; color: var(--silver-3); }
+.aff-stack { margin-top: 22px; font-size: .95rem; max-width: 36ch; }
+.aff-stack strong { color: #FFFFFF; }
+
+/* the form card: graphite sheet with a chrome hairline; inputs are darker wells inside it */
+.aff-form-card { padding: clamp(24px, 4vw, 44px); border-radius: var(--radius-lg); max-width: none; margin: 0; }
+.aff-form-card::before { content: ''; position: absolute; top: 0; left: var(--radius); right: var(--radius); height: 1px; background: var(--chrome-edge); opacity: .7; z-index: 2; }
+.aff-form-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 26px; padding-bottom: 18px; border-bottom: 1px solid var(--steel); }
+.aff-form-head .mono-label { color: var(--silver); }
+.aff-form-card .aff-form-grid { gap: 18px; }
+.aff-form-card .field { margin-bottom: 0; }
+.aff-form-card .aff-form-grid + .field { margin-top: 18px; }
+.aff-form-card .field input { background: #0A0A0B; }
+/* background-color only: the shorthand would wipe the shared select chevron (background-image in styles.css) */
+.aff-form-card .field select { background-color: #0A0A0B; }
+.aff-form-card .field select option { background: #141416; color: #FFFFFF; }
+.aff-form-card .btn { width: 100%; margin-top: 28px; }
+.aff-form-note { text-align: center; margin-top: 14px; font-size: .78rem; color: var(--silver); }
+
+/* ---- 4b. Vault-to-vault divide: a graphite hairline with a 24px chrome tick (the seam stays for white<->black only) ---- */
+.aff-divide { position: relative; height: 1px; background: #26272B; z-index: 2; }
+.aff-divide::after { content: ''; position: absolute; top: 0; left: 50%; width: 24px; height: 1px; margin-left: -12px; background: var(--chrome-edge); }
+/* the closing CTA rides on the form vault, so it sits tighter (keeps the tail under the 1200px spotlight rule) */
+.cta-banner.aff-cta { padding: clamp(64px, 7vw, 96px) 0; }
+
+/* ---- 5. Responsive ---- */
+@media (max-width: 1100px) {
+  .aff-head-grid { grid-template-columns: 1fr; gap: 48px; }
+  .aff-stage .card-stage { width: clamp(300px, 60vw, 520px); }
+}
+@media (max-width: 900px) {
+  .aff-perks-grid, .aff-join-grid { grid-template-columns: 1fr; gap: 44px; }
+}
+@media (max-width: 768px) {
+  .aff-steps { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .aff-head-ctas { flex-direction: column; gap: 10px; }
+  .aff-head-ctas .btn { width: 100%; }
+  .aff-num { font-size: clamp(3.6rem, 19vw, 5.2rem); }
+  .aff-per { font-size: 1.3rem; }
+}

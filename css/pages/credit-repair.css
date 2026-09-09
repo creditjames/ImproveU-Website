@@ -1,0 +1,118 @@
+/* ==========================================================================
+   credit-repair.html — page-local styles ("The Hit List")
+   Loads AFTER css/styles.css. Tokens only: white / black / silver.
+   ========================================================================== */
+
+/* ---- page head: text + actions + the three laws as pills ---- */
+.page-head .head-copy { max-width: 62ch; margin-top: 22px; font-size: 1rem; line-height: 1.65; }
+.head-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 34px; }
+.head-laws { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 34px; padding-top: 24px; border-top: 1px solid #DDDFE3; }
+.head-laws .lbl { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .24em; text-transform: uppercase; color: #26272B; display: inline-flex; align-items: center; margin-right: 6px; }
+
+/* ---- the hit list ledger: # | item | what it is | status ---- */
+.hit .ledger-head, .hit .ledger-row { grid-template-columns: 44px 1.15fr 1.9fr .9fr; }
+.hit .ledger-row { padding-top: 12px; padding-bottom: 12px; }
+.hit .ledger-desc { font-family: var(--font-body); font-variation-settings: normal; font-size: .88rem; color: #C9CCD2; transition: color .3s; }
+.hit .ledger-row.is-struck .ledger-desc, html:not(.js) .hit .ledger-desc { color: #8E9199; }
+.hit .ledger-row::after { right: 27%; }
+.hit .ledger-total { font-size: .72rem; }
+.hit-note { margin-top: 24px; font-size: .8rem; color: #8E9199; text-align: center; }
+.vault .hit-note { color: #8E9199; }
+
+/* ---- five phases on the rail ---- */
+.phases { grid-template-columns: repeat(5, 1fr); }
+.phases .rail-step { display: flex; flex-direction: column; }
+.phases .rail-step p { flex: 1; }
+.phases .rail-step h3 { font-size: 1.15rem; margin-bottom: 10px; padding: 0; color: #0A0A0B; }
+/* each phase closes with a ruled key line (phrases from its own copy); phase 05's key is the score itself */
+.phase-key { display: block; margin-top: 28px; padding-top: 14px; min-height: calc(2.2rem + 15px); border-top: 1px solid #DDDFE3; font-family: var(--font-mono); font-size: .66rem; letter-spacing: .18em; text-transform: uppercase; color: #26272B; }
+.phases .rail-step:last-child .phase-text { display: flex; flex-direction: column; flex: 1; }
+.phase-score { margin: 26px auto 0; }
+/* mini score ring inside phase 05 (the global .score is 240–360px wide) */
+.phases .score[data-ring] { width: 172px; }
+.phases .score-center { gap: 2px; }
+.phases .score-center .mono-label { font-size: .5rem; letter-spacing: .2em; }
+.phases .score-num { font-size: 2.35rem; }
+.phases .score-word { font-size: 1.05rem; }
+.phases .score-range { display: none; }
+.phases .score-delta { right: auto; left: 50%; top: auto; bottom: 4px; transform: translateX(-50%) scale(.8); }
+.phases .score.is-done .score-delta, html:not(.js) .phases .score-delta { transform: translateX(-50%) scale(1); }
+.phases-cta { margin-top: 48px; }
+
+/* ---- personally reviewed: founder on a vault stage ---- */
+.reviewed-card { position: relative; background: #141416; border: 1px solid #26272B; border-radius: var(--radius); overflow: hidden; --tx: -5deg; --ty: 5deg; }
+.reviewed-stage {
+  position: relative;
+  height: clamp(380px, 42vw, 580px);
+  display: flex; align-items: flex-end; justify-content: center;
+  overflow: hidden;
+  background: radial-gradient(80% 60% at 50% 100%, #1E1F23, transparent 70%);
+}
+.reviewed-stage::after { content: ''; position: absolute; left: 8%; right: 8%; bottom: 0; height: 1px; background: var(--chrome-edge); opacity: .8; }
+.reviewed-stage img { position: relative; z-index: 1; height: 100%; width: auto; max-width: none; object-fit: contain; object-position: bottom; }
+.reviewed-stage img[data-parallax] { transform: translate3d(calc(var(--mx, 0) * 6px), calc(var(--p, 0) * var(--px, 0) * 1px + var(--my, 0) * 6px), 0); }
+.reviewed-plate { display: flex; justify-content: space-between; align-items: center; gap: 8px 16px; flex-wrap: wrap; padding: 16px 24px; border-top: 1px solid #26272B; }
+.reviewed-plate .mono-label { color: #8E9199; }
+.reviewed-plate strong { font-family: var(--font-display); font-variation-settings: 'wdth' 110, 'wght' 700; font-size: 1rem; color: #FFFFFF; }
+.reviewed-copy p + p { margin-top: 14px; }
+.reviewed-copy h2 { margin-bottom: 22px; }
+.reviewed-copy .btn { margin-top: 30px; }
+
+/* ---- comparison: a white sheet on the mist ---- */
+.compare-sheet { background: #FFFFFF; border: 1px solid #DDDFE3; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-1); }
+.compare-sheet .comparison-table { margin: 0; border: 0; }
+.compare-sheet .comparison-table th { padding-top: 18px; padding-bottom: 18px; }
+.compare-sheet .comparison-table th:nth-child(2) { color: #FFFFFF; }
+.compare-sheet .comparison-table td { padding: 18px 24px; font-size: .95rem; }
+.compare-sheet .comparison-table tr:last-child td { border-bottom: 0; }
+.compare-sheet .comparison-table td:first-child { font-family: var(--font-mono); font-weight: 500; font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; }
+.compare-sheet .comparison-table .win { font-family: var(--font-display); font-variation-settings: 'wdth' 108, 'wght' 700; }
+.compare-sheet .comparison-table .lose { color: #26272B; }
+.compare-note { margin-top: 22px; text-align: center; font-size: .82rem; color: #26272B; }
+
+/* ---- responsive ---- */
+@media (max-width: 1100px) {
+  .phases { grid-template-columns: repeat(2, 1fr); }
+  .phases .rail-step:nth-child(2n) { border-right: 0; }
+  .phases .rail-step:nth-child(-n+4) { border-bottom: 1px solid #DDDFE3; }
+  .phases .rail-step:last-child { grid-column: 1 / -1; flex-direction: row; align-items: center; gap: 32px; flex-wrap: wrap; }
+  .phases .rail-step:last-child .phase-text { flex: 1 1 320px; }
+  .phase-score { margin: 0; }
+}
+@media (max-width: 900px) {
+  .hit .ledger-head, .hit .ledger-row { grid-template-columns: 36px 1.1fr 1.7fr .9fr; }
+}
+@media (max-width: 768px) {
+  .phases { grid-template-columns: 1fr; }
+  .phases .rail-step:last-child { flex-direction: column; align-items: stretch; }
+  .phase-score { margin: 22px auto 0; }
+  /* the description drops under the item name; status keeps the right edge */
+  .hit .ledger-head { grid-template-columns: 32px 1fr auto; }
+  .hit .ledger-head > span:nth-child(3) { display: none; }
+  .hit .ledger-row { grid-template-columns: 32px 1fr auto; grid-template-rows: auto auto; row-gap: 2px; align-items: start; }
+  .hit .ledger-row > span:nth-child(3) { display: block; grid-column: 2; grid-row: 2; font-size: .8rem; line-height: 1.4; }
+  .hit .ledger-row > .ledger-n { grid-row: 1; padding-top: 3px; }
+  .hit .ledger-row > .ledger-status { grid-column: 3; grid-row: 1 / span 2; align-self: center; min-width: 108px; text-align: right; }
+  .hit .ledger-status .stamp { left: auto; right: -4px; }
+  .hit .ledger-row::after { top: 21px; right: 126px; }
+  .phases .step-tick { display: none; }
+}
+@media (max-width: 640px) {
+  .head-actions .btn { flex: 1 1 0; min-width: 0; padding: 0 14px; }
+  /* comparison rows stack: feature label, then ImproveU, then Typical (struck) */
+  .compare-sheet .comparison-table, .compare-sheet .comparison-table tbody, .compare-sheet .comparison-table tr, .compare-sheet .comparison-table td { display: block; width: 100%; overflow: visible; }
+  .compare-sheet .comparison-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+  .compare-sheet .comparison-table tr { border-bottom: 1px solid #DDDFE3; padding: 18px 20px; }
+  .compare-sheet .comparison-table tr:last-child { border-bottom: 0; }
+  .compare-sheet .comparison-table td { padding: 0; border: 0; }
+  .compare-sheet .comparison-table td:first-child { margin-bottom: 10px; color: #8E9199; }
+  .compare-sheet .comparison-table td:nth-child(2), .compare-sheet .comparison-table td:nth-child(3) { display: grid; grid-template-columns: 74px 1fr; gap: 12px; align-items: baseline; padding: 6px 0; }
+  .compare-sheet .comparison-table td:nth-child(2)::before { content: 'ImproveU'; font-family: var(--font-mono); font-size: .62rem; letter-spacing: .16em; text-transform: uppercase; color: #0A0A0B; }
+  .compare-sheet .comparison-table td:nth-child(3)::before { content: 'Typical'; font-family: var(--font-mono); font-size: .62rem; letter-spacing: .16em; text-transform: uppercase; color: #8E9199; }
+  .compare-sheet .comparison-table .win, .compare-sheet .comparison-table .lose { font-size: .98rem; }
+}
+@media (max-width: 420px) {
+  .head-laws { gap: 8px; }
+  .hit .ledger-row > .ledger-status { min-width: 100px; }
+  .hit .ledger-row::after { right: 118px; }
+}

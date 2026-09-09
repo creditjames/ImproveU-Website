@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
-  <link rel="apple-touch-icon" href="images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="512x512" href="images/favicon.png">
+  <link rel="apple-touch-icon" href="images/favicon.png">
   <title>About ImproveU — Our Story, Our Team, Our Mission</title>
   <meta name="description" content="Learn the story behind ImproveU. Founded by James in Fresno, CA — 8+ years of real credit repair results built on transparency, strategy, and relentless work.">
   <meta property="og:type" content="website">
@@ -17,33 +17,52 @@
   <link rel="canonical" href="https://www.improveu.net/about.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Hanken+Grotesk:ital,wght@0,300..800;1,300..800&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pages/about.css">
+  <!-- Schema: AboutPage → Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About ImproveU",
+    "url": "https://www.improveu.net/about.html",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "ImproveU",
+      "url": "https://www.improveu.net/",
+      "telephone": "+1-559-900-9326",
+      "email": "help@improveu.net",
+      "founder": { "@type": "Person", "name": "James", "jobTitle": "Founder & Lead Credit Strategist" },
+      "address": { "@type": "PostalAddress", "addressLocality": "Fresno", "addressRegion": "CA", "addressCountry": "US" }
+    }
+  }
+  </script>
 </head>
 <body>
 
-  <!-- ========== NAVIGATION ========== -->
+<!-- ========== NAVIGATION (canonical — paste verbatim on every page) ========== -->
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo" aria-label="ImproveU Home">
-        <img src="images/logo.png" alt="ImproveU" width="140" height="40">
+        <img src="images/logo.png" alt="ImproveU" width="104" height="104">
       </a>
       <div class="nav-links">
         <div class="nav-dropdown">
-          <a href="#" aria-haspopup="true">Services &#9662;</a>
+          <a href="#" aria-haspopup="true" aria-expanded="false">Services <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
           <div class="nav-dropdown-menu">
             <a href="credit-repair.html">Credit Repair</a>
             <a href="business-funding.html">Business Funding</a>
-            <a href="homeowner-program.html">90-Day Homeowner Program</a>
+            <a href="homeowner-program.html">Homeowner Program</a>
           </div>
         </div>
         <a href="pricing.html">Pricing</a>
         <a href="results.html">Results</a>
-        <a href="about.html" class="active">About</a>
+        <a href="about.html">About</a>
         <a href="blog.html">Blog</a>
         <a href="faq.html">FAQ</a>
         <div class="nav-dropdown">
-          <a href="#" aria-haspopup="true">Partner &#9662;</a>
+          <a href="#" aria-haspopup="true" aria-expanded="false">Partner <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
           <div class="nav-dropdown-menu">
             <a href="affiliate.html">Affiliate Program</a>
             <a href="franchise.html">Own a Franchise</a>
@@ -52,17 +71,18 @@
         <a href="contact.html">Contact</a>
       </div>
       <div class="nav-actions">
-        <a href="portal.html" class="btn-login">Client Login</a>
+        <a href="tel:5599009326" class="nav-phone">(559) 900-9326</a>
+        <a href="portal.html" class="btn btn-ghost btn-sm btn-login">Client Login</a>
         <a href="get-started.html" class="btn btn-primary btn-sm">Get Started</a>
       </div>
-      <button class="nav-toggle" aria-label="Open menu">
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
   <!-- Mobile Menu -->
-  <div class="mobile-menu">
+  <div class="mobile-menu" id="mobile-menu">
     <a href="credit-repair.html">Credit Repair</a>
     <a href="business-funding.html">Business Funding</a>
     <a href="homeowner-program.html">Homeowner Program</a>
@@ -75,48 +95,106 @@
     <a href="franchise.html">Own a Franchise</a>
     <a href="contact.html">Contact</a>
     <a href="portal.html">Client Login</a>
-    <a href="get-started.html" class="btn btn-primary">Get Started</a>
+    <a href="tel:5599009326" class="mobile-phone">(559) 900-9326</a>
+    <a href="get-started.html" class="btn btn-primary">Get Started <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
   </div>
 
-  <!-- ========== PAGE HEADER ========== -->
-  <section class="page-header">
-    <div class="container fade-up">
-      <p class="section-label">About Us</p>
-      <h1>The story behind <em class="flourish">ImproveU</em></h1>
-      <p>Built in Fresno. Backed by results. Driven by people who actually care.</p>
-    </div>
-  </section>
-
-  <!-- ========== JAMES'S STORY ========== -->
-  <section class="section section-dark" style="padding-top:50px;">
+  <!-- ========== PAGE HEAD (white) ========== -->
+  <header class="page-head show">
     <div class="container">
-      <div class="split">
-        <div class="split-img fade-up">
-          <div class="frame">
-            <img src="images/james-about-web.png" alt="James — Founder of ImproveU" style="max-height:550px; width:auto; border-radius:12px;">
-          </div>
+      <p class="eyebrow rv"><span class="eyebrow-dash" aria-hidden="true"></span>About Us</p>
+      <h1 class="h1 hl">The story behind <em class="flourish chrome-dark">ImproveU</em></h1>
+      <p class="lead rv" style="--i:1">Built in Fresno. Backed by results. Driven by people who actually care.</p>
+    </div>
+  </header>
+
+  <!-- ========== JAMES'S STORY — a ruled timeline (white) ========== -->
+  <section class="section show story-section" id="story">
+    <div class="container">
+      <div class="story-grid">
+        <div class="sec-head rv">
+          <p class="eyebrow"><span class="eyebrow-dash" aria-hidden="true"></span>The Founder</p>
+          <h2 class="hl">James's <em class="flourish">story</em></h2>
+          <p class="sec-sub">No money, no connections, no blueprint. Just a city that makes you build the door yourself.</p>
         </div>
-        <div class="fade-up">
-          <p class="section-label">The Founder</p>
-          <h2>James's <em class="flourish">story</em></h2>
-          <div style="height:22px"></div>
-          <p>James didn't grow up with money, connections, or a blueprint. He grew up in Fresno &mdash; in a city where opportunity doesn't knock unless you build the door yourself.</p>
-          <div style="height:14px"></div>
-          <p>He learned about credit the hard way. Mistakes, denials, and the frustration of being told &ldquo;no&rdquo; by systems that don't explain why. But instead of accepting it, he studied. He learned consumer law. He learned how credit bureaus operate, how creditors report, and how the system can be challenged &mdash; legally.</p>
-          <div style="height:14px"></div>
-          <p>8 years ago, he founded ImproveU with one mission: help real people fix their credit the right way. No gimmicks. No bots sending cookie-cutter letters. No empty promises.</p>
-          <div style="height:14px"></div>
-          <p>What started as helping friends and family turned into a full operation &mdash; a team of trained credit specialists, legal strategies that actually work, and a reputation built entirely on results.</p>
-          <div style="height:14px"></div>
-          <p>Today, ImproveU has helped hundreds of clients across California and beyond. From removing collections and charge-offs to getting families approved for their first homes. From 500-something scores to 700+.</p>
-          <div style="height:14px"></div>
-          <p style="color:var(--cream); font-weight:600;">James isn't just the CEO. He's the one reviewing files, building strategies, and picking up the phone when clients have questions. That's the difference.</p>
-        </div>
+
+        <ol class="timeline" data-stagger>
+          <li class="tl-row rv" style="--i:0">
+            <div class="tl-mark">
+              <span class="tl-idx">01 &middot; Fresno, CA</span>
+              <span class="tl-title">Where it started</span>
+            </div>
+            <div class="tl-body">
+              <p>James didn't grow up with money, connections, or a blueprint. He grew up in Fresno &mdash; in a city where opportunity doesn't knock unless you build the door yourself.</p>
+            </div>
+          </li>
+          <li class="tl-row rv" style="--i:1">
+            <div class="tl-mark">
+              <span class="tl-idx">02 &middot; The lesson</span>
+              <span class="tl-title">Learned the hard way</span>
+            </div>
+            <div class="tl-body">
+              <p>He learned about credit the hard way. Mistakes, denials, and the frustration of being told &ldquo;no&rdquo; by systems that don't explain why. But instead of accepting it, he studied. He learned consumer law. He learned how credit bureaus operate, how creditors report, and how the system can be challenged &mdash; legally.</p>
+            </div>
+          </li>
+          <li class="tl-row rv" style="--i:2">
+            <div class="tl-mark">
+              <span class="tl-idx">03 &middot; Founded</span>
+              <span class="tl-fig" aria-label="8 years ago"><span class="odo" data-odo="8">0</span><span class="unit">years ago</span></span>
+            </div>
+            <div class="tl-body">
+              <p>8 years ago, he founded ImproveU with one mission: help real people fix their credit the right way. No gimmicks. No bots sending cookie-cutter letters. No empty promises.</p>
+              <p>What started as helping friends and family turned into a full operation &mdash; a team of trained credit specialists, legal strategies that actually work, and a reputation built entirely on results.</p>
+            </div>
+          </li>
+          <li class="tl-row rv" style="--i:3">
+            <div class="tl-mark">
+              <span class="tl-idx">04 &middot; Today</span>
+              <span class="tl-fig" aria-label="From 500-something scores to 700 plus"><span class="odo" data-odo="700">500</span><span class="unit">+</span></span>
+            </div>
+            <div class="tl-body">
+              <p>Today, ImproveU has helped hundreds of clients across California and beyond. From removing collections and charge-offs to getting families approved for their first homes. From 500-something scores to 700+.</p>
+            </div>
+          </li>
+        </ol>
       </div>
     </div>
   </section>
 
-  <!-- ========== TICKER ========== -->
+  <div class="seam" aria-hidden="true"></div>
+
+  <!-- ========== THE FOUNDER — "Founder Watermark" (vault) ========== -->
+  <section class="section vault founder-section" id="founder">
+    <div class="container">
+      <figure class="founder-stage" data-tilt>
+        <div class="founder-mark" aria-hidden="true">
+          <div class="wordmark" data-parallax="18">JAMES</div>
+        </div>
+        <div class="team-stage founder-cut">
+          <span class="team-spot" aria-hidden="true"></span>
+          <img src="images/james-about-web.png" alt="James &mdash; Founder of ImproveU" width="1200" height="1200" data-parallax="-30">
+        </div>
+        <figcaption class="founder-copy rv">
+          <div class="sec-head">
+            <p class="eyebrow"><span class="eyebrow-dash" aria-hidden="true"></span>The Founder</p>
+            <h2 class="hl">James isn't just <em class="flourish chrome">the CEO.</em></h2>
+            <p class="sec-sub">He's the one reviewing files, building strategies, and picking up the phone when clients have questions. That's the difference.</p>
+          </div>
+          <div class="founder-id">
+            <h3 class="team-name"><span>James</span></h3>
+            <p class="mono-label">Founder &amp; Lead Credit Strategist</p>
+            <p>8+ years in credit repair and consumer law. The man behind the movement.</p>
+          </div>
+          <div class="founder-links">
+            <a href="book-a-call.html" class="btn btn-secondary">Book a 1-on-1 Call <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
+            <a href="https://instagram.com/boostwithjames" target="_blank" rel="noopener" class="ig-mono">@boostwithjames</a>
+          </div>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ========== TICKER — what the work stands on ========== -->
   <div class="ticker" aria-hidden="true">
     <div class="ticker-track">
       <span>Results over promises</span>
@@ -127,147 +205,175 @@
     </div>
   </div>
 
-  <!-- ========== THE TEAM ========== -->
-  <section class="section section-dark text-center">
+  <div class="seam" aria-hidden="true"></div>
+
+  <!-- ========== THE TEAM (mist) ========== -->
+  <section class="section mist team-section" id="team">
     <div class="container">
-      <p class="section-label fade-up centered">Who We Are</p>
-      <h2 class="fade-up">The <em class="flourish">team</em></h2>
-      <p class="fade-up" style="margin:16px auto 0; max-width:560px;">The people behind the results. Every file is handled by real specialists &mdash; not bots, not outsourced labor.</p>
-      <div style="height:52px"></div>
-      <div class="team-grid">
-        <!-- James -->
-        <div class="team-card fade-up">
-          <div class="team-card-img">
-            <img src="images/james-hero-web.png" alt="James — Founder & Lead Credit Strategist" loading="lazy">
+      <div class="sec-head centered rv">
+        <p class="eyebrow"><span class="eyebrow-dash" aria-hidden="true"></span>Who We Are</p>
+        <h2 class="hl">The <em class="flourish">team</em></h2>
+        <p class="sec-sub">The people behind the results. Every file is handled by real specialists &mdash; not bots, not outsourced labor.</p>
+      </div>
+
+      <div class="team-trio">
+        <!-- Joseph C. — enters from the left -->
+        <figure class="team-card rv from-left" data-tilt>
+          <div class="team-stage">
+            <span class="team-spot" aria-hidden="true"></span>
+            <img src="images/joseph-web.png" alt="Joseph C. &mdash; Senior Credit Specialist" width="1200" height="1200" loading="lazy" data-parallax="-30">
           </div>
-          <div class="team-card-body">
-            <h4>James</h4>
-            <span class="role">Founder &amp; Lead Credit Strategist</span>
-            <p>8+ years in credit repair and consumer law. The man behind the movement.</p>
-            <a href="https://instagram.com/boostwithjames" target="_blank" rel="noopener" class="ig-handle">@boostwithjames</a>
-          </div>
-        </div>
-        <!-- Joseph C. -->
-        <div class="team-card fade-up">
-          <div class="team-card-img">
-            <img src="images/joseph-web.png" alt="Joseph C. — Senior Credit Specialist" loading="lazy">
-          </div>
-          <div class="team-card-body">
-            <h4>Joseph C.</h4>
-            <span class="role">Senior Credit Specialist</span>
+          <figcaption>
+            <h3 class="team-name"><span>Joseph C.</span></h3>
+            <p class="mono-label">Senior Credit Specialist</p>
             <p>Expert in dispute strategy and bureau negotiations.</p>
-            <a href="https://instagram.com/creditwithjoseph_" target="_blank" rel="noopener" class="ig-handle">@creditwithjoseph_</a>
+            <a href="https://instagram.com/creditwithjoseph_" target="_blank" rel="noopener" class="ig-mono">@creditwithjoseph_</a>
+          </figcaption>
+        </figure>
+
+        <!-- Jaide — the ImproveU card stands in for the photo -->
+        <figure class="team-card rv from-below" style="--i:1">
+          <div class="team-stage stage-card">
+            <span class="team-spot" aria-hidden="true"></span>
+            <div class="iu-card mini" role="img" aria-label="ImproveU member card for Jaide (illustration)">
+              <span class="iu-rim" aria-hidden="true"></span><span class="iu-brush" aria-hidden="true"></span>
+              <span class="iu-chip" aria-hidden="true"></span><span class="iu-wave" aria-hidden="true"><span></span></span>
+              <img class="iu-logo" src="images/logo.png" alt="" loading="lazy">
+              <div class="iu-label" aria-hidden="true">Jaide</div>
+              <div class="iu-name" aria-hidden="true">Client Success</div><div class="iu-meta" aria-hidden="true">ImproveU</div>
+              <span class="iu-holo" aria-hidden="true"></span><span class="iu-panel" aria-hidden="true"></span>
+            </div>
           </div>
-        </div>
-        <!-- Harley M. -->
-        <div class="team-card fade-up">
-          <div class="team-card-img">
-            <img src="images/harley-web.png" alt="Harley M. — Senior Credit Specialist" loading="lazy">
-          </div>
-          <div class="team-card-body">
-            <h4>Harley M.</h4>
-            <span class="role">Senior Credit Specialist</span>
-            <p>Detail-oriented analyst focused on maximizing client results.</p>
-            <a href="https://instagram.com/creditharley" target="_blank" rel="noopener" class="ig-handle">@creditharley</a>
-          </div>
-        </div>
-        <!-- Jaide -->
-        <div class="team-card fade-up">
-          <div class="team-card-img" style="align-items:center;">
-            <div style="width:110px; height:110px; border-radius:50%; border:1px solid var(--hairline-gold); background:rgba(201,162,78,0.08); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-style:italic; font-size:3rem; color:var(--gold-400); position:relative; z-index:1;">J</div>
-          </div>
-          <div class="team-card-body">
-            <h4>Jaide</h4>
-            <span class="role">Client Success Coordinator</span>
+          <figcaption>
+            <h3 class="team-name"><span>Jaide</span></h3>
+            <p class="mono-label">Client Success Coordinator</p>
             <p>Your go-to for onboarding, documents, and keeping your file moving.</p>
+          </figcaption>
+        </figure>
+
+        <!-- Harley M. — enters from the right -->
+        <figure class="team-card rv from-right" style="--i:2" data-tilt>
+          <div class="team-stage">
+            <span class="team-spot" aria-hidden="true"></span>
+            <img src="images/harley-web.png" alt="Harley M. &mdash; Senior Credit Specialist" width="1200" height="1200" loading="lazy" data-parallax="-30">
+          </div>
+          <figcaption>
+            <h3 class="team-name"><span>Harley M.</span></h3>
+            <p class="mono-label">Senior Credit Specialist</p>
+            <p>Detail-oriented analyst focused on maximizing client results.</p>
+            <a href="https://instagram.com/creditharley" target="_blank" rel="noopener" class="ig-mono">@creditharley</a>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY FRESNO (white) ========== -->
+  <section class="section show" id="fresno">
+    <div class="container">
+      <div class="split fresno-grid">
+        <div class="rv">
+          <p class="eyebrow"><span class="eyebrow-dash" aria-hidden="true"></span>Our Roots</p>
+          <h2 class="hl">Why <em class="flourish">Fresno</em></h2>
+          <p style="margin-top:22px;">ImproveU was born in Fresno because this is home. This is where James grew up. This is where the mission started.</p>
+          <p style="margin-top:14px;">Fresno is a city full of hardworking people who deserve real financial tools &mdash; not watered-down services from companies that don't know their name.</p>
+          <p style="margin-top:14px;">We serve clients nationwide, but Fresno will always be the foundation.</p>
+        </div>
+        <div class="plate-wrap rv" style="--i:1">
+          <div class="area-plate" data-tilt role="img" aria-label="559 — Fresno, California. Born and built in the Central Valley.">
+            <span class="iu-rim" aria-hidden="true"></span>
+            <span class="iu-brush" aria-hidden="true"></span>
+            <span class="area-corner tl" aria-hidden="true">Area code</span>
+            <div class="area-code chrome" aria-hidden="true">559</div>
+            <div class="area-name" aria-hidden="true">Fresno, California</div>
+            <p class="mono-label area-sub" aria-hidden="true">Born &amp; built in the Central Valley</p>
+            <span class="area-corner br" aria-hidden="true">Est. 2018</span>
+            <span class="iu-holo" aria-hidden="true"></span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== WHY FRESNO ========== -->
-  <section class="section section-paper">
+  <div class="seam" aria-hidden="true"></div>
+
+  <!-- ========== MISSION & VALUES — four principles on the record (vault) ========== -->
+  <section class="section vault" id="values">
     <div class="container">
-      <div class="split">
-        <div class="fade-up">
-          <p class="section-label">Our Roots</p>
-          <h2>Why <em class="flourish" style="color:var(--gold-600);">Fresno</em></h2>
-          <div style="height:20px"></div>
-          <p>ImproveU was born in Fresno because this is home. This is where James grew up. This is where the mission started.</p>
-          <div style="height:14px"></div>
-          <p>Fresno is a city full of hardworking people who deserve real financial tools &mdash; not watered-down services from companies that don't know their name.</p>
-          <div style="height:14px"></div>
-          <p>We serve clients nationwide, but Fresno will always be the foundation.</p>
-        </div>
-        <div class="fade-up" style="display:flex; justify-content:center; align-items:center;">
-          <div style="width:100%; max-width:400px; aspect-ratio:1; border:1px solid rgba(166,129,58,0.45); outline:4px double rgba(166,129,58,0.3); outline-offset:6px; border-radius:var(--radius); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:40px; background:#FFFDF6;">
-            <div style="font-family:var(--font-mono); font-weight:500; font-size:5rem; color:var(--gold-600); line-height:1; letter-spacing:-0.04em;">559</div>
-            <div style="font-family:var(--font-display); font-style:italic; font-size:1.6rem; color:var(--ink-900); margin-top:10px;">Fresno, California</div>
-            <p style="margin-top:12px; font-size:0.85rem;">Born &amp; built in the Central Valley</p>
+      <div class="sec-head centered rv">
+        <p class="eyebrow"><span class="eyebrow-dash" aria-hidden="true"></span>What We Stand For</p>
+        <h2 class="hl">Mission &amp; <em class="flourish chrome">values</em></h2>
+        <p class="sec-sub">Everything we do comes back to four principles. No exceptions.</p>
+      </div>
+      <ol class="values-ledger" data-stagger>
+        <li class="val-row rv" style="--i:0">
+          <span class="val-n" aria-hidden="true">I</span>
+          <div class="val-body">
+            <h3>Results Over Promises</h3>
+            <p>We don't sell hope. We deliver outcomes.</p>
           </div>
-        </div>
-      </div>
+          <svg class="check" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-8"/></svg>
+        </li>
+        <li class="val-row rv" style="--i:1">
+          <span class="val-n" aria-hidden="true">II</span>
+          <div class="val-body">
+            <h3>Transparency</h3>
+            <p>You'll always know what's happening with your file.</p>
+          </div>
+          <svg class="check" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-8"/></svg>
+        </li>
+        <li class="val-row rv" style="--i:2">
+          <span class="val-n" aria-hidden="true">III</span>
+          <div class="val-body">
+            <h3>No Shortcuts</h3>
+            <p>Every dispute is hand-crafted. Every strategy is custom.</p>
+          </div>
+          <svg class="check" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-8"/></svg>
+        </li>
+        <li class="val-row rv" style="--i:3">
+          <span class="val-n" aria-hidden="true">IV</span>
+          <div class="val-body">
+            <h3>Access</h3>
+            <p>You talk to real people. Not chatbots.</p>
+          </div>
+          <svg class="check" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-8"/></svg>
+        </li>
+      </ol>
     </div>
   </section>
 
-  <!-- ========== MISSION & VALUES ========== -->
-  <section class="section section-accent text-center">
-    <div class="container">
-      <p class="section-label fade-up centered">What We Stand For</p>
-      <h2 class="fade-up">Mission &amp; <em class="flourish">values</em></h2>
-      <p class="fade-up" style="margin:16px auto 0; max-width:520px;">Everything we do comes back to four principles. No exceptions.</p>
-      <div style="height:52px"></div>
-      <div class="steps-grid">
-        <div class="card card-step fade-up">
-          <span class="step-num">I</span>
-          <h4>Results Over Promises</h4>
-          <p>We don't sell hope. We deliver outcomes.</p>
-        </div>
-        <div class="card card-step fade-up">
-          <span class="step-num">II</span>
-          <h4>Transparency</h4>
-          <p>You'll always know what's happening with your file.</p>
-        </div>
-        <div class="card card-step fade-up">
-          <span class="step-num">III</span>
-          <h4>No Shortcuts</h4>
-          <p>Every dispute is hand-crafted. Every strategy is custom.</p>
-        </div>
-        <div class="card card-step fade-up">
-          <span class="step-num">IV</span>
-          <h4>Access</h4>
-          <p>You talk to real people. Not chatbots.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== CTA ========== -->
-  <section class="cta-banner">
-    <div class="container fade-up">
-      <h2>Ready to start <em class="flourish">your journey?</em></h2>
+  <!-- ========== CTA BANNER ========== -->
+  <section class="cta-banner vault">
+    <div class="container rv">
+      <h2 class="hl">Ready to start <em class="flourish chrome">your journey?</em></h2>
       <p>Your future doesn't have to look like your past. Take the first step today.</p>
-      <a href="get-started.html" class="btn btn-primary btn-lg">Get Started <span class="arr">&rarr;</span></a>
+      <div class="cta-actions">
+        <a href="get-started.html" class="btn btn-primary btn-lg is-hero">Get Started <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
+        <a href="book-a-call.html" class="btn btn-ghost btn-lg">Book a Call</a>
+      </div>
+      <a class="cta-phone mono chrome" href="tel:5599009326">(559) 900-9326</a>
     </div>
   </section>
 
-  <!-- ========== FOOTER ========== -->
-  <footer class="footer">
+<!-- ========== FOOTER (canonical — paste verbatim on every page, right after the CTA banner) ========== -->
+  <div class="seam" aria-hidden="true"></div>
+  <footer class="footer vault">
+    <div class="wordmark" aria-hidden="true">IMPROVEU</div>
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="images/logo.png" alt="ImproveU" width="120" height="34">
+          <a href="index.html" class="footer-logo" aria-label="ImproveU Home">
+            <img src="images/logo.png" alt="ImproveU" width="160" height="160" loading="lazy">
+          </a>
           <p>Improve your credit. Improve your life.</p>
-          <div class="footer-contact" style="margin-top:16px;">
-            <a href="tel:5599810180">(559) 981-0180</a>
+          <div class="footer-contact">
+            <a href="tel:5599009326" class="mono">(559) 900-9326</a>
             <a href="mailto:help@improveu.net">help@improveu.net</a>
-            <span style="font-size:0.85rem; color:var(--cream-faint);">Fresno, CA &bull; Mon&ndash;Fri 9am&ndash;6pm PST</span>
+            <span>Fresno, CA &bull; Mon&ndash;Fri 9am&ndash;6pm PST</span>
           </div>
           <div class="footer-social">
             <a href="https://instagram.com/boostwithjames" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
-            <a href="#" aria-label="TikTok">TT</a>
-            <a href="#" aria-label="YouTube">YT</a>
+            <!-- TikTok / YouTube circles return here only when real profile URLs exist — never ship href="#" -->
           </div>
         </div>
         <div>

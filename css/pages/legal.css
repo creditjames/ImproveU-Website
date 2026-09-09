@@ -1,0 +1,247 @@
+/* ==========================================================================
+   IMPROVEU — css/pages/legal.css · "DOCUMENT MODE" (DESIGN.md §6)
+   Shared by privacy-policy · terms-of-service · croa-disclosure · cookie-policy.
+   White .page-head.doc → MIST floor carrying one white sheet (68ch measure) → footer.
+   The only things that move: the h1/heading unmasks, the TOC's chrome puck, the CROA
+   rights ledger (chrome checks) and the cookie-table row reveals. Palette: greys only.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. PAGE HEAD — DOC 0n · NAME, one shimmer word, a faint mono folio
+   -------------------------------------------------------------------------- */
+.page-head.doc { padding-bottom: clamp(40px, 5vw, 64px); }
+.page-head.doc .container > :not(.doc-folio) { position: relative; z-index: 1; }
+.page-head.doc .eyebrow { margin-bottom: 22px; }
+.page-head.doc .h1 { max-width: 14ch; }
+.doc-meta { margin-top: 22px; font-family: var(--font-mono); font-size: .82rem; letter-spacing: .04em; color: #26272B; }
+.doc-folio {
+  position: absolute; right: var(--gutter); top: 50%;
+  z-index: 0;
+  transform: translateY(-50%);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: clamp(6rem, 17vw, 15rem);
+  line-height: 1;
+  letter-spacing: -.06em;
+  color: #DDDFE3;
+  opacity: .55;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   2. THE FLOOR + GRID — sticky contents rail beside the sheet
+   -------------------------------------------------------------------------- */
+.doc-body { padding: clamp(40px, 5vw, 64px) 0 clamp(80px, 10vw, 144px); }
+.doc-grid { display: grid; grid-template-columns: 224px minmax(0, 1fr); gap: clamp(32px, 4vw, 64px); align-items: start; }
+
+.doc-toc { position: sticky; top: calc(var(--nav-height) + 28px); }
+.doc-toc-label { display: block; margin-bottom: 16px; }
+.doc-toc-list { position: relative; padding-left: 24px; }
+.doc-toc-rail { position: absolute; left: 4px; top: 10px; bottom: 10px; width: 1px; background: #DDDFE3; }
+.doc-puck {
+  position: absolute; left: 0; top: 0;
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--chrome);
+  background-size: 200% 100%;
+  background-position: calc(var(--light) * 100%) 0;
+  box-shadow: 0 0 0 3px #F4F5F7, 0 1px 4px rgba(10,10,11,.35);
+  transform: translateY(calc(var(--py, 13px) - 4.5px));
+  transition: transform .5s var(--ease-out);
+}
+.doc-toc a {
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  padding: 5px 0;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: .68rem;
+  letter-spacing: .1em;
+  line-height: 1.35;
+  text-transform: uppercase;
+  color: #26272B;
+  position: relative;
+  transition: color .2s;
+}
+.doc-toc a .n { font-weight: 400; color: #26272B; }
+.doc-toc a:hover, .doc-toc a.is-current { color: #0A0A0B; }
+.doc-toc a.is-current { font-weight: 700; }
+.doc-toc a.is-current .n { font-weight: 700; color: #0A0A0B; }
+.doc-toc a.is-current::before { display: none; } /* the puck replaces the static dot from styles.css */
+.doc-toc a:focus-visible { border-radius: 4px; }
+
+/* --------------------------------------------------------------------------
+   3. THE SHEET — white paper on the mist floor, chrome top edge, 68ch measure
+   -------------------------------------------------------------------------- */
+.doc-paper {
+  position: relative;
+  background: #FFFFFF;
+  border: 1px solid #DDDFE3;
+  border-radius: 18px;
+  padding: clamp(28px, 5vw, 64px);
+  box-shadow: var(--shadow-1);
+  max-width: calc(68ch + 2 * clamp(28px, 5vw, 64px));
+}
+.doc-paper::before { content: ''; position: absolute; top: 0; left: 18px; right: 18px; height: 1px; background: var(--chrome-edge-dark); opacity: .8; }
+.doc-runhead {
+  display: flex; justify-content: space-between; align-items: center; gap: 10px 18px; flex-wrap: wrap;
+  padding-bottom: 18px;
+  margin-bottom: clamp(32px, 4vw, 48px);
+  border-bottom: 1px solid #DDDFE3;
+  font-family: var(--font-mono);
+  font-size: .64rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: #26272B;
+}
+.doc-runhead span:nth-child(2) { color: #0A0A0B; font-weight: 700; }
+.doc-content { max-width: 68ch; }
+
+/* headings — numbered clauses on a hairline, .hl unmask only */
+.doc-content > h2 {
+  font-size: clamp(1.45rem, 2.3vw, 1.95rem);
+  font-variation-settings: 'wdth' 115, 'wght' 800;
+  letter-spacing: -.02em;
+  line-height: 1.1;
+  margin: clamp(40px, 5vw, 60px) 0 16px;
+  padding-top: clamp(26px, 3vw, 34px);
+  border-top: 1px solid #DDDFE3;
+}
+.doc-content > h2:first-child { margin-top: 0; padding-top: 0; border-top: 0; }
+.doc-content h3 { font-size: 1.15rem; margin: 30px 0 10px; }
+.doc-content p { font-size: 1rem; line-height: 1.7; margin: 0 0 16px; }
+.doc-content ul { margin: 0 0 20px; }
+.doc-content li { position: relative; padding-left: 22px; margin-bottom: 8px; font-size: 1rem; line-height: 1.65; color: #26272B; }
+.doc-content li::before { content: ''; position: absolute; left: 0; top: .8em; width: 10px; height: 1px; background: #0A0A0B; }
+.doc-content strong { color: #0A0A0B; font-weight: 600; }
+.doc-content a {
+  color: #0A0A0B;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: #8E9199;
+  transition: text-decoration-color .2s;
+}
+.doc-content a:hover { text-decoration-color: #0A0A0B; }
+
+/* inset quotes (CROA: important notice + statutory statement) */
+.doc-quote { margin: 26px 0 32px; padding: 26px 28px; background: var(--mist); border: 1px solid #DDDFE3; border-radius: 12px; }
+.doc-quote h3 { margin: 0 0 12px; }
+.doc-quote p { font-size: 1rem; line-height: 1.75; }
+.doc-quote p:last-child { margin-bottom: 0; }
+.doc-quote.statute p { font-family: var(--font-serif); font-style: italic; font-size: 1.16rem; line-height: 1.6; color: #26272B; }
+
+/* end of document — folio line + the other docs on file */
+.doc-end { margin-top: clamp(40px, 5vw, 56px); padding-top: 22px; border-top: 1px solid #DDDFE3; display: flex; justify-content: space-between; align-items: center; gap: 14px 24px; flex-wrap: wrap; }
+.doc-end .mono-label { font-size: .64rem; }
+.doc-set { display: flex; gap: 6px 20px; flex-wrap: wrap; }
+.doc-set a { position: relative; padding-bottom: 3px; font-family: var(--font-mono); font-weight: 500; font-size: .66rem; letter-spacing: .12em; text-transform: uppercase; color: #26272B; text-decoration: none; }
+.doc-set a::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--chrome-edge-dark); transform: scaleX(0); transform-origin: left; transition: transform .22s var(--ease-out); }
+.doc-set a:hover, .doc-set a:focus-visible { color: #0A0A0B; }
+.doc-set a:hover::after, .doc-set a:focus-visible::after { transform: scaleX(1); }
+
+/* --------------------------------------------------------------------------
+   4. CROA — rights ledger (chrome check draws per row) + the vault notice
+   -------------------------------------------------------------------------- */
+.doc-content .ledger.rights { margin: 24px 0 36px; }
+.ledger.rights .ledger-head, .ledger.rights .ledger-row { grid-template-columns: 40px 1fr 36px; padding: 13px 22px; gap: 14px; }
+.ledger.rights .ledger-head { font-size: .64rem; }
+.ledger.rights a.ledger-row { color: #0A0A0B; text-decoration: none; font-weight: 400; transition: background-color .2s; }
+.ledger.rights a.ledger-row:hover, .ledger.rights a.ledger-row:focus-visible { background: var(--mist); }
+.ledger.rights .ledger-row > span:nth-child(2) { font-size: .98rem; }
+.ledger.rights .ledger-n { color: #26272B; }
+.rights-mark {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: #0A0A0B;
+  display: flex; align-items: center; justify-content: center;
+  justify-self: end;
+  opacity: 0;
+  transform: scale(.6);
+  transition: transform .45s var(--ease-spring), opacity .25s;
+}
+.ledger.rights .ledger-row.is-struck .rights-mark, html:not(.js) .rights-mark { opacity: 1; transform: scale(1); }
+.rights-mark .check { width: 14px; height: 14px; }
+.rights-mark .check path { stroke: url(#chromeStroke); stroke-width: 2.6; stroke-dasharray: 24; stroke-dashoffset: 24; transition: stroke-dashoffset .5s var(--ease-out) .12s; }
+.ledger.rights .ledger-row:not(.is-struck) .rights-mark .check path { stroke-dashoffset: 24; }
+.ledger.rights .ledger-row.is-struck .rights-mark .check path, html:not(.js) .rights-mark .check path { stroke-dashoffset: 0; }
+.doc-content .ledger.rights .ledger-total { margin: 0; font-size: .68rem; line-height: 1; }
+
+/* the vault ground painted directly (no .vault class: its ::before spotlight would collide with the notice's label) */
+.doc-content .notice {
+  margin: 30px 0 36px; padding: 28px 32px 30px; border-radius: 0 14px 14px 0;
+  background:
+    repeating-linear-gradient(90deg, rgba(255,255,255,.02) 0 1px, transparent 1px 3px),
+    radial-gradient(ellipse 85% 85% at 50% 50%, transparent 55%, #141416 100%),
+    #0A0A0B;
+}
+.doc-content .notice.cancel::before { content: 'CROA · 5 business days'; }
+.doc-content .notice h3 { color: #FFFFFF; margin: 0 0 14px; font-size: 1.25rem; }
+.doc-content .notice p { color: #C9CCD2; }
+.doc-content .notice li { color: #C9CCD2; }
+.doc-content .notice li::before { background: var(--chrome-edge); }
+.doc-content .notice strong { color: #FFFFFF; }
+.doc-content .notice a { color: #FFFFFF; text-decoration-color: #8E9199; }
+.doc-content .notice a:hover { text-decoration-color: #FFFFFF; }
+.doc-content .notice ul { margin-bottom: 0; }
+.doc-content .notice li:last-child { margin-bottom: 0; }
+
+/* --------------------------------------------------------------------------
+   5. COOKIES — the cookie tables as ruled sheets, rows reveal with .rv stagger
+   -------------------------------------------------------------------------- */
+.doc-table-wrap { margin: 18px 0 28px; border: 1px solid #DDDFE3; border-radius: 12px; overflow-x: auto; background: #FFFFFF; }
+.doc-table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.doc-table th {
+  text-align: left; padding: 12px 16px;
+  font-family: var(--font-mono); font-weight: 500; font-size: .62rem; letter-spacing: .2em; text-transform: uppercase;
+  color: #26272B; background: var(--mist);
+  border-bottom: 1px solid #DDDFE3;
+}
+.doc-table td { padding: 12px 16px; border-bottom: 1px solid #DDDFE3; vertical-align: top; color: #26272B; line-height: 1.5; }
+.doc-table tr:last-child td { border-bottom: 0; }
+.doc-table td:first-child { font-family: var(--font-mono); font-size: .8rem; color: #0A0A0B; }
+.doc-table td:last-child { white-space: nowrap; }
+.doc-table tr.rv.done { transition: none; } /* rows never hover-lift */
+
+/* --------------------------------------------------------------------------
+   6. RESPONSIVE — contents become a sticky chip rail under the nav
+   -------------------------------------------------------------------------- */
+@media (max-width: 1023px) {
+  .doc-grid { display: block; }
+  .doc-side { position: sticky; top: var(--nav-height); z-index: 5; margin: 0 calc(-1 * var(--gutter)) 24px; background: var(--mist); border-bottom: 1px solid #DDDFE3; }
+  .doc-toc { position: static; }
+  .doc-toc-label, .doc-toc-rail, .doc-puck { display: none; }
+  .doc-toc-list { display: flex; gap: 8px; padding: 10px var(--gutter); overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .doc-toc-list::-webkit-scrollbar { display: none; }
+  .doc-toc a { flex-shrink: 0; display: inline-flex; grid-template-columns: none; align-items: center; height: 30px; padding: 0 12px; border-radius: 999px; border: 1px solid #DDDFE3; background: #FFFFFF; font-size: .6rem; letter-spacing: .08em; transition: background-color .2s, color .2s, border-color .2s; }
+  .doc-toc a .n { margin-right: 6px; color: inherit; }
+  .doc-toc a.is-current { background: #0A0A0B; color: #FFFFFF; border-color: #0A0A0B; }
+  .doc-toc a.is-current .n { color: #C9CCD2; }
+  .doc-paper { max-width: none; }
+}
+@media (max-width: 640px) {
+  .doc-folio { top: 0; transform: none; font-size: 5.2rem; }
+  .doc-runhead { gap: 6px 14px; font-size: .58rem; letter-spacing: .14em; }
+  .doc-content > h2 { font-size: 1.4rem; }
+  .doc-quote { padding: 20px 18px; }
+  .doc-content .notice { padding: 22px 20px 24px; }
+  .ledger.rights .ledger-head, .ledger.rights .ledger-row { grid-template-columns: 30px 1fr 32px; padding: 12px 16px; gap: 10px; }
+  .ledger.rights .ledger-row > span:nth-child(2) { font-size: .92rem; }
+  .doc-table { font-size: .84rem; }
+  .doc-table th, .doc-table td { padding: 10px 12px; }
+  .doc-table td:first-child { font-size: .74rem; }
+  .doc-end { flex-direction: column; align-items: flex-start; }
+}
+
+/* --------------------------------------------------------------------------
+   7. PRINT — the sheet is the page
+   -------------------------------------------------------------------------- */
+@media print {
+  .doc-side, .doc-folio, .doc-set { display: none !important; }
+  .doc-body { background: #fff; padding: 0; }
+  .doc-paper { max-width: none; border: 0; box-shadow: none; padding: 0; }
+  .doc-content .notice { background: #fff; color: #000; border: 1px solid #000; }
+  .doc-content .notice h3, .doc-content .notice p, .doc-content .notice li, .doc-content .notice a { color: #000; }
+}
