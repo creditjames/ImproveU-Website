@@ -234,3 +234,14 @@
   .reader-hint { display: none; }
   .reader-card .iu-card.mini { transform: rotateX(8deg) rotateY(-12deg); }
 }
+
+/* ---------- App badges (client app) ---------- */
+.app-badges { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 26px; }
+.app-badges-label { flex-basis: 100%; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; color: var(--silver); }
+.app-badge { display: inline-flex; align-items: center; gap: 10px; background: #000; color: #fff; border: 1px solid rgba(255,255,255,.45); border-radius: 12px; padding: 9px 16px 9px 12px; min-height: 54px; text-decoration: none; transition: transform .3s var(--ease-out), border-color .3s, box-shadow .3s; }
+.app-badge:hover, .app-badge:focus-visible { transform: translateY(-2px) rotate(-.6deg); border-color: #fff; box-shadow: 0 14px 34px -14px rgba(255,255,255,.35); }
+.app-badge svg { width: 26px; height: 26px; flex-shrink: 0; }
+.app-badge-text { display: flex; flex-direction: column; line-height: 1.05; }
+.app-badge-text small { font-size: .62rem; color: var(--silver-3); letter-spacing: .04em; }
+.app-badge-text strong { font-size: 1rem; font-weight: 700; letter-spacing: .01em; }
+@media (max-width: 640px) { .app-badge { flex: 1 1 calc(50% - 6px); justify-content: center; } }
