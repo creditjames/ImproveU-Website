@@ -17,24 +17,49 @@
   <link rel="canonical" href="https://www.improveu.net/contact.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Hanken+Grotesk:ital,wght@0,300..800;1,300..800&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pages/contact.css">
+  <!-- Schema: ContactPage → LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact ImproveU",
+    "url": "https://www.improveu.net/contact.html",
+    "mainEntity": {
+      "@type": "LocalBusiness",
+      "name": "ImproveU",
+      "description": "Credit repair and business funding services in Fresno, CA.",
+      "telephone": "+1-559-900-9326",
+      "email": "help@improveu.net",
+      "url": "https://www.improveu.net/",
+      "address": { "@type": "PostalAddress", "addressLocality": "Fresno", "addressRegion": "CA", "addressCountry": "US" },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      }
+    }
+  }
+  </script>
 </head>
 <body>
 
-  <!-- ========== NAVIGATION ========== -->
+  <!-- ========== NAVIGATION (partials/nav.html) ========== -->
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo" aria-label="ImproveU Home">
-        <img src="images/logo.png" alt="ImproveU" width="140" height="40">
+        <img src="images/logo.png" alt="ImproveU" width="104" height="104">
       </a>
       <div class="nav-links">
         <div class="nav-dropdown">
-          <a href="#" aria-haspopup="true">Services &#9662;</a>
+          <a href="#" aria-haspopup="true" aria-expanded="false">Services <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
           <div class="nav-dropdown-menu">
             <a href="credit-repair.html">Credit Repair</a>
             <a href="business-funding.html">Business Funding</a>
-            <a href="homeowner-program.html">90-Day Homeowner Program</a>
+            <a href="homeowner-program.html">Homeowner Program</a>
           </div>
         </div>
         <a href="pricing.html">Pricing</a>
@@ -43,26 +68,27 @@
         <a href="blog.html">Blog</a>
         <a href="faq.html">FAQ</a>
         <div class="nav-dropdown">
-          <a href="#" aria-haspopup="true">Partner &#9662;</a>
+          <a href="#" aria-haspopup="true" aria-expanded="false">Partner <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
           <div class="nav-dropdown-menu">
             <a href="affiliate.html">Affiliate Program</a>
             <a href="franchise.html">Own a Franchise</a>
           </div>
         </div>
-        <a href="contact.html" class="active">Contact</a>
+        <a href="contact.html">Contact</a>
       </div>
       <div class="nav-actions">
-        <a href="portal.html" class="btn-login">Client Login</a>
+        <a href="tel:5599009326" class="nav-phone">(559) 900-9326</a>
+        <a href="portal.html" class="btn btn-ghost btn-sm btn-login">Client Login</a>
         <a href="get-started.html" class="btn btn-primary btn-sm">Get Started</a>
       </div>
-      <button class="nav-toggle" aria-label="Open menu">
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
   <!-- Mobile Menu -->
-  <div class="mobile-menu">
+  <div class="mobile-menu" id="mobile-menu">
     <a href="credit-repair.html">Credit Repair</a>
     <a href="business-funding.html">Business Funding</a>
     <a href="homeowner-program.html">Homeowner Program</a>
@@ -75,82 +101,144 @@
     <a href="franchise.html">Own a Franchise</a>
     <a href="contact.html">Contact</a>
     <a href="portal.html">Client Login</a>
-    <a href="get-started.html" class="btn btn-primary">Get Started</a>
+    <a href="tel:5599009326" class="mobile-phone">(559) 900-9326</a>
+    <a href="get-started.html" class="btn btn-primary">Get Started <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
   </div>
 
-  <!-- ========== PAGE HEADER ========== -->
-  <section class="page-header">
-    <div class="container fade-up">
-      <p class="section-label">Contact</p>
-      <h1>Let's <em class="flourish">talk</em></h1>
-      <p>Questions about your credit, our plans, or where to start? Real people answer &mdash; usually within a few hours.</p>
+  <!-- ========== PAGE HEAD (white showroom) ========== -->
+  <header class="page-head show">
+    <div class="container">
+      <p class="eyebrow rv"><span class="eyebrow-dash" aria-hidden="true"></span>Contact</p>
+      <h1 class="hl">Let's <em class="flourish chrome-dark">talk</em></h1>
+      <p class="lead rv" style="--i:1">Questions about your credit, our plans, or where to start? Real people answer &mdash; usually within a few hours.</p>
+      <div class="head-actions rv" style="--i:2">
+        <a href="tel:5599009326" class="btn btn-secondary">Call (559) 900-9326</a>
+        <a href="mailto:help@improveu.net" class="btn btn-ghost">Email help@improveu.net</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="seam" aria-hidden="true"></div>
+
+  <!-- ========== THE PHONE PLATE (vault) ========== -->
+  <section class="section vault" id="direct-line">
+    <div class="container">
+      <div class="sec-head centered rv">
+        <p class="eyebrow"><span class="eyebrow-dash" aria-hidden="true"></span>Direct Line</p>
+        <h2 class="hl">One number. <em class="flourish chrome">Real people.</em></h2>
+        <p class="sec-sub">No phone tree, no call center. Call during business hours and you reach the ImproveU team in Fresno.</p>
+      </div>
+
+      <div class="plate-wrap rv" data-tilt>
+        <span class="plate-shadow" aria-hidden="true"></span>
+        <a href="tel:5599009326" class="phone-plate" aria-label="Call ImproveU at (559) 900-9326">
+          <span class="plate-rim" aria-hidden="true"></span>
+          <span class="plate-brush" aria-hidden="true"></span>
+          <span class="plate-screw tl" aria-hidden="true"></span>
+          <span class="plate-screw tr" aria-hidden="true"></span>
+          <span class="plate-screw bl" aria-hidden="true"></span>
+          <span class="plate-screw br" aria-hidden="true"></span>
+
+          <span class="plate-row plate-head">
+            <span class="plate-label">Direct line &middot; ImproveU</span>
+            <span class="pill" data-hours="9-18" data-days="1-5" data-open-text="Open now" data-closed-text="Closed &middot; opens Mon&ndash;Fri 9am">Mon&ndash;Fri 9am&ndash;6pm PST</span>
+          </span>
+
+          <span class="plate-num"><span class="odo" data-odo="(559) 900-9326">(559) 000-0000</span></span>
+          <span class="plate-rule" aria-hidden="true"></span>
+
+          <span class="plate-row plate-foot">
+            <span class="plate-label">Fresno, CA</span>
+            <span class="plate-label">Mon&ndash;Fri 9am&ndash;6pm PST</span>
+          </span>
+
+          <span class="plate-holo" aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div class="plate-facts rv" data-stagger>
+        <div class="plate-fact" style="--i:0">
+          <span class="mono-label">Email</span>
+          <a href="mailto:help@improveu.net" class="val">help@improveu.net</a>
+          <p class="sub">We typically respond within 2&ndash;4 hours during business hours.</p>
+        </div>
+        <div class="plate-fact" style="--i:1">
+          <span class="mono-label">Hours</span>
+          <span class="val">Mon&ndash;Fri 9am&ndash;6pm PST</span>
+          <p class="sub">Real people answer the phone.</p>
+        </div>
+        <div class="plate-fact" style="--i:2">
+          <span class="mono-label">Address</span>
+          <span class="val">Fresno, CA</span>
+          <p class="sub">Born &amp; built in the Central Valley. Serving clients nationwide.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- ========== CONTACT ========== -->
-  <section class="section section-dark" style="padding-top:40px;">
-    <div class="container">
-      <div class="form-grid">
+  <div class="seam" aria-hidden="true"></div>
 
+  <!-- ========== THE FORM (white showroom) ========== -->
+  <section class="section show" id="message">
+    <div class="container">
+      <div class="sec-head rv">
+        <p class="eyebrow"><span class="eyebrow-dash" aria-hidden="true"></span>Write to us</p>
+        <h2 class="hl">Send us a <em class="flourish chrome-dark">message</em></h2>
+        <p class="sec-sub">Fill out the form below and we'll get back to you as soon as possible.</p>
+      </div>
+
+      <div class="contact-grid" data-stagger>
         <!-- Left: Contact Form -->
-        <div class="fade-up">
-          <div class="lead-form">
-            <h3 style="margin-bottom:8px;">Send us a message</h3>
-            <p style="margin-bottom:28px; font-size:0.92rem;">Fill out the form below and we'll get back to you as soon as possible.</p>
-            <form data-form data-subject="Contact form — improveu.net">
-              <div class="form-group">
-                <label for="contact-name">Name</label>
-                <input type="text" id="contact-name" name="name" placeholder="Your full name" required>
-              </div>
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="contact-email">Email</label>
-                  <input type="email" id="contact-email" name="email" placeholder="you@example.com" required>
-                </div>
-                <div class="form-group">
-                  <label for="contact-phone">Phone</label>
-                  <input type="tel" id="contact-phone" name="phone" placeholder="(555) 123-4567">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="contact-message">How can we help?</label>
-                <textarea id="contact-message" name="message" placeholder="Tell us about your situation or what you're looking for..." required></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary" style="width:100%;">Send Message <span class="arr">&rarr;</span></button>
-            </form>
-            <div class="form-success">
-              <div class="success-mark">&#10003;</div>
-              <h4 style="margin-bottom:10px;">Message sent.</h4>
-              <p style="font-size:0.92rem;">We typically respond within 2&ndash;4 hours during business hours. Need an answer now?</p>
-              <a href="tel:5599009326" class="btn btn-outline btn-sm" style="margin-top:18px;">Call (559) 900-9326</a>
+        <div class="lead-form contact-form-card rv" style="--i:0">
+          <h3>Your message</h3>
+          <p class="form-intro">Tell us about your situation or what you're looking for &mdash; a real specialist reads every message.</p>
+          <form data-form data-subject="Contact form — improveu.net">
+            <div class="field">
+              <label for="contact-name">Name</label>
+              <input type="text" id="contact-name" name="name" placeholder="Your full name" required autocomplete="name">
+              <span class="field-line" aria-hidden="true"></span>
             </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="contact-email">Email</label>
+                <input type="email" id="contact-email" name="email" placeholder="you@example.com" required autocomplete="email">
+                <span class="field-line" aria-hidden="true"></span>
+              </div>
+              <div class="field">
+                <label for="contact-phone">Phone</label>
+                <input type="tel" id="contact-phone" name="phone" placeholder="(559) 555-0123" autocomplete="tel">
+                <span class="field-line" aria-hidden="true"></span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="contact-message">How can we help?</label>
+              <textarea id="contact-message" name="message" placeholder="Tell us about your situation or what you're looking for..." required></textarea>
+              <span class="field-line" aria-hidden="true"></span>
+            </div>
+            <button type="submit" class="btn btn-primary is-hero"><span class="btn-label">Send Message <span class="btn-arrow" aria-hidden="true">&rarr;</span></span></button>
+            <p class="form-note">By sending, you agree to be contacted by ImproveU about your message. No spam. No selling your data.</p>
+          </form>
+          <div class="form-success">
+            <div class="success-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5 11-11"/></svg></div>
+            <h4>Message sent.</h4>
+            <p>We typically respond within 2&ndash;4 hours during business hours. Need an answer now?</p>
+            <span class="stamp" aria-hidden="true">Received</span>
+            <div><a href="tel:5599009326" class="btn btn-ghost btn-sm" style="margin-top:18px;">Call (559) 900-9326</a></div>
           </div>
         </div>
 
-        <!-- Right: Contact Info -->
-        <div class="fade-up">
-          <div style="margin-bottom:30px;">
-            <p style="font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.24em; color:var(--gold-500); margin-bottom:10px;">Phone</p>
-            <a href="tel:5599009326" style="font-family:var(--font-mono); font-size:2rem; color:var(--cream); display:block; letter-spacing:-0.03em;">(559) 900-9326</a>
+        <!-- Right: response time + Fresno -->
+        <div class="contact-aside">
+          <div class="response-card rv" style="--i:1">
+            <span class="mono-label">Response time</span>
+            <p class="ledger-num">2&ndash;4 <span class="unit">hours</span></p>
+            <p>During business hours &mdash; Mon&ndash;Fri 9am&ndash;6pm PST. Real people, not autoresponders.</p>
           </div>
-          <div style="margin-bottom:30px;">
-            <p style="font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.24em; color:var(--gold-500); margin-bottom:10px;">Email</p>
-            <a href="mailto:help@improveu.net" style="font-size:1.1rem; color:var(--cream); font-weight:600;">help@improveu.net</a>
-          </div>
-          <div style="margin-bottom:30px;">
-            <p style="font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.24em; color:var(--gold-500); margin-bottom:10px;">Hours</p>
-            <p style="color:var(--cream); font-weight:500;">Mon&ndash;Fri 9am&ndash;6pm PST</p>
-          </div>
-          <div style="margin-bottom:30px;">
-            <p style="font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.24em; color:var(--gold-500); margin-bottom:10px;">Address</p>
-            <p style="color:var(--cream); font-weight:500;">Fresno, CA</p>
-          </div>
-          <div style="border:1px solid var(--hairline-gold-soft); border-radius:var(--radius-sm); padding:20px 24px; margin-bottom:30px; background:rgba(201,162,78,0.04);">
-            <p style="font-size:0.9rem;">We typically respond within <strong style="color:var(--cream);">2&ndash;4 hours</strong> during business hours.</p>
-          </div>
-          <div style="background:linear-gradient(170deg, var(--ink-700), var(--ink-800)); border:1px solid var(--hairline-cream); border-radius:var(--radius); padding:52px 32px; text-align:center;">
-            <p style="font-family:var(--font-display); font-style:italic; font-size:1.9rem; color:var(--cream);">Fresno, <span style="color:var(--gold-400);">California</span></p>
-            <p style="margin-top:8px; font-size:0.85rem;">Born &amp; built in the Central Valley. Serving clients nationwide.</p>
+          <div class="map-plate rv" style="--i:2">
+            <span class="map-pin" aria-hidden="true"></span>
+            <span class="mono-label">Home base</span>
+            <p class="map-city">Fresno, <em class="flourish">California</em></p>
+            <p class="map-sub">Born &amp; built in the Central Valley. Serving clients nationwide.</p>
             <!-- Google Maps iframe embed goes here -->
             <!-- <iframe src="GOOGLE_MAPS_EMBED_URL" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
           </div>
@@ -159,29 +247,40 @@
     </div>
   </section>
 
-  <!-- ========== CTA ========== -->
-  <section class="cta-banner">
-    <div class="container fade-up">
-      <h2>Prefer to <em class="flourish">talk live?</em></h2>
+  <div class="seam" aria-hidden="true"></div>
+
+  <!-- ========== CTA BANNER ========== -->
+  <section class="cta-banner vault">
+    <div class="container rv">
+      <h2 class="hl">Prefer to <em class="flourish chrome">talk live?</em></h2>
       <p>Skip the form and book a 1-on-1 strategy call with our team. No scripts, no sales pitch.</p>
-      <a href="book-a-call.html" class="btn btn-primary btn-lg">Book a Call <span class="arr">&rarr;</span></a>
+      <div class="cta-actions">
+        <a href="book-a-call.html" class="btn btn-primary btn-lg">Book a Call <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
+        <a href="get-started.html" class="btn btn-ghost btn-lg">Start My File</a>
+      </div>
+      <a class="cta-phone mono chrome" href="tel:5599009326">(559) 900-9326</a>
     </div>
   </section>
 
-  <!-- ========== FOOTER ========== -->
-  <footer class="footer">
+  <!-- ========== FOOTER (partials/footer.html) ========== -->
+  <div class="seam" aria-hidden="true"></div>
+  <footer class="footer vault">
+    <div class="wordmark" aria-hidden="true">IMPROVEU</div>
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="images/logo.png" alt="ImproveU" width="120" height="34">
+          <a href="index.html" class="footer-logo" aria-label="ImproveU Home">
+            <img src="images/logo.png" alt="ImproveU" width="160" height="160" loading="lazy">
+          </a>
           <p>Improve your credit. Improve your life.</p>
-          <div class="footer-contact" style="margin-top:16px;">
-            <a href="tel:5599009326">(559) 900-9326</a>
+          <div class="footer-contact">
+            <a href="tel:5599009326" class="mono">(559) 900-9326</a>
             <a href="mailto:help@improveu.net">help@improveu.net</a>
-            <span style="font-size:0.85rem; color:var(--cream-faint);">Fresno, CA &bull; Mon&ndash;Fri 9am&ndash;6pm PST</span>
+            <span>Fresno, CA &bull; Mon&ndash;Fri 9am&ndash;6pm PST</span>
           </div>
           <div class="footer-social">
             <a href="https://instagram.com/boostwithjames" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+            <!-- TikTok / YouTube circles return here only when real profile URLs exist — never ship href="#" -->
           </div>
         </div>
         <div>

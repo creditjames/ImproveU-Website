@@ -1,0 +1,131 @@
+/* ==========================================================================
+   results.html — "Before/After Wall" (page-local, on-system; loads after styles.css)
+   Each .score-card is a chrome-rimmed plate: the "before" score is struck, a chrome line
+   draws across to a mini ring that fills while the "after" score rolls, then the delta
+   stamps into the corner as a chrome pill. Greys only. Motion = transform / opacity /
+   stroke-dashoffset / background-position.
+   ========================================================================== */
+
+/* ---- page head: copy left, the wall's file index right ---- */
+.page-head .head-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: clamp(32px, 5vw, 72px); align-items: end; }
+.page-head .h1 { font-size: clamp(3rem, 5.4vw, 5.2rem); } /* keeps "Real clients." on one line beside the index */
+.page-head .pill { margin-top: 28px; }
+.page-head .pill .review-stars { margin: 0; font-size: .8rem; letter-spacing: 2px; }
+.head-index { list-style: none; margin: 0; padding: 0; border-top: 1px solid #DDDFE3; }
+.head-index li { border-bottom: 1px solid #DDDFE3; }
+.head-index a {
+  display: grid; grid-template-columns: 34px 1fr auto; align-items: center; gap: 16px;
+  padding: 13px 4px;
+  font-family: var(--font-mono); font-size: .82rem; font-variant-numeric: tabular-nums; letter-spacing: .04em;
+  color: #0A0A0B;
+  transition: background-color .2s, transform .3s var(--ease-out);
+}
+.head-index a:hover { background: var(--mist); transform: translateX(4px); }
+.head-index .n { font-size: .68rem; letter-spacing: .18em; color: #26272B; }
+.head-index .was { color: #8E9199; text-decoration: line-through; text-decoration-thickness: 1.5px; margin-right: 10px; }
+.head-index .now { font-weight: 700; }
+.head-index .d { font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; padding: 4px 9px; border-radius: 999px; background: #0A0A0B; color: #FFFFFF; }
+
+/* ---- the wall (mist) — two halves with the ticker running between them ---- */
+.wall-top { padding-bottom: clamp(48px, 5vw, 72px); }
+.wall-bottom { padding-top: clamp(48px, 5vw, 72px); }
+.wall-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+.wall-note { margin-top: 36px; text-align: center; font-size: .8rem; color: #26272B; }
+
+/* ---- the plate ---- */
+.wall-card {
+  text-align: left;
+  padding: 24px 24px 26px;
+  border-color: transparent;            /* the chrome rim replaces the hairline border */
+  overflow: visible;
+}
+.wall-card::before { display: none; }   /* no top hairline — the rim carries the edge */
+.wall-rim {
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: var(--chrome);
+  background-size: 200% 100%;
+  background-position: calc(var(--light) * 100%) 0;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  opacity: .85;
+  transition: opacity .3s;
+  pointer-events: none;
+  z-index: 3;
+}
+.wall-card:hover .wall-rim { opacity: 1; }
+.wall-head { display: flex; align-items: center; justify-content: space-between; min-height: 32px; margin-bottom: 22px; }
+.wall-head .mono-label { font-size: .64rem; color: #26272B; }
+
+/* before  →  after */
+.wall-cols { display: grid; grid-template-columns: auto minmax(24px, 1fr) auto; align-items: center; gap: 16px; }
+.wall-before { display: flex; flex-direction: column; align-self: stretch; }   /* label pinned to the top row, number centred on the dial */
+.wall-before .score.before { margin: auto 0; }
+.wall-before .mono-label, .wall-after .mono-label { display: block; font-size: .6rem; letter-spacing: .22em; color: #26272B; margin-bottom: 8px; }
+.wall-after .mono-label { text-align: center; }
+.wall-card .score.before { display: inline-block; font-size: clamp(2.5rem, 3vw, 3.1rem); color: #8E9199; transition: color .3s .4s; }
+.wall-card .score.before::after { background: #0A0A0B; left: -2px; right: -2px; height: 3px; margin-top: -1px; }
+.wall-card.in .score.before, html:not(.js) .wall-card .score.before { color: #B9BCC3; }
+.wall-arrow { position: relative; height: 1px; margin-top: 18px; background: var(--chrome-edge-dark); transform: scaleX(0); transform-origin: left; transition: transform .5s var(--ease-out) .55s; }
+.wall-arrow::after { content: ''; position: absolute; right: 0; top: -4px; width: 8px; height: 8px; border-top: 1px solid #26272B; border-right: 1px solid #26272B; transform: rotate(45deg); }
+.wall-card.in .wall-arrow, html:not(.js) .wall-arrow { transform: scaleX(1); }
+
+/* the mini ring — .score[data-ring] sized down to a plate dial */
+.wall-card .score[data-ring] { width: 124px; font-size: 1rem; letter-spacing: 0; margin: 0 auto; }
+.wall-card .score-num { font-size: 27cqw; }
+.wall-card .ring circle { stroke-width: 16; }
+.wall-card .ring-track { stroke: #ECEDEF; }
+
+/* result line */
+.wall-card .result { margin-top: 20px; font-size: .95rem; line-height: 1.5; color: #26272B; font-variation-settings: 'wdth' 105, 'wght' 500; }
+
+/* the delta — a chrome pill stamped into the top-right corner after the ring settles */
+.wall-card .delta { position: absolute; top: 18px; right: 18px; margin: 0; z-index: 4; --rot: -3deg; }
+.js .wall-card .delta { opacity: 0; transform: rotate(-8deg) scale(1.6); }
+.js .wall-card.in .delta { opacity: 1; transform: rotate(var(--rot)) scale(1); transition: transform .3s var(--ease-spring) 1.55s, opacity .2s 1.55s; }
+html:not(.js) .wall-card .delta { transform: rotate(var(--rot)); }
+/* a hand never stamps twice the same way */
+.score-grid-top > .wall-card:nth-child(2) .delta { --rot: 2deg; }
+.score-grid-top > .wall-card:nth-child(3) .delta { --rot: -4deg; }
+.score-grid-bottom > .wall-card:nth-child(1) .delta { --rot: 3deg; }
+.score-grid-bottom > .wall-card:nth-child(2) .delta { --rot: -2deg; }
+
+/* ---- reviews (white showroom) ---- */
+.reviews-sub { display: inline-flex; align-items: center; gap: 12px; }
+.reviews-sub .review-stars { margin: 0; }
+
+/* ---- reduced motion: everything lands in its final state ---- */
+@media (prefers-reduced-motion: reduce) {
+  .js .wall-card .delta { opacity: 1; transform: rotate(var(--rot)) scale(1); }
+  .wall-arrow { transform: scaleX(1); }
+  .wall-card .score.before { color: #B9BCC3; }
+}
+
+/* ---- responsive ---- */
+/* styles.css steps the top grid to 2 columns at 1100 and 1 column at 768; only the orphan needs centering */
+@media (max-width: 1100px) and (min-width: 769px) {
+  .score-grid-top > .wall-card:nth-child(3) { grid-column: 1 / -1; max-width: calc(50% - 12px); width: 100%; justify-self: center; }
+}
+/* narrow: the index folds into a row of chips under the pill (never display:none — its reveals must still fire) */
+@media (max-width: 1100px) {
+  .page-head .head-grid { grid-template-columns: 1fr; gap: 28px; }
+  .head-index { display: flex; flex-wrap: wrap; gap: 8px; border: 0; }
+  .head-index li { border: 0; }
+  .head-index a { display: inline-flex; gap: 8px; padding: 7px 12px; border: 1px solid #DDDFE3; border-radius: 999px; background: #FFFFFF; font-size: .74rem; }
+  .head-index a:hover { transform: none; }
+  .head-index .n { display: none; }
+  .head-index .was { margin-right: 6px; }
+  .head-index .d { padding: 0; background: none; color: #26272B; }
+}
+@media (max-width: 768px) {
+  .wall-card .score[data-ring] { width: 112px; }
+}
+@media (max-width: 400px) {
+  .wall-card { padding: 20px 18px 22px; }
+  .wall-card .score.before { font-size: 2.3rem; }
+  .wall-card .score[data-ring] { width: 104px; }
+  .wall-card .delta { top: 14px; right: 14px; }
+}

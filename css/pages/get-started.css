@@ -1,0 +1,224 @@
+/* ==========================================================================
+   get-started.html — "The Rep Hand" (page-local, on-system; loads after styles.css)
+   Three .iu-card.mini are dealt from a stack and fan out like a hand held at the bottom
+   of a vault stage. The three specialists stand in a lineup behind the hand, dimmed.
+   Hover / focus on any part of a rep (card, cutout, dossier) pulls that card out of the
+   hand and brings its rep forward into a white spot. Greys only; transform / opacity /
+   background-position only. Everything renders in its final state with motion off / JS off.
+   ========================================================================== */
+
+/* ---- header (a touch tighter than the default page-head so the vault headline peeks at the fold) ---- */
+.page-head { padding-top: clamp(64px, 8vw, 104px); padding-bottom: clamp(48px, 6vw, 72px); }
+.page-head .pill { margin-bottom: 26px; }
+.page-head .h1 { max-width: 12ch; }
+
+/* ---- the hand section ---- */
+.section.compact.section.compact.hand-section { padding-top: clamp(56px, 6vw, 80px); padding-bottom: clamp(32px, 4vw, 48px); }
+.hand-section .sec-head { margin-bottom: clamp(20px, 2.5vw, 32px); }
+
+/* the founder flag hangs above James's slot, bright while his cutout waits in the dark */
+.rep-flag { grid-row: 1; grid-column: var(--col); align-self: start; justify-self: center; z-index: 2; }
+.hand-section .container { position: relative; z-index: 1; }
+
+.hand {
+  --stage-h: clamp(300px, 31vw, 400px);
+  --card-w: clamp(210px, 22vw, 290px);
+  --col-gap: clamp(16px, 2.5vw, 32px);
+  position: relative;
+  display: grid;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+/* chrome floor line — the reps stand on it, the hand is held in front of it */
+.hand::before {
+  content: '';
+  position: absolute; left: 4%; right: 4%; top: calc(var(--stage-h) - 1px);
+  height: 1px;
+  background: var(--chrome-edge);
+  opacity: 0;
+  transform: scaleX(0);
+  transition: transform 1.1s var(--ease-out) .1s, opacity .6s .1s;
+  z-index: 0;
+}
+.hand.in::before, html:not(.js) .hand::before { opacity: .8; transform: scaleX(1); }
+
+/* every rep covers the whole hand area with the same 3-col / 2-row template, so cutout
+   and dossier land in their own column while the card lands at the shared pivot */
+.rep {
+  grid-area: 1 / 1;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: var(--stage-h) auto;
+  column-gap: var(--col-gap);
+  pointer-events: none;
+  z-index: var(--z, 1);
+}
+.rep > * { pointer-events: auto; }
+.rep-1 { --n: 0; --z: 1; --fr: -14deg; --col: 1; }
+.rep-2 { --n: 1; --z: 3; --fr: 0deg;   --col: 2; }
+.rep-3 { --n: 2; --z: 2; --fr: 14deg;  --col: 3; }
+.rep:hover, .rep:focus-within, .rep.is-active { --z: 10; }
+
+/* ---- the lineup: cutout + spot ---- */
+.rep-cutout {
+  grid-row: 1; grid-column: var(--col);
+  position: relative;
+  width: 100%;
+  height: var(--stage-h);
+  align-self: end;
+  overflow: visible; /* the img self-clips via object-fit; the spot must bleed past the box */
+  opacity: var(--co, 0);
+  transform: translate3d(0, var(--cy, 14%), 0);
+  transition: transform .9s var(--ease-out) calc(var(--n) * 90ms), opacity .9s var(--ease-out) calc(var(--n) * 90ms);
+}
+.rep-cutout img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: 50% 0;
+  transition: transform .5s var(--ease-out);
+}
+.rep-spot {
+  position: absolute; left: 50%; top: 22%;
+  width: 150%; aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,.26), rgba(255,255,255,.07) 38%, transparent 66%);
+  opacity: 0;
+  transition: opacity .5s var(--ease-out);
+  pointer-events: none;
+}
+.hand.in .rep-cutout, html:not(.js) .rep-cutout { --co: .48; --cy: 0; }
+.rep:hover .rep-cutout, .rep:focus-within .rep-cutout, .rep.is-active .rep-cutout {
+  --co: 1; --cy: -18px;
+  transition: transform .4s var(--ease-out), opacity .35s var(--ease-out);
+}
+.rep:hover .rep-spot, .rep:focus-within .rep-spot, .rep.is-active .rep-spot { opacity: 1; }
+
+/* ---- the hand: slot (rotates about a pivot far below, like a held card) + card (lift) ---- */
+.rep-slot {
+  grid-row: 1; grid-column: 2;
+  align-self: end; justify-self: center;
+  width: var(--card-w);
+  margin-bottom: 10px;
+  transform-origin: 50% 420%;
+  transform: rotate(0deg) translate3d(0, 56px, 0);
+  opacity: 0;
+  transition: transform 1s var(--ease-out) calc(.25s + var(--n) * 110ms), opacity .5s var(--ease-out) calc(.25s + var(--n) * 110ms);
+}
+.hand.in .rep-slot, html:not(.js) .rep-slot { transform: rotate(var(--fr)) translate3d(0, 0, 0); opacity: 1; }
+
+.rep-card {
+  display: block;
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 24px 50px -18px rgba(0,0,0,.85), 0 0 0 1px rgba(255,255,255,.04);
+  transform: translate3d(0, var(--lift, 0px), 0) scale(var(--sc, 1));
+  transition: transform .55s var(--ease-spring), box-shadow .5s var(--ease-out);
+}
+.rep:hover .rep-card, .rep:focus-within .rep-card, .rep.is-active .rep-card {
+  --lift: -46px; --sc: 1.06;
+  box-shadow: 0 34px 70px -18px rgba(0,0,0,.9), var(--glow-white);
+  transition: transform .3s var(--ease-out), box-shadow .3s var(--ease-out);
+}
+.rep-card:focus-visible { outline: 3px solid #FFFFFF; box-shadow: 0 0 0 5px #0A0A0B; border-radius: 16px; }
+/* rep name embossed where the number would be; role and house mark along the bottom */
+.rep-card .iu-label { top: 40cqw; font-size: 6.2cqw; letter-spacing: .2em; }
+.rep-card .iu-name, .rep-card .iu-meta { font-size: 2.9cqw; bottom: 9cqw; }
+.rep-card .iu-meta { font-family: var(--font-mono); font-variation-settings: normal; font-weight: 500; letter-spacing: .16em; }
+.rep-card .iu-holo { opacity: .7; }
+.rep-card.silver .iu-holo { opacity: .4; }
+
+/* ---- dossier ---- */
+.rep-dossier {
+  grid-row: 2; grid-column: var(--col);
+  position: relative;
+  padding: 34px 0 0;
+  text-align: center;
+  display: flex; flex-direction: column; align-items: center;
+  opacity: var(--do, 0);
+  transform: translate3d(0, var(--dy, 24px), 0);
+  transition: transform .7s var(--ease-out) calc(.55s + var(--n) * 80ms), opacity .7s var(--ease-out) calc(.55s + var(--n) * 80ms);
+}
+/* a chrome tick above each dossier that brightens for the active rep */
+.rep-dossier::before {
+  content: '';
+  position: absolute; left: 50%; top: 0;
+  width: 28px; height: 1px; margin-left: -14px;
+  background: var(--chrome-edge);
+  opacity: .4;
+  transform: scaleX(1);
+  transition: transform .35s var(--ease-out), opacity .35s;
+}
+.rep:hover .rep-dossier::before, .rep:focus-within .rep-dossier::before, .rep.is-active .rep-dossier::before { opacity: 1; transform: scaleX(2.6); }
+.hand.in .rep-dossier, html:not(.js) .rep-dossier { --do: 1; --dy: 0px; }
+.rep-dossier .pill { margin-bottom: 14px; }
+.rep-dossier .mono-label { color: #8E9199; margin-bottom: 8px; }
+.rep-dossier h3 { color: #FFFFFF; font-size: clamp(1.5rem, 2.2vw, 1.9rem); margin-bottom: 10px; transition: color .3s; }
+.rep-dossier > p { font-size: .95rem; line-height: 1.6; color: #C9CCD2; max-width: 30ch; }
+.rep-ig {
+  position: relative;
+  display: inline-block;
+  margin: 12px 0 20px;
+  font-family: var(--font-mono);
+  font-size: .8rem;
+  letter-spacing: .04em;
+  color: #DDDFE3;
+  transition: color .2s;
+}
+.rep-ig::after { content: ''; position: absolute; left: 0; right: 0; bottom: -2px; height: 1px; background: var(--chrome-edge); transform: scaleX(0); transform-origin: left; transition: transform .22s var(--ease-out); }
+.rep-ig:hover, .rep-ig:focus-visible { color: #FFFFFF; }
+.rep-ig:hover::after, .rep-ig:focus-visible::after { transform: scaleX(1); }
+.rep-dossier .btn { margin-top: auto; }
+
+/* ---- hint under the hand ---- */
+.hand-hint-band { padding: 0 0 clamp(64px, 7vw, 96px); }
+.hand-hint-band .container { position: relative; z-index: 1; }
+.hand-hint { text-align: center; }
+.hand-hint p { font-size: .95rem; color: #C9CCD2; }
+.hand-hint .mono-label { display: block; color: #8E9199; margin-bottom: 10px; }
+
+/* ---- CTA banner: phone as a secondary line ---- */
+.cta-banner .cta-hours a { color: #C9CCD2; }
+.cta-banner .cta-hours a:hover { color: #FFFFFF; }
+.cta-banner .cta-hours { display: block; margin-top: 10px; font-family: var(--font-mono); font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; color: #8E9199; }
+
+/* ---- touch: no hover, so the lineup is fully lit and the hand rests wider ---- */
+@media (hover: none) {
+  .hand.in .rep-cutout, html:not(.js) .rep-cutout { --co: .9; }
+  .rep-spot { display: none; }
+}
+
+/* ---- tablet ---- */
+@media (max-width: 1024px) {
+  .hand { --stage-h: clamp(280px, 36vw, 380px); --card-w: clamp(190px, 24vw, 250px); }
+  .rep-1 { --fr: -10deg; } .rep-3 { --fr: 10deg; }
+  .rep-dossier { padding-top: 40px; }
+  .rep-dossier > p { max-width: 26ch; }
+}
+
+/* ---- phone: the fan collapses to a stack — each rep is a vertical block (cutout → card → dossier) ---- */
+@media (max-width: 760px) {
+  .hand { display: flex; flex-direction: column; gap: 48px; --stage-h: 300px; --card-w: min(280px, 78vw); }
+  .hand::before { display: none; }
+  .rep { grid-area: auto; display: flex; flex-direction: column; align-items: center; z-index: auto; }
+  .rep-cutout { width: min(320px, 82vw); height: var(--stage-h); justify-self: auto; }
+  .rep-flag { margin-bottom: 18px; }
+  .rep-cutout::after { content: ''; position: absolute; left: 6%; right: 6%; bottom: 0; height: 1px; background: var(--chrome-edge); opacity: .8; }
+  .hand.in .rep-cutout, html:not(.js) .rep-cutout { --co: 1; --cy: 0; }
+  .rep-slot { margin: -64px 0 0; transform-origin: 50% 50%; }
+  .rep-1 { --fr: -3deg; } .rep-2 { --fr: 2deg; } .rep-3 { --fr: -2deg; }
+  .rep:hover .rep-card, .rep:focus-within .rep-card, .rep.is-active .rep-card { --lift: -8px; --sc: 1.02; }
+  .rep-dossier { padding-top: 26px; width: 100%; }
+  .rep-dossier > p { max-width: 34ch; }
+  .rep-dossier .btn { width: min(320px, 100%); }
+}
+
+/* ---- reduced motion: everything sits in its final, readable state ---- */
+@media (prefers-reduced-motion: reduce) {
+  .hand::before { opacity: .8; transform: scaleX(1); }
+  .rep-cutout { --co: .48; --cy: 0; }
+  .rep-slot { transform: rotate(var(--fr)) translate3d(0, 0, 0); opacity: 1; }
+  .rep-dossier { --do: 1; --dy: 0px; }
+  .rep:hover .rep-cutout, .rep:focus-within .rep-cutout { --co: 1; }
+}

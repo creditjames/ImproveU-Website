@@ -1,0 +1,105 @@
+/* ==========================================================================
+   FAQ — "The Vault Opens" (page-local; tokens + greys only, sits AFTER styles.css)
+   White header → mist accordion (sticky mono index + chrome puck) → CTA
+   ========================================================================== */
+
+/* ---- header meta line: count · phone · email · hours ---- */
+.faq-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 26px; margin-top: 30px; font-size: .92rem; color: #26272B; }
+.faq-meta .mono-label { color: #26272B; }
+.faq-meta a { position: relative; color: #0A0A0B; padding-bottom: 2px; }
+.faq-meta a.mono { font-weight: 500; letter-spacing: .02em; }
+.faq-meta a::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--chrome-edge-dark); transform: scaleX(0); transform-origin: left; transition: transform .22s var(--ease-out); }
+.faq-meta a:hover::after, .faq-meta a:focus-visible::after { transform: scaleX(1); }
+
+/* ---- section + two-column layout ---- */
+/* the header sits tighter than the default page-head so the first open row (the door) is on screen at load */
+.page-head.faq-head { padding: clamp(56px, 7vw, 96px) 0 clamp(40px, 5vw, 56px); }
+.faq-section { padding: clamp(40px, 5vw, 64px) 0 clamp(80px, 10vw, 144px); }
+.faq-layout { display: grid; grid-template-columns: 236px minmax(0, 1fr); gap: clamp(40px, 6vw, 96px); align-items: start; }
+
+/* ---- sticky mono index (desktop) ---- */
+.faq-index { position: sticky; top: calc(var(--nav-height) + 28px); }
+.faq-index .eyebrow { margin-bottom: 12px; }
+.faq-index-list { position: relative; padding-left: 28px; }
+.faq-index-list::before { content: ''; position: absolute; left: 6px; top: 10px; bottom: 10px; width: 2px; border-radius: 2px; background: #DDDFE3; }
+.faq-index-puck {
+  position: absolute; left: 0; top: 0;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--chrome);
+  background-size: 200% 100%;
+  background-position: calc(var(--light) * 100%) 0;
+  box-shadow: 0 0 0 3px #F4F5F7, inset 0 0 0 1px #8E9199, 0 2px 8px rgba(10,10,11,.3);
+  transform: translate3d(0, var(--iy, 12px), 0);
+  transition: transform .55s var(--ease-out);
+  z-index: 1;
+  pointer-events: none;
+}
+.faq-index a {
+  position: relative;
+  display: flex; align-items: baseline; gap: 12px;
+  padding: 8px 0;
+  font-family: var(--font-mono);
+  font-size: .72rem; font-weight: 500;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: #26272B;
+  transition: color .25s, transform .4s var(--ease-out);
+}
+.faq-index a .n { font-weight: 400; flex-shrink: 0; }
+.faq-index a::after { content: ''; position: absolute; left: 0; bottom: 4px; width: 100%; height: 1px; background: var(--chrome-edge-dark); transform: scaleX(0); transform-origin: left; transition: transform .25s var(--ease-out); }
+.faq-index a:hover, .faq-index a:focus-visible { color: #0A0A0B; }
+.faq-index a:hover::after, .faq-index a:focus-visible::after { transform: scaleX(1); }
+.faq-index a.is-current { color: #0A0A0B; font-weight: 700; transform: translateX(4px); }
+.faq-index-hint { margin-top: 22px; padding-top: 16px; border-top: 1px solid #DDDFE3; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .06em; line-height: 1.8; color: #26272B; }
+.faq-index-hint kbd { display: inline-block; min-width: 22px; padding: 0 5px; border: 1px solid #C9CCD2; border-bottom-width: 2px; border-radius: 4px; background: #FFFFFF; font: inherit; color: #0A0A0B; text-align: center; line-height: 1.5; }
+
+/* ---- question groups ---- */
+.faq-groups { display: grid; gap: clamp(52px, 6vw, 84px); }
+.faq-group { scroll-margin-top: calc(var(--nav-height) + 24px); }
+.faq-group-head { display: flex; align-items: baseline; gap: 18px; margin-bottom: 22px; }
+.faq-group-n { flex-shrink: 0; color: #26272B; }
+.faq-group h2 { font-size: clamp(1.6rem, 2.6vw, 2.3rem); font-variation-settings: 'wdth' 112, 'wght' 800; letter-spacing: -.02em; line-height: 1; }
+
+/* ---- the sheet: white paper, chrome top edge; the open row is the vault door ---- */
+.faq-sheet { position: relative; background: #FFFFFF; border: 1px solid #DDDFE3; border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-1); }
+.faq-sheet::before { content: ''; position: absolute; top: 0; left: 18px; right: 18px; height: 1px; background: var(--chrome-edge-dark); opacity: .8; z-index: 3; pointer-events: none; }
+.faq-sheet .faq-list { border-top: 0; }
+.faq-sheet .faq-item:last-child { border-bottom: 0; }
+.faq-h { margin: 0; font-size: 1em; font-variation-settings: normal; }
+.faq-n { color: #26272B; min-width: 2ch; }
+.faq-item:not(.active):hover { background: #F4F5F7; }
+.faq-item:not(.active) .faq-question:hover .faq-plus { transform: scale(1.08); }
+.faq-item.active { box-shadow: inset 0 1px 0 rgba(255,255,255,.08), inset 0 -1px 0 rgba(255,255,255,.08); }
+/* the open row's number turns chrome (one active row at a time) */
+.faq-item.active .faq-n { background: var(--chrome); background-size: 220% 100%; background-position: calc(var(--light) * 100%) 0; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; }
+/* the answer slides up behind the opening door */
+.faq-inner > p { transform: translate3d(0, 10px, 0); opacity: 0; transition: transform .5s var(--ease-out), opacity .35s; }
+.faq-item.active .faq-inner > p { transform: none; opacity: 1; transition-delay: .12s; }
+/* rows are staggered reveals; keep the door's colour transition once revealed */
+.js .faq-item.rv.in { transition: opacity .7s var(--ease-out), transform .7s var(--ease-out), background-color .35s var(--ease-out), border-color .3s; }
+.js .faq-item.rv.done { transition: transform .5s var(--ease-spring), opacity .3s, background-color .35s var(--ease-out), border-color .3s; transition-delay: 0s; }
+/* focus ring that reads on both the white row and the black door (the sheet clips an outer ring) */
+.faq-question:focus-visible { outline-offset: -5px; box-shadow: inset 0 0 0 2px #0A0A0B; border-radius: 0; }
+
+/* ---- responsive ---- */
+@media (max-width: 1023px) {
+  .faq-layout { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .faq-index { position: static; }
+  .faq-index-list { display: flex; flex-wrap: wrap; gap: 8px; padding-left: 0; }
+  .faq-index-list::before, .faq-index-puck, .faq-index-hint { display: none; }
+  .faq-index a { height: 34px; padding: 0 14px; border-radius: var(--radius-pill); border: 1px solid #C9CCD2; background: #FFFFFF; align-items: center; gap: 8px; font-size: .66rem; letter-spacing: .12em; transform: none !important; }
+  .faq-index a::after { display: none; }
+  .faq-index a.is-current { background: #0A0A0B; color: #FFFFFF; border-color: #0A0A0B; }
+  .faq-index a.is-current .n { color: #B9BCC3; }
+}
+@media (max-width: 640px) {
+  .faq-meta { gap: 8px 18px; margin-top: 24px; font-size: .88rem; }
+  .faq-group-head { flex-direction: column; gap: 8px; margin-bottom: 16px; }
+  .faq-groups { gap: 44px; }
+  .faq-sheet { border-radius: 14px; }
+  .faq-sheet::before { left: 14px; right: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .faq-inner > p { transform: none; opacity: 1; }
+  .faq-index a.is-current { transform: none; }
+}

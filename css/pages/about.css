@@ -1,0 +1,187 @@
+/* ==========================================================================
+   ABOUT — page-local styles ("Founder Watermark", DESIGN.md §6)
+   Rhythm: white story (timeline) → vault founder → mist team → white Fresno → vault values → CTA
+   Palette: white / black / silver only. Only transform / opacity / clip-path animate.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. STORY TIMELINE (white) — the founder's story as a ruled ledger of moments
+   -------------------------------------------------------------------------- */
+.story-section { padding-top: clamp(24px, 3vw, 48px); }
+.story-grid { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(40px, 6vw, 96px); align-items: start; }
+.story-grid > .sec-head { position: sticky; top: calc(var(--nav-height) + 32px); margin-bottom: 0; }
+.timeline { border-bottom: 1px solid #DDDFE3; }
+.tl-row { position: relative; display: grid; grid-template-columns: 184px 1fr; gap: 32px; padding: 28px 0 34px; border-top: 1px solid #DDDFE3; }
+.tl-row::before { content: ''; position: absolute; top: -1px; left: 0; width: 24px; height: 1px; background: var(--chrome-edge-dark); }
+.tl-mark { display: flex; flex-direction: column; gap: 10px; }
+.tl-idx { font-family: var(--font-mono); font-weight: 500; font-size: .72rem; letter-spacing: .24em; text-transform: uppercase; color: #26272B; white-space: nowrap; }
+.tl-title { font-family: var(--font-display); font-variation-settings: 'wdth' 110, 'wght' 700; font-size: 1.05rem; line-height: 1.2; color: #0A0A0B; letter-spacing: -.01em; }
+.tl-fig {
+  display: inline-flex; align-items: baseline; gap: 4px;
+  margin-top: 4px;
+  font-family: var(--font-mono); font-weight: 700;
+  font-size: clamp(2.8rem, 4.4vw, 4rem); line-height: 1; letter-spacing: -.04em;
+  color: #0A0A0B; font-variant-numeric: tabular-nums;
+}
+.tl-fig .unit { font-family: var(--font-serif); font-style: italic; font-weight: 400; font-size: .42em; letter-spacing: 0; color: #26272B; }
+.tl-body p + p { margin-top: 14px; }
+.tl-body p { max-width: 62ch; }
+
+/* --------------------------------------------------------------------------
+   2. FOUNDER VAULT — the signature: "JAMES" watermark behind the cutout
+   -------------------------------------------------------------------------- */
+.founder-section { overflow: hidden; }
+.founder-stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.02fr .98fr;
+  gap: clamp(24px, 4vw, 64px);
+  align-items: center;
+  margin: 0;
+  z-index: 1;
+}
+/* the watermark spans the whole stage; the cutout and the copy stand in front of it */
+.founder-mark { position: absolute; left: 50%; top: 8%; transform: translateX(-50%); z-index: 0; pointer-events: none; }
+.founder-mark .wordmark { color: #FFFFFF; opacity: .06; line-height: .85; }
+.founder-cut.team-stage {
+  height: clamp(440px, 44vw, 640px);
+  border-radius: 22px;
+  background: radial-gradient(70% 55% at 50% 100%, #1A1B1E, transparent 72%);
+  z-index: 1;
+}
+.founder-cut .team-spot { top: 30%; width: 520px; height: 520px; margin: -260px 0 0 -260px; }
+.founder-cut img { max-height: 96%; }
+.founder-copy { position: relative; z-index: 2; }
+.founder-copy .sec-head { margin-bottom: 28px; }
+.founder-id { display: grid; grid-template-columns: auto 1fr; gap: 0 22px; align-items: start; padding-top: 26px; border-top: 1px solid #26272B; }
+.founder-id .team-name { grid-column: 1 / -1; font-size: clamp(1.6rem, 2.4vw, 2.1rem); color: #FFFFFF; margin-bottom: 4px; }
+.founder-id .mono-label { grid-column: 1 / -1; color: #8E9199; }
+.founder-id p { grid-column: 1 / -1; margin-top: 10px; font-size: 1rem; }
+.founder-links { display: flex; align-items: center; gap: 18px 22px; flex-wrap: wrap; margin-top: 28px; }
+.ig-mono { font-family: var(--font-mono); font-size: .85rem; letter-spacing: .04em; color: #DDDFE3; position: relative; padding-bottom: 3px; }
+.ig-mono::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--chrome-edge); transform: scaleX(.3); transform-origin: left; transition: transform .22s var(--ease-out); }
+.ig-mono:hover::after, .ig-mono:focus-visible::after { transform: scaleX(1); }
+.ig-mono:hover { color: #FFFFFF; }
+
+/* --------------------------------------------------------------------------
+   3. TEAM (mist) — Joseph from the left, Harley from the right, Jaide rises
+   -------------------------------------------------------------------------- */
+.team-section { overflow: hidden; }
+.team-trio { display: grid; grid-template-columns: 1.08fr .92fr 1.08fr; gap: 24px; align-items: stretch; }
+.team-trio .team-card { margin: 0; display: flex; flex-direction: column; }
+.team-trio .team-card .team-stage { flex-shrink: 0; }
+.team-trio .team-card figcaption { flex: 1; }
+.js .team-card.from-left:not(.in) { transform: translate3d(-64px, 20px, 0) rotate(-2.5deg) scale(.98); }
+.js .team-card.from-right:not(.in) { transform: translate3d(64px, 20px, 0) rotate(2.5deg) scale(.98); }
+.js .team-card.from-below:not(.in) { transform: translate3d(0, 64px, 0) scale(.98); }
+/* names unmask once the card has landed */
+.team-name { display: block; overflow: hidden; padding: .12em 0 .18em; margin: -.12em 0 -.18em; }
+.team-name > span { display: block; transform: translate3d(0, 110%, 0) rotate(1.5deg); transform-origin: left bottom; transition: transform .7s var(--ease-out) .32s; }
+.in .team-name > span, .team-card.in .team-name > span, html:not(.js) .team-name > span { transform: none; }
+.team-card figcaption { padding: 22px 26px 26px; }
+.team-card figcaption .team-name { color: #FFFFFF; font-size: 1.45rem; margin-bottom: 6px; }
+.team-card figcaption p { font-size: .92rem; color: #C9CCD2; }
+.team-card .ig-mono { display: inline-block; margin-top: 12px; font-size: .8rem; }
+/* Jaide's stage: the ImproveU card stands in for the photo */
+.stage-card.team-stage { align-items: center; padding: 0 16px; }
+.stage-card .iu-card.mini { width: min(260px, 100%); box-shadow: 0 24px 50px -18px rgba(10,10,11,.7); }
+.stage-card .iu-card.mini .iu-label { font-size: 4.6cqw; }
+.stage-card .iu-holo { opacity: .5; }
+
+/* --------------------------------------------------------------------------
+   4. FRESNO (white) — the 559 plate
+   -------------------------------------------------------------------------- */
+.fresno-grid { align-items: center; }
+.plate-wrap { display: flex; justify-content: center; }
+.area-plate {
+  position: relative;
+  width: 100%; max-width: 420px; aspect-ratio: 1;
+  border-radius: 22px;
+  background: var(--card-face);
+  color: #DDDFE3;
+  overflow: hidden;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+  padding: 40px;
+  box-shadow: 0 34px 70px -24px rgba(10,10,11,.55);
+  transform: perspective(1000px) rotateX(calc(var(--my, 0) * -6deg)) rotateY(calc(var(--mx, 0) * 6deg));
+  transition: transform .15s ease-out;
+}
+.area-plate > .iu-rim, .area-plate > .iu-brush, .area-plate > .iu-holo { position: absolute; }
+.area-plate > .iu-holo { opacity: .35; }
+.area-plate > .iu-brush { opacity: .3; }
+.area-code {
+  position: relative; z-index: 2;
+  font-family: var(--font-mono); font-weight: 700;
+  font-size: clamp(4.6rem, 9vw, 7rem); line-height: 1; letter-spacing: -.05em;
+  font-variant-numeric: tabular-nums;
+}
+.area-name { position: relative; z-index: 2; font-family: var(--font-serif); font-style: italic; font-size: clamp(1.4rem, 2vw, 1.75rem); color: #FFFFFF; margin-top: 12px; }
+.area-sub { position: relative; z-index: 2; margin-top: 14px; color: #8E9199 !important; }
+.area-corner { position: absolute; z-index: 2; font-family: var(--font-mono); font-size: .62rem; letter-spacing: .22em; text-transform: uppercase; color: #8E9199; }
+.area-corner.tl { left: 22px; top: 20px; }
+.area-corner.br { right: 22px; bottom: 20px; }
+
+/* --------------------------------------------------------------------------
+   5. VALUES (vault) — four principles on the record, each checked in
+   -------------------------------------------------------------------------- */
+.values-ledger { --rule: #26272B; background: #141416; border: 1px solid var(--rule); border-radius: 18px; overflow: hidden; }
+.val-row {
+  position: relative;
+  display: grid; grid-template-columns: 64px 1fr 32px; gap: 28px; align-items: center;
+  padding: 28px 32px;
+  border-bottom: 1px solid var(--rule);
+  transition: background-color .3s;
+}
+.val-row:last-child { border-bottom: 0; }
+.val-row:hover { background: #1A1B1E; }
+.val-row::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--chrome-edge); transform: scaleY(0); transform-origin: top; transition: transform .4s var(--ease-out); }
+.val-row:hover::before { transform: scaleY(1); }
+.val-n { font-family: var(--font-mono); font-weight: 700; font-size: 1.5rem; line-height: 1; color: #8E9199; letter-spacing: .04em; }
+.val-body { display: grid; grid-template-columns: 1fr 1.5fr; gap: 24px; align-items: center; }
+.val-body h3 { color: #FFFFFF; font-size: 1.3rem; margin: 0; }
+.val-body p { margin: 0; font-size: 1rem; color: #C9CCD2; }
+.val-row .check { width: 24px; height: 24px; color: #DDDFE3; justify-self: end; }
+.val-row .check path { stroke-width: 2; }
+
+/* --------------------------------------------------------------------------
+   6. RESPONSIVE
+   -------------------------------------------------------------------------- */
+@media (max-width: 1100px) {
+  .team-trio { grid-template-columns: 1fr 1fr; }
+  .team-trio .from-below { grid-column: 1 / -1; max-width: 420px; margin: 0 auto; width: 100%; }
+}
+@media (max-width: 900px) {
+  .story-grid { grid-template-columns: 1fr; gap: 40px; }
+  .story-grid > .sec-head { position: static; }
+  .founder-stage { grid-template-columns: 1fr; gap: 36px; }
+  .founder-mark { top: 4%; }
+  .founder-cut.team-stage { height: clamp(340px, 88vw, 520px); }
+  .founder-cut .team-spot { width: 380px; height: 380px; margin: -190px 0 0 -190px; }
+  .val-body { grid-template-columns: 1fr; gap: 6px; }
+}
+@media (max-width: 768px) {
+  .tl-row { grid-template-columns: 1fr; gap: 14px; padding: 22px 0 26px; }
+  .tl-fig { font-size: 2.6rem; }
+  .team-trio { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+  .js .team-card.from-left:not(.in) { transform: translate3d(-40px, 20px, 0) rotate(-2deg) scale(.98); }
+  .js .team-card.from-right:not(.in) { transform: translate3d(40px, 20px, 0) rotate(2deg) scale(.98); }
+  .val-row { grid-template-columns: 44px 1fr 24px; gap: 16px; padding: 22px 20px; }
+  .val-n { font-size: 1.2rem; }
+  .val-body h3 { font-size: 1.15rem; }
+  .val-body p { font-size: .95rem; }
+  .founder-links .btn { width: 100%; }
+}
+@media (max-width: 420px) {
+  .area-plate { padding: 28px; }
+  .area-corner.tl { left: 16px; top: 14px; }
+  .area-corner.br { right: 16px; bottom: 14px; }
+}
+
+/* --------------------------------------------------------------------------
+   7. REDUCED MOTION — everything lands in its final place
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .js .team-card.from-left:not(.in), .js .team-card.from-right:not(.in), .js .team-card.from-below:not(.in) { transform: none; opacity: 1; }
+  .team-name > span { transform: none; }
+  .area-plate { transform: none; }
+}

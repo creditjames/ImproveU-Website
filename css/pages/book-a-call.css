@@ -1,0 +1,148 @@
+/* ==========================================================================
+   book-a-call.html — "Appointment Card" (page-local styles, loaded after styles.css)
+   Palette: white / black / silver only. Motion: the bezel's --light sheen, nothing else on the embed.
+   ========================================================================== */
+
+/* ---- page head: actions + the three specialists as chrome discs ---- */
+.bac-head .lead { max-width: 58ch; }
+.bac-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 32px; }
+.bac-head .social-proof { margin-top: 30px; }
+.bac-head .social-proof-text strong { font-family: var(--font-mono); font-weight: 700; }
+
+/* ---- chrome disc avatar (the page motif) ---- */
+.rep-disc {
+  position: relative;
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #141416;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-variation-settings: 'wdth' 110, 'wght' 800;
+  font-size: .95rem;
+  color: #F4F5F7;
+}
+.rep-disc img {
+  position: absolute;
+  width: 240%; height: 240%; max-width: none;
+  left: -70%; top: -8%;               /* faces sit at ~(50%, 24%) of the square cutouts */
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.05); /* static filter: the discs are chrome objects */
+}
+.rep-disc::after {
+  content: '';
+  position: absolute; inset: 0;
+  border-radius: 50%;
+  padding: 2px;
+  background: var(--chrome);
+  background-size: 200% 100%;
+  background-position: calc(var(--light) * 100%) 0;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+.disc-stack { display: flex; }
+.disc-stack .rep-disc { margin-left: -12px; box-shadow: 0 0 0 3px #FFFFFF; }
+.disc-stack .rep-disc:first-child { margin-left: 0; }
+
+/* ---- choose your specialist: three vault panels standing on mist ---- */
+.rep-grid { grid-template-columns: repeat(3, 1fr); max-width: 1080px; margin: 0 auto; }
+.rep-card { display: flex; flex-direction: column; }
+.rep-card:hover { --lift: -6px; --t: .4deg; }
+.rep-card .team-stage { height: clamp(260px, 26vw, 340px); }
+.rep-card figcaption { display: flex; flex-direction: column; flex: 1; padding: 22px 26px 26px; }
+.rep-card h3 { color: #FFFFFF; font-size: 1.35rem; margin-bottom: 4px; }
+.rep-card figcaption .mono-label { display: block; color: #8E9199; font-size: .68rem; letter-spacing: .22em; margin-bottom: 12px; }
+.rep-card figcaption p { font-size: .92rem; line-height: 1.6; color: #C9CCD2; }
+.rep-card .ig-handle { position: relative; display: inline-block; width: fit-content; margin-top: 12px; font-family: var(--font-mono); font-size: .8rem; color: #DDDFE3; padding-bottom: 2px; transition: color .2s; }
+.rep-card .ig-handle::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--chrome-edge); transform: scaleX(0); transform-origin: left; transition: transform .22s var(--ease-out); }
+.rep-card .ig-handle:hover { color: #FFFFFF; }
+.rep-card .ig-handle:hover::after, .rep-card .ig-handle:focus-visible::after { transform: scaleX(1); }
+.rep-cta { margin-top: auto; padding-top: 22px; }
+.rep-cta .btn-ghost { width: 100%; color: #FFFFFF; box-shadow: inset 0 0 0 1.5px #B9BCC3; }
+.rep-cta .btn-ghost::after { background: rgba(255,255,255,.08); }
+
+/* Jaide — client success line under the team */
+.bac-note {
+  display: flex; align-items: center; gap: 18px;
+  max-width: 760px; margin: 48px auto 0;
+  padding: 18px 24px;
+  background: #FFFFFF;
+  border: 1px solid #DDDFE3;
+  border-radius: 18px;
+  box-shadow: var(--shadow-1);
+}
+.bac-note p { font-size: .95rem; line-height: 1.55; }
+.bac-note p strong { color: #0A0A0B; }
+.bac-note .link { font-size: .95rem; }
+
+/* ---- THE APPOINTMENT CARD ---- */
+.appt {
+  position: relative;
+  max-width: 880px; margin: 0 auto;
+  background: #FFFFFF;
+  border-radius: 22px;
+  box-shadow: 0 0 0 1px #8E9199, var(--shadow-2); /* dark outer hairline so the chrome reads as chrome on white */
+  overflow: hidden;
+}
+.appt > .iu-rim { position: absolute; inset: 0; padding: 4px; z-index: 8; } /* chrome bezel; its --light sheen is the page's only motion here */
+.appt::after { content: ''; position: absolute; inset: 4px; border: 1px solid #B9BCC3; border-radius: 18px; pointer-events: none; z-index: 7; } /* inner hairline: milled rim */
+.appt-head {
+  display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+  padding: 22px 28px;
+  border-bottom: 1px solid #DDDFE3;
+}
+.appt-who { display: flex; align-items: center; gap: 16px; }
+.appt-who .mono-label { display: block; margin-bottom: 4px; }
+.appt-who strong { display: block; font-family: var(--font-display); font-variation-settings: 'wdth' 110, 'wght' 700; font-size: 1rem; color: #0A0A0B; letter-spacing: -.01em; }
+.appt-status { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.appt-body { padding: 28px; }
+.appt-slot {
+  position: relative;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+  min-height: 340px;
+  padding: 40px 24px;
+  border: 1px solid #DDDFE3;
+  border-radius: 14px;
+  background:
+    linear-gradient(90deg, transparent 56px, #C9CCD2 56px, #C9CCD2 57px, transparent 57px),
+    repeating-linear-gradient(180deg, transparent 0 47px, #DDDFE3 47px 48px),
+    #F4F5F7;                                    /* an appointment ledger: ruled lines + margin rule */
+}
+.appt-slot .calendly-inline-widget { width: 100%; }
+.appt-slot .mono-label { margin-bottom: 14px; }
+.appt-slot-note { font-family: var(--font-serif); font-style: italic; font-size: 1.5rem; line-height: 1.2; color: #26272B; max-width: 22ch; }
+.appt-alt { margin-top: 22px; text-align: center; font-size: .95rem; }
+.appt-alt .link { font-family: var(--font-mono); font-variation-settings: normal; font-weight: 700; font-size: 1rem; letter-spacing: .02em; }
+.appt-foot {
+  display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;
+  padding: 14px 28px;
+  border-top: 1px solid #DDDFE3;
+  background: #F4F5F7;
+  font-family: var(--font-mono);
+  font-size: .68rem; letter-spacing: .2em; text-transform: uppercase;
+  color: #26272B;
+}
+.appt-foot a { position: relative; color: #0A0A0B; }
+.appt-foot a::after { content: ''; position: absolute; left: 0; right: 0; bottom: -2px; height: 1px; background: var(--chrome-edge-dark); transform: scaleX(0); transform-origin: left; transition: transform .22s var(--ease-out); }
+.appt-foot a:hover::after, .appt-foot a:focus-visible::after { transform: scaleX(1); }
+
+/* ---- responsive ---- */
+@media (max-width: 960px) {
+  .rep-grid { grid-template-columns: 1fr; max-width: 440px; gap: 28px; }
+  .rep-card .team-stage { height: clamp(280px, 60vw, 360px); }
+}
+@media (max-width: 640px) {
+  .appt-head { padding: 18px 20px; }
+  .appt-body { padding: 18px; }
+  .appt-slot { min-height: 300px; padding: 32px 18px; }
+  .appt-slot-note { font-size: 1.3rem; }
+  .appt-foot { padding: 12px 20px; flex-direction: column; align-items: flex-start; gap: 6px; }
+  .bac-note { flex-direction: column; align-items: flex-start; gap: 12px; padding: 18px 20px; }
+}
+@media (max-width: 480px) {
+  .bac-actions .btn { width: 100%; }
+}

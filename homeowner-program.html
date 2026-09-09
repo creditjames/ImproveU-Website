@@ -17,21 +17,23 @@
   <link rel="canonical" href="https://www.improveu.net/homeowner-program.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Hanken+Grotesk:ital,wght@0,300..800;1,300..800&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pages/homeowner-program.css">
   <!-- Schema: Service -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "90-Day Homeowner Program",
+    "url": "https://www.improveu.net/homeowner-program.html",
     "provider": {
       "@type": "LocalBusiness",
       "name": "ImproveU",
-      "telephone": "559-900-9326",
+      "telephone": "+1-559-900-9326",
       "email": "help@improveu.net",
       "address": { "@type": "PostalAddress", "addressLocality": "Fresno", "addressRegion": "CA" },
-      "url": "https://improveu.net"
+      "url": "https://www.improveu.net/"
     },
     "description": "A structured 90-day credit repair and home loan pre-approval program designed to take you from denied to approved."
   }
@@ -39,19 +41,19 @@
 </head>
 <body>
 
-  <!-- ========== NAVIGATION ========== -->
+  <!-- ========== NAVIGATION (partials/nav.html) ========== -->
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo" aria-label="ImproveU Home">
-        <img src="images/logo.png" alt="ImproveU" width="140" height="40">
+        <img src="images/logo.png" alt="ImproveU" width="104" height="104">
       </a>
       <div class="nav-links">
         <div class="nav-dropdown">
-          <a href="#" aria-haspopup="true" class="active">Services &#9662;</a>
+          <a href="#" aria-haspopup="true" aria-expanded="false">Services <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
           <div class="nav-dropdown-menu">
             <a href="credit-repair.html">Credit Repair</a>
             <a href="business-funding.html">Business Funding</a>
-            <a href="homeowner-program.html">90-Day Homeowner Program</a>
+            <a href="homeowner-program.html">Homeowner Program</a>
           </div>
         </div>
         <a href="pricing.html">Pricing</a>
@@ -60,7 +62,7 @@
         <a href="blog.html">Blog</a>
         <a href="faq.html">FAQ</a>
         <div class="nav-dropdown">
-          <a href="#" aria-haspopup="true">Partner &#9662;</a>
+          <a href="#" aria-haspopup="true" aria-expanded="false">Partner <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
           <div class="nav-dropdown-menu">
             <a href="affiliate.html">Affiliate Program</a>
             <a href="franchise.html">Own a Franchise</a>
@@ -69,17 +71,18 @@
         <a href="contact.html">Contact</a>
       </div>
       <div class="nav-actions">
-        <a href="portal.html" class="btn-login">Client Login</a>
+        <a href="tel:5599009326" class="nav-phone">(559) 900-9326</a>
+        <a href="portal.html" class="btn btn-ghost btn-sm btn-login">Client Login</a>
         <a href="get-started.html" class="btn btn-primary btn-sm">Get Started</a>
       </div>
-      <button class="nav-toggle" aria-label="Open menu">
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
   <!-- Mobile Menu -->
-  <div class="mobile-menu">
+  <div class="mobile-menu" id="mobile-menu">
     <a href="credit-repair.html">Credit Repair</a>
     <a href="business-funding.html">Business Funding</a>
     <a href="homeowner-program.html">Homeowner Program</a>
@@ -92,31 +95,208 @@
     <a href="franchise.html">Own a Franchise</a>
     <a href="contact.html">Contact</a>
     <a href="portal.html">Client Login</a>
-    <a href="get-started.html" class="btn btn-primary">Get Started</a>
+    <a href="tel:5599009326" class="mobile-phone">(559) 900-9326</a>
+    <a href="get-started.html" class="btn btn-primary">Get Started <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
   </div>
 
-  <!-- ========== HERO ========== -->
-  <section class="hero">
+  <!-- ========== HERO (white showroom) ========== -->
+  <section class="hero show hp-hero">
     <div class="container-wide">
       <div class="hero-grid">
-        <div class="hero-content fade-up">
-          <div class="hero-pill"><span class="dot"></span> 90-Day Program &middot; Approval Focused</div>
-          <h1>The 90-day<br><em class="flourish">homeowner</em> program</h1>
-          <p class="subhead">Fix your credit, get pre-approved, and walk into your new home &mdash; with a proven step-by-step system built for real results. You don't need years to change your situation. With the right strategy, you can go from denied to approved in as little as 90 days.</p>
-          <div class="hero-ctas">
-            <a href="book-a-call.html" class="btn btn-primary btn-lg">Apply Now <span class="arr">&rarr;</span></a>
-            <a href="pricing.html" class="btn btn-outline btn-lg">See Pricing</a>
+        <div class="hero-content">
+          <span class="pill rv">90-Day Program &middot; Approval Focused</span>
+          <h1 class="hl">The 90-day <em class="flourish chrome-dark">homeowner</em> program</h1>
+          <p class="lead rv" style="--i:1">Fix your credit, get pre-approved, and walk into your new home &mdash; with a proven step-by-step system built for real results. You don't need years to change your situation. With the right strategy, you can go from denied to approved in as little as 90 days.</p>
+          <div class="hero-ctas rv" style="--i:2">
+            <a href="book-a-call.html" class="btn btn-primary btn-lg is-hero">Apply Now <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
+            <a href="pricing.html" class="btn btn-ghost btn-lg">See Pricing</a>
           </div>
-          <div class="social-proof">
-            <div class="avatar-stack">
+          <div class="social-proof rv" style="--i:3">
+            <div class="avatar-stack" aria-hidden="true">
               <span>J</span><span>M</span><span>A</span><span>R</span><span>K</span>
             </div>
             <p class="social-proof-text"><strong>5.0 &#9733;</strong> Trustpilot &middot; Verified Reviews</p>
           </div>
         </div>
-        <div class="hero-image fade-up">
-          <img src="images/james-hero-web.png" alt="James — Founder of ImproveU" style="max-height:560px;">
+
+        <div class="hero-figure-wrap rv" style="--i:2">
+          <figure class="hero-figure" data-tilt>
+            <span class="iu-rim" aria-hidden="true"></span>
+            <span class="iu-brush" aria-hidden="true"></span>
+            <span class="team-spot" aria-hidden="true"></span>
+            <div class="figure-tag" aria-hidden="true">90-Day Homeowner Program<span>ImproveU &middot; Fresno, CA</span></div>
+            <img src="images/james-tux-web.png" alt="James, founder of ImproveU" width="1200" height="1200" data-parallax="-30">
+            <span class="pill pill-chrome figure-chip"><span class="mono">90 days</span> denied to pre-approved</span>
+          </figure>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="seam" aria-hidden="true"></div>
+
+  <!-- ========== THE PROGRAM — the 90-day ring (vault) ========== -->
+  <section class="section vault" id="program">
+    <div class="container-wide">
+      <div class="ring-grid">
+
+        <div class="ring-stage">
+          <div class="ring-box rv">
+            <div class="score days" data-ring="90" data-min="0" data-max="90">
+              <svg class="ring" viewBox="0 0 300 300" aria-hidden="true">
+                <defs>
+                  <linearGradient id="chromeStroke" x1="0" x2="1">
+                    <stop offset="0" stop-color="#8E9199"/><stop offset=".5" stop-color="#FFFFFF"/><stop offset="1" stop-color="#C9CCD2"/>
+                  </linearGradient>
+                  <linearGradient id="chromeStrokeDark" x1="0" x2="1">
+                    <stop offset="0" stop-color="#26272B"/><stop offset=".35" stop-color="#8E9199"/><stop offset=".5" stop-color="#DDDFE3"/><stop offset=".65" stop-color="#8E9199"/><stop offset="1" stop-color="#26272B"/>
+                  </linearGradient>
+                </defs>
+                <circle class="ring-track" cx="150" cy="150" r="120"/>
+                <circle class="ring-fill" cx="150" cy="150" r="120"/>
+                <circle class="ring-trail" cx="150" cy="150" r="120"/>
+              </svg>
+              <!-- 90 tick marks, one per day, each lit as the fill passes it -->
+              <svg class="ring-ticks" viewBox="0 0 300 300" aria-hidden="true">
+                <line x1="48.19" y1="241.67" x2="41.50" y2="247.69" style="--d:4ms"/>
+                <line x1="43.53" y1="236.22" x2="36.54" y2="241.88" style="--d:8ms"/>
+                <line x1="39.16" y1="230.53" x2="31.88" y2="235.82" style="--d:12ms"/>
+                <line x1="35.10" y1="224.62" x2="27.55" y2="229.52" style="--d:16ms"/>
+                <line x1="31.35" y1="218.50" x2="23.56" y2="223.00" style="--d:20ms"/>
+                <line x1="27.93" y1="212.20" x2="19.91" y2="216.28" style="--d:24ms"/>
+                <line x1="24.84" y1="205.72" x2="16.62" y2="209.38" style="--d:28ms"/>
+                <line x1="22.10" y1="199.10" x2="13.70" y2="202.32" style="--d:32ms"/>
+                <line x1="19.71" y1="192.34" x2="11.15" y2="195.12" style="--d:36ms"/>
+                <line class="major" x1="21.53" y1="184.42" x2="7.04" y2="188.31" style="--d:41ms"/>
+                <line x1="15.99" y1="178.48" x2="7.19" y2="180.36" style="--d:45ms"/>
+                <line x1="14.69" y1="171.43" x2="5.80" y2="172.84" style="--d:49ms"/>
+                <line x1="13.75" y1="164.32" x2="4.80" y2="165.26" style="--d:54ms"/>
+                <line x1="13.19" y1="157.17" x2="4.20" y2="157.64" style="--d:58ms"/>
+                <line x1="13.00" y1="150.00" x2="4.00" y2="150.00" style="--d:62ms"/>
+                <line x1="13.19" y1="142.83" x2="4.20" y2="142.36" style="--d:67ms"/>
+                <line x1="13.75" y1="135.68" x2="4.80" y2="134.74" style="--d:71ms"/>
+                <line x1="14.69" y1="128.57" x2="5.80" y2="127.16" style="--d:76ms"/>
+                <line x1="15.99" y1="121.52" x2="7.19" y2="119.64" style="--d:81ms"/>
+                <line class="major" x1="21.53" y1="115.58" x2="7.04" y2="111.69" style="--d:85ms"/>
+                <line x1="19.71" y1="107.66" x2="11.15" y2="104.88" style="--d:90ms"/>
+                <line x1="22.10" y1="100.90" x2="13.70" y2="97.68" style="--d:95ms"/>
+                <line x1="24.84" y1="94.28" x2="16.62" y2="90.62" style="--d:100ms"/>
+                <line x1="27.93" y1="87.80" x2="19.91" y2="83.72" style="--d:104ms"/>
+                <line x1="31.35" y1="81.50" x2="23.56" y2="77.00" style="--d:109ms"/>
+                <line x1="35.10" y1="75.38" x2="27.55" y2="70.48" style="--d:114ms"/>
+                <line x1="39.16" y1="69.47" x2="31.88" y2="64.18" style="--d:119ms"/>
+                <line x1="43.53" y1="63.78" x2="36.54" y2="58.12" style="--d:125ms"/>
+                <line x1="48.19" y1="58.33" x2="41.50" y2="52.31" style="--d:130ms"/>
+                <line class="major" x1="55.95" y1="55.95" x2="45.35" y2="45.35" style="--d:135ms"/>
+                <line x1="58.33" y1="48.19" x2="52.31" y2="41.50" style="--d:140ms"/>
+                <line x1="63.78" y1="43.53" x2="58.12" y2="36.54" style="--d:146ms"/>
+                <line x1="69.47" y1="39.16" x2="64.18" y2="31.88" style="--d:151ms"/>
+                <line x1="75.38" y1="35.10" x2="70.48" y2="27.55" style="--d:157ms"/>
+                <line x1="81.50" y1="31.35" x2="77.00" y2="23.56" style="--d:162ms"/>
+                <line x1="87.80" y1="27.93" x2="83.72" y2="19.91" style="--d:168ms"/>
+                <line x1="94.28" y1="24.84" x2="90.62" y2="16.62" style="--d:174ms"/>
+                <line x1="100.90" y1="22.10" x2="97.68" y2="13.70" style="--d:179ms"/>
+                <line x1="107.66" y1="19.71" x2="104.88" y2="11.15" style="--d:185ms"/>
+                <line class="major" x1="115.58" y1="21.53" x2="111.69" y2="7.04" style="--d:191ms"/>
+                <line x1="121.52" y1="15.99" x2="119.64" y2="7.19" style="--d:197ms"/>
+                <line x1="128.57" y1="14.69" x2="127.16" y2="5.80" style="--d:204ms"/>
+                <line x1="135.68" y1="13.75" x2="134.74" y2="4.80" style="--d:210ms"/>
+                <line x1="142.83" y1="13.19" x2="142.36" y2="4.20" style="--d:216ms"/>
+                <line x1="150.00" y1="13.00" x2="150.00" y2="4.00" style="--d:223ms"/>
+                <line x1="157.17" y1="13.19" x2="157.64" y2="4.20" style="--d:229ms"/>
+                <line x1="164.32" y1="13.75" x2="165.26" y2="4.80" style="--d:236ms"/>
+                <line x1="171.43" y1="14.69" x2="172.84" y2="5.80" style="--d:243ms"/>
+                <line x1="178.48" y1="15.99" x2="180.36" y2="7.19" style="--d:250ms"/>
+                <line class="major" x1="184.42" y1="21.53" x2="188.31" y2="7.04" style="--d:257ms"/>
+                <line x1="192.34" y1="19.71" x2="195.12" y2="11.15" style="--d:264ms"/>
+                <line x1="199.10" y1="22.10" x2="202.32" y2="13.70" style="--d:271ms"/>
+                <line x1="205.72" y1="24.84" x2="209.38" y2="16.62" style="--d:279ms"/>
+                <line x1="212.20" y1="27.93" x2="216.28" y2="19.91" style="--d:287ms"/>
+                <line x1="218.50" y1="31.35" x2="223.00" y2="23.56" style="--d:294ms"/>
+                <line x1="224.62" y1="35.10" x2="229.52" y2="27.55" style="--d:302ms"/>
+                <line x1="230.53" y1="39.16" x2="235.82" y2="31.88" style="--d:311ms"/>
+                <line x1="236.22" y1="43.53" x2="241.88" y2="36.54" style="--d:319ms"/>
+                <line x1="241.67" y1="48.19" x2="247.69" y2="41.50" style="--d:327ms"/>
+                <line class="major" x1="244.05" y1="55.95" x2="254.65" y2="45.35" style="--d:336ms"/>
+                <line x1="251.81" y1="58.33" x2="258.50" y2="52.31" style="--d:345ms"/>
+                <line x1="256.47" y1="63.78" x2="263.46" y2="58.12" style="--d:354ms"/>
+                <line x1="260.84" y1="69.47" x2="268.12" y2="64.18" style="--d:364ms"/>
+                <line x1="264.90" y1="75.38" x2="272.45" y2="70.48" style="--d:374ms"/>
+                <line x1="268.65" y1="81.50" x2="276.44" y2="77.00" style="--d:384ms"/>
+                <line x1="272.07" y1="87.80" x2="280.09" y2="83.72" style="--d:394ms"/>
+                <line x1="275.16" y1="94.28" x2="283.38" y2="90.62" style="--d:405ms"/>
+                <line x1="277.90" y1="100.90" x2="286.30" y2="97.68" style="--d:416ms"/>
+                <line x1="280.29" y1="107.66" x2="288.85" y2="104.88" style="--d:427ms"/>
+                <line class="major" x1="278.47" y1="115.58" x2="292.96" y2="111.69" style="--d:439ms"/>
+                <line x1="284.01" y1="121.52" x2="292.81" y2="119.64" style="--d:451ms"/>
+                <line x1="285.31" y1="128.57" x2="294.20" y2="127.16" style="--d:464ms"/>
+                <line x1="286.25" y1="135.68" x2="295.20" y2="134.74" style="--d:477ms"/>
+                <line x1="286.81" y1="142.83" x2="295.80" y2="142.36" style="--d:491ms"/>
+                <line x1="287.00" y1="150.00" x2="296.00" y2="150.00" style="--d:505ms"/>
+                <line x1="286.81" y1="157.17" x2="295.80" y2="157.64" style="--d:521ms"/>
+                <line x1="286.25" y1="164.32" x2="295.20" y2="165.26" style="--d:537ms"/>
+                <line x1="285.31" y1="171.43" x2="294.20" y2="172.84" style="--d:554ms"/>
+                <line x1="284.01" y1="178.48" x2="292.81" y2="180.36" style="--d:572ms"/>
+                <line class="major" x1="278.47" y1="184.42" x2="292.96" y2="188.31" style="--d:592ms"/>
+                <line x1="280.29" y1="192.34" x2="288.85" y2="195.12" style="--d:613ms"/>
+                <line x1="277.90" y1="199.10" x2="286.30" y2="202.32" style="--d:636ms"/>
+                <line x1="275.16" y1="205.72" x2="283.38" y2="209.38" style="--d:661ms"/>
+                <line x1="272.07" y1="212.20" x2="280.09" y2="216.28" style="--d:689ms"/>
+                <line x1="268.65" y1="218.50" x2="276.44" y2="223.00" style="--d:720ms"/>
+                <line x1="264.90" y1="224.62" x2="272.45" y2="229.52" style="--d:757ms"/>
+                <line x1="260.84" y1="230.53" x2="268.12" y2="235.82" style="--d:802ms"/>
+                <line x1="256.47" y1="236.22" x2="263.46" y2="241.88" style="--d:859ms"/>
+                <line x1="251.81" y1="241.67" x2="258.50" y2="247.69" style="--d:945ms"/>
+                <line class="major" x1="244.05" y1="244.05" x2="254.65" y2="254.65" style="--d:1400ms"/>
+              </svg>
+              <div class="score-center">
+                <span class="mono-label">Day</span>
+                <span class="odo score-num" data-odo="90">00</span>
+                <em class="flourish score-word">denied to approved</em>
+              </div>
+              <!-- the written guarantee, rotating in the gauge's open wedge -->
+              <div class="seal" aria-hidden="true">
+                <svg viewBox="0 0 120 120">
+                  <defs>
+                    <path id="sealCircle" d="M 60,60 m -44,0 a 44,44 0 1,1 88,0 a 44,44 0 1,1 -88,0"/>
+                    <linearGradient id="sealStroke" x1="0" x2="1"><stop offset="0" stop-color="#8E9199"/><stop offset=".5" stop-color="#FFFFFF"/><stop offset="1" stop-color="#8E9199"/></linearGradient>
+                  </defs>
+                  <g class="seal-spin">
+                    <circle cx="60" cy="60" r="56" fill="none" stroke="url(#sealStroke)" stroke-width="1.5"/>
+                    <circle cx="60" cy="60" r="30" fill="none" stroke="url(#sealStroke)" stroke-width="1"/>
+                    <text style="font-size:7.6px; letter-spacing:1.7px; font-family:'JetBrains Mono', monospace; font-weight:500;">
+                      <textPath href="#sealCircle">90-DAY GUARANTEE &#183; IMPROVEU &#183; FRESNO CA &#183;</textPath>
+                    </text>
+                  </g>
+                  <text class="seal-mono" x="60" y="68" text-anchor="middle" style="font-size:22px; font-family:'Instrument Serif', Georgia, serif; font-style:italic;">IU</text>
+                </svg>
+              </div>
+            </div>
+            <ul class="phases" aria-label="Program phases">
+              <li class="phase phase-1">Phase 01<strong>Credit analysis</strong></li>
+              <li class="phase phase-2">Phase 02<strong>Strategic repair</strong></li>
+              <li class="phase phase-3">Phase 03<strong>Lender prep</strong></li>
+              <li class="phase phase-end"><span class="pill pill-chrome">Day 90 &middot; Pre-approved</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="ring-copy rv" style="--i:1">
+          <div class="sec-head">
+            <p class="eyebrow"><span class="eyebrow-dash" aria-hidden="true"></span>The Program</p>
+            <h2 class="hl">Our most aggressive <em class="flourish chrome">dispute process</em></h2>
+            <p class="sec-sub">This isn't a generic credit repair plan. The 90-Day Homeowner Program is built from the ground up for one outcome: getting you into a home.</p>
+          </div>
+          <ul class="checklist">
+            <li style="--i:0"><svg class="check" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-8"/></svg><span><strong>Structured 90-day timeline</strong> &mdash; Every day is mapped out with purpose.</span></li>
+            <li style="--i:1"><svg class="check" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-8"/></svg><span><strong>Step-by-step system</strong> &mdash; No guesswork. Follow the process.</span></li>
+            <li style="--i:2"><svg class="check" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-8"/></svg><span><strong>Approval-focused</strong> &mdash; Everything we do points toward one goal: your mortgage approval.</span></li>
+            <li style="--i:3"><svg class="check" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-8"/></svg><span><strong>Built for speed and results</strong> &mdash; Aggressive dispute tactics, not passive waiting.</span></li>
+            <li style="--i:4"><svg class="check" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-8"/></svg><span><strong>Direct founder access</strong> &mdash; Work with James personally, not a call center.</span></li>
+          </ul>
+          <p class="ring-note">Backed by our written 90-day guarantee. Results vary by file.</p>
+        </div>
+
       </div>
     </div>
   </section>
@@ -124,136 +304,117 @@
   <!-- ========== RESULTS TICKER ========== -->
   <div class="ticker" aria-hidden="true">
     <div class="ticker-track">
-      <span><span class="mono">+165 pts</span> closed on a first home in 5 months</span>
-      <span><span class="mono">+180 pts</span> approved for a $385K mortgage</span>
-      <span><span class="mono">90 days</span> from denied to pre-approved</span>
-      <span><span class="mono">24 hrs</span> pre-approval with our senior loan officer</span>
+      <span><span class="mono chrome">+165 pts</span> closed on a first home in 5 months</span>
+      <span><span class="mono chrome">+180 pts</span> approved for a $385K mortgage</span>
+      <span><span class="mono chrome">90 days</span> from denied to pre-approved</span>
+      <span><span class="mono chrome">24 hrs</span> pre-approval with our senior loan officer</span>
     </div>
   </div>
 
-  <!-- ========== THE PROGRAM ========== -->
-  <section class="section section-paper">
+  <div class="seam" aria-hidden="true"></div>
+
+  <!-- ========== PATH TO APPROVAL — four steps on the rail (white) ========== -->
+  <section class="section show" id="path">
     <div class="container">
-      <div class="split">
-        <div class="fade-up">
-          <p class="section-label">The Program</p>
-          <h2>Our most aggressive<br><em class="flourish" style="color:var(--gold-600);">dispute process</em></h2>
-          <div style="height:14px;"></div>
-          <p>This isn't a generic credit repair plan. The 90-Day Homeowner Program is built from the ground up for one outcome: getting you into a home.</p>
-        </div>
-        <div class="fade-up">
-          <ul class="checklist">
-            <li>
-              <svg viewBox="0 0 20 20"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg>
-              <span><strong style="color:var(--ink-900);">Structured 90-day timeline</strong> &mdash; Every day is mapped out with purpose.</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 20 20"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg>
-              <span><strong style="color:var(--ink-900);">Step-by-step system</strong> &mdash; No guesswork. Follow the process.</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 20 20"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg>
-              <span><strong style="color:var(--ink-900);">Approval-focused</strong> &mdash; Everything we do points toward one goal: your mortgage approval.</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 20 20"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg>
-              <span><strong style="color:var(--ink-900);">Built for speed and results</strong> &mdash; Aggressive dispute tactics, not passive waiting.</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 20 20"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg>
-              <span><strong style="color:var(--ink-900);">Direct founder access</strong> &mdash; Work with James personally, not a call center.</span>
-            </li>
-          </ul>
-        </div>
+      <div class="sec-head centered rv">
+        <p class="eyebrow"><span class="eyebrow-dash" aria-hidden="true"></span>The Process</p>
+        <h2 class="hl">Your path to <em class="flourish">approval</em></h2>
+        <p class="sec-sub">Four clear steps. One goal. Homeownership.</p>
+      </div>
+      <div class="rail">
+        <span class="rail-track" aria-hidden="true"><span class="rail-puck"></span></span>
+        <ol class="steps-ledger rv">
+          <li class="rail-step">
+            <span class="step-tick" aria-hidden="true"></span>
+            <span class="step-num" aria-hidden="true">01</span>
+            <h4>Credit Analysis</h4>
+            <p>We identify what's holding you back &mdash; every derogatory mark, every error, every opportunity to improve your file.</p>
+          </li>
+          <li class="rail-step">
+            <span class="step-tick" aria-hidden="true"></span>
+            <span class="step-num" aria-hidden="true">02</span>
+            <h4>Strategic Credit Repair</h4>
+            <p>We dispute, escalate, and rebuild &mdash; using advanced tactics and legal-based strategies to clean your report fast.</p>
+          </li>
+          <li class="rail-step">
+            <span class="step-tick" aria-hidden="true"></span>
+            <span class="step-num" aria-hidden="true">03</span>
+            <h4>Lender Prep</h4>
+            <p>We position your file for approval &mdash; optimizing your credit profile to meet lender requirements head-on.</p>
+          </li>
+          <li class="rail-step">
+            <span class="step-tick" aria-hidden="true"></span>
+            <span class="step-num" aria-hidden="true">04</span>
+            <h4>Pre-Approval</h4>
+            <p>Connect with our in-house senior loan officer. Pre-approved in as little as 24 hours.</p>
+          </li>
+        </ol>
+      </div>
+      <div class="text-center path-cta rv">
+        <a href="book-a-call.html" class="btn btn-secondary btn-lg">Apply Now <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
   </section>
 
-  <!-- ========== PATH TO APPROVAL ========== -->
-  <section class="section section-accent">
+  <!-- ========== WHY WE BUILT THIS — the story (mist) ========== -->
+  <section class="section mist" id="story">
     <div class="container">
-      <div class="text-center fade-up">
-        <p class="section-label centered">The Process</p>
-        <h2>Your path to <em class="flourish">approval</em></h2>
-        <p style="margin:16px auto 0; max-width:480px;">Four clear steps. One goal. Homeownership.</p>
+      <div class="sec-head centered rv">
+        <p class="eyebrow"><span class="eyebrow-dash" aria-hidden="true"></span>The Story</p>
+        <h2 class="hl">Why we <em class="flourish chrome-dark">built this</em></h2>
+        <p class="sec-sub">Too many people get denied for a home loan and don't know what to do next. We built this program to change that.</p>
       </div>
-      <div style="height:56px;"></div>
-      <div class="steps-grid">
-        <div class="card card-step fade-up">
-          <span class="step-num">01</span>
-          <h4>Credit Analysis</h4>
-          <p>We identify what's holding you back &mdash; every derogatory mark, every error, every opportunity to improve your file.</p>
-        </div>
-        <div class="card card-step fade-up">
-          <span class="step-num">02</span>
-          <h4>Strategic Credit Repair</h4>
-          <p>We dispute, escalate, and rebuild &mdash; using advanced tactics and legal-based strategies to clean your report fast.</p>
-        </div>
-        <div class="card card-step fade-up">
-          <span class="step-num">03</span>
-          <h4>Lender Prep</h4>
-          <p>We position your file for approval &mdash; optimizing your credit profile to meet lender requirements head-on.</p>
-        </div>
-        <div class="card card-step fade-up">
-          <span class="step-num">04</span>
-          <h4>Pre-Approval</h4>
-          <p>Connect with our in-house senior loan officer. Pre-approved in as little as 24 hours.</p>
-        </div>
-      </div>
-      <div class="text-center" style="margin-top:48px;">
-        <a href="book-a-call.html" class="btn btn-primary fade-up">Apply Now <span class="arr">&rarr;</span></a>
+      <div class="story-grid" data-stagger>
+        <article class="card chapter rv" style="--i:0">
+          <p class="mono-label">Chapter 01 &middot; The problem</p>
+          <span class="chapter-n" aria-hidden="true">01</span>
+          <h3>Why Most Applications Get Denied</h3>
+          <p>The truth about what lenders see &mdash; and why most people never make it past the first step.</p>
+        </article>
+        <article class="card chapter rv" style="--i:1">
+          <p class="mono-label">Chapter 02 &middot; The system</p>
+          <span class="chapter-n" aria-hidden="true">02</span>
+          <h3>How We Turn It Around in 90 Days</h3>
+          <p>The exact system we use to take clients from denied to pre-approved &mdash; and how fast it can happen.</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- ========== WHY WE BUILT THIS ========== -->
-  <section class="section section-dark">
-    <div class="container">
-      <div class="text-center fade-up">
-        <p class="section-label centered">The Story</p>
-        <h2>Why we <em class="flourish">built this</em></h2>
-        <p style="margin:16px auto 0; max-width:560px;">Too many people get denied for a home loan and don't know what to do next. We built this program to change that.</p>
-      </div>
-      <div style="height:52px;"></div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;" class="video-split">
-        <div class="card video-card fade-up">
-          <div class="play">&#9654;</div>
-          <h4 style="margin-bottom:8px;">Why Most Applications Get Denied</h4>
-          <p style="max-width:320px; font-size:0.9rem;">The truth about what lenders see &mdash; and why most people never make it past the first step.</p>
-        </div>
-        <div class="card video-card fade-up">
-          <div class="play">&#9654;</div>
-          <h4 style="margin-bottom:8px;">How We Turn It Around in 90 Days</h4>
-          <p style="max-width:320px; font-size:0.9rem;">The exact system we use to take clients from denied to pre-approved &mdash; and how fast it can happen.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  <style>@media (max-width: 768px) { .video-split { grid-template-columns: 1fr !important; } }</style>
+  <div class="seam" aria-hidden="true"></div>
 
-  <!-- ========== CTA ========== -->
-  <section class="cta-banner">
-    <div class="container fade-up">
-      <h2>Ready to become a <em class="flourish">homeowner?</em></h2>
+  <!-- ========== CTA BANNER ========== -->
+  <section class="cta-banner vault">
+    <div class="container rv">
+      <h2 class="hl">Ready to become a <em class="flourish chrome">homeowner?</em></h2>
       <p>Your next 90 days can change everything &mdash; if you take action today.</p>
-      <a href="book-a-call.html" class="btn btn-primary btn-lg">Apply Now <span class="arr">&rarr;</span></a>
+      <div class="cta-actions">
+        <a href="book-a-call.html" class="btn btn-primary btn-lg">Apply Now <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
+        <a href="pricing.html" class="btn btn-ghost btn-lg">See Pricing</a>
+      </div>
+      <a class="cta-phone mono chrome" href="tel:5599009326">(559) 900-9326</a>
     </div>
   </section>
 
-  <!-- ========== FOOTER ========== -->
-  <footer class="footer">
+  <!-- ========== FOOTER (partials/footer.html) ========== -->
+  <div class="seam" aria-hidden="true"></div>
+  <footer class="footer vault">
+    <div class="wordmark" aria-hidden="true">IMPROVEU</div>
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="images/logo.png" alt="ImproveU" width="120" height="34">
+          <a href="index.html" class="footer-logo" aria-label="ImproveU Home">
+            <img src="images/logo.png" alt="ImproveU" width="160" height="160" loading="lazy">
+          </a>
           <p>Improve your credit. Improve your life.</p>
-          <div class="footer-contact" style="margin-top:16px;">
-            <a href="tel:5599009326">(559) 900-9326</a>
+          <div class="footer-contact">
+            <a href="tel:5599009326" class="mono">(559) 900-9326</a>
             <a href="mailto:help@improveu.net">help@improveu.net</a>
-            <span style="font-size:0.85rem; color:var(--cream-faint);">Fresno, CA &bull; Mon&ndash;Fri 9am&ndash;6pm PST</span>
+            <span>Fresno, CA &bull; Mon&ndash;Fri 9am&ndash;6pm PST</span>
           </div>
           <div class="footer-social">
             <a href="https://instagram.com/boostwithjames" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+            <!-- TikTok / YouTube circles return here only when real profile URLs exist — never ship href="#" -->
           </div>
         </div>
         <div>
@@ -295,7 +456,7 @@
 
   <!-- Sticky Mobile CTA -->
   <div class="mobile-sticky-cta">
-    <a href="book-a-call.html" class="btn btn-primary">Apply Now</a>
+    <a href="get-started.html" class="btn btn-primary">Get Started</a>
   </div>
 
   <script src="js/main.js"></script>

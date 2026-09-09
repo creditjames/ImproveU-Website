@@ -23,24 +23,25 @@
   <link rel="canonical" href="https://www.improveu.net/croa-disclosure.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Hanken+Grotesk:ital,wght@0,300..800;1,300..800&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pages/legal.css">
 </head>
 <body>
 
-  <!-- ========== NAVIGATION ========== -->
+<!-- ========== NAVIGATION (canonical — paste verbatim on every page) ========== -->
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo" aria-label="ImproveU Home">
-        <img src="images/logo.png" alt="ImproveU" width="140" height="40">
+        <img src="images/logo.png" alt="ImproveU" width="104" height="104">
       </a>
       <div class="nav-links">
         <div class="nav-dropdown">
-          <a href="#" aria-haspopup="true">Services &#9662;</a>
+          <a href="#" aria-haspopup="true" aria-expanded="false">Services <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
           <div class="nav-dropdown-menu">
             <a href="credit-repair.html">Credit Repair</a>
             <a href="business-funding.html">Business Funding</a>
-            <a href="homeowner-program.html">90-Day Homeowner Program</a>
+            <a href="homeowner-program.html">Homeowner Program</a>
           </div>
         </div>
         <a href="pricing.html">Pricing</a>
@@ -49,7 +50,7 @@
         <a href="blog.html">Blog</a>
         <a href="faq.html">FAQ</a>
         <div class="nav-dropdown">
-          <a href="#" aria-haspopup="true">Partner &#9662;</a>
+          <a href="#" aria-haspopup="true" aria-expanded="false">Partner <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
           <div class="nav-dropdown-menu">
             <a href="affiliate.html">Affiliate Program</a>
             <a href="franchise.html">Own a Franchise</a>
@@ -58,17 +59,18 @@
         <a href="contact.html">Contact</a>
       </div>
       <div class="nav-actions">
-        <a href="portal.html" class="btn-login">Client Login</a>
+        <a href="tel:5599009326" class="nav-phone">(559) 900-9326</a>
+        <a href="portal.html" class="btn btn-ghost btn-sm btn-login">Client Login</a>
         <a href="get-started.html" class="btn btn-primary btn-sm">Get Started</a>
       </div>
-      <button class="nav-toggle" aria-label="Open menu">
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
   <!-- Mobile Menu -->
-  <div class="mobile-menu">
+  <div class="mobile-menu" id="mobile-menu">
     <a href="credit-repair.html">Credit Repair</a>
     <a href="business-funding.html">Business Funding</a>
     <a href="homeowner-program.html">Homeowner Program</a>
@@ -77,42 +79,76 @@
     <a href="about.html">About</a>
     <a href="blog.html">Blog</a>
     <a href="faq.html">FAQ</a>
-        <div class="nav-dropdown">
-          <a href="#" aria-haspopup="true">Partner &#9662;</a>
-          <div class="nav-dropdown-menu">
-            <a href="affiliate.html">Affiliate Program</a>
-            <a href="franchise.html">Own a Franchise</a>
-          </div>
-        </div>
+    <a href="affiliate.html">Affiliate Program</a>
+    <a href="franchise.html">Own a Franchise</a>
     <a href="contact.html">Contact</a>
     <a href="portal.html">Client Login</a>
-    <a href="get-started.html" class="btn btn-primary" style="margin-top:16px;">Get Started</a>
+    <a href="tel:5599009326" class="mobile-phone">(559) 900-9326</a>
+    <a href="get-started.html" class="btn btn-primary">Get Started <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
   </div>
 
-  <!-- ========== PAGE HEADER ========== -->
-  <section class="page-header">
+  <!-- ========== DOC 03 · CROA — document mode ========== -->
+  <header class="page-head doc show">
     <div class="container">
-      <h1>CROA <em class="flourish">disclosure</em></h1>
-      <p>Credit Repair Organizations Act — Your Rights</p>
+      <span class="doc-folio" aria-hidden="true">03</span>
+      <p class="eyebrow rv"><span class="eyebrow-dash" aria-hidden="true"></span>DOC 03 &middot; CROA</p>
+      <h1 class="h1 hl">CROA <em class="flourish chrome-dark">disclosure</em></h1>
+      <p class="doc-meta rv" style="--i:1">Credit Repair Organizations Act &mdash; Your Rights</p>
     </div>
-  </section>
+  </header>
 
-  <!-- ========== CONTENT ========== -->
-  <section class="section section-dark">
-    <div class="container" style="max-width:800px;">
+  <section class="doc-body mist">
+    <div class="container doc-grid">
 
-      <h2>Consumer Credit File Rights Under State and Federal Law</h2>
+      <aside class="doc-side">
+        <nav class="doc-toc" aria-label="On this page">
+          <span class="doc-toc-label mono-label">Contents</span>
+          <div class="doc-toc-list">
+            <span class="doc-toc-rail" aria-hidden="true"><span class="doc-puck"></span></span>
+            <a href="#s01"><span class="n">01</span>Consumer Credit File Rights</a>
+            <a href="#s02"><span class="n">02</span>Your Rights Under CROA</a>
+            <a href="#s03"><span class="n">03</span>Right to Cancel</a>
+            <a href="#s04"><span class="n">04</span>About ImproveU LLC</a>
+            <a href="#s05"><span class="n">05</span>Statutory Disclosure Statement</a>
+            <a href="#s06"><span class="n">06</span>Contact Us</a>
+          </div>
+        </nav>
+      </aside>
+
+      <article class="doc-paper">
+        <div class="doc-runhead" aria-hidden="true"><span>ImproveU LLC</span><span>CROA Disclosure</span><span>15 U.S.C. &sect; 1679</span></div>
+        <div class="doc-content">
+
+      <h2 class="hl" id="s01">Consumer Credit File Rights Under State and Federal Law</h2>
       <p>The following disclosure is provided to you in accordance with the Credit Repair Organizations Act (CROA), 15 U.S.C. &sect; 1679 et seq. Please read this disclosure carefully before signing any contract or agreement with ImproveU LLC.</p>
 
-      <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:32px; margin:32px 0;">
-        <h3 style="color:var(--accent); margin-bottom:16px;">IMPORTANT NOTICE</h3>
-        <p style="font-size:1.05rem; line-height:1.8;">You have a right to dispute inaccurate information in your credit report by contacting the credit bureau directly. However, neither you nor any "credit repair" company or credit repair organization has the right to have accurate, current, and verifiable information removed from your credit report. The credit bureau must remove accurate, negative information from your report only if it is over 7 years old. Bankruptcy information can be reported for 10 years.</p>
+      <div class="doc-quote">
+        <h3 class="hl">IMPORTANT NOTICE</h3>
+        <p>You have a right to dispute inaccurate information in your credit report by contacting the credit bureau directly. However, neither you nor any "credit repair" company or credit repair organization has the right to have accurate, current, and verifiable information removed from your credit report. The credit bureau must remove accurate, negative information from your report only if it is over 7 years old. Bankruptcy information can be reported for 10 years.</p>
       </div>
 
-      <h2>Your Rights Under the Credit Repair Organizations Act</h2>
+      <h2 class="hl" id="s02">Your Rights Under the Credit Repair Organizations Act</h2>
       <p>You have the right to:</p>
 
-      <h3>1. Dispute Directly with Credit Bureaus</h3>
+      <!-- The rights ledger — each right is entered on record with a chrome check; rows link to the full clause below -->
+      <div class="ledger rights" data-ledger>
+        <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+          <defs>
+            <linearGradient id="chromeStroke" x1="0" x2="1">
+              <stop offset="0" stop-color="#8E9199"/><stop offset=".5" stop-color="#FFFFFF"/><stop offset="1" stop-color="#C9CCD2"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="ledger-head mono-label"><span>#</span><span>Your right</span><span class="sr-only">On record</span></div>
+        <a class="ledger-row" href="#right-1" style="--i:0"><span class="ledger-n">01</span><span>Dispute Directly with Credit Bureaus</span><span class="rights-mark" aria-hidden="true"><svg class="check" viewBox="0 0 20 20"><path d="M4 10.5l4 4 8-8"/></svg></span></a>
+        <a class="ledger-row" href="#right-2" style="--i:1"><span class="ledger-n">02</span><span>Obtain Your Credit Report</span><span class="rights-mark" aria-hidden="true"><svg class="check" viewBox="0 0 20 20"><path d="M4 10.5l4 4 8-8"/></svg></span></a>
+        <a class="ledger-row" href="#right-3" style="--i:2"><span class="ledger-n">03</span><span>No Removal of Accurate Information</span><span class="rights-mark" aria-hidden="true"><svg class="check" viewBox="0 0 20 20"><path d="M4 10.5l4 4 8-8"/></svg></span></a>
+        <a class="ledger-row" href="#right-4" style="--i:3"><span class="ledger-n">04</span><span>Right to Cancel Within 5 Business Days</span><span class="rights-mark" aria-hidden="true"><svg class="check" viewBox="0 0 20 20"><path d="M4 10.5l4 4 8-8"/></svg></span></a>
+        <a class="ledger-row" href="#right-5" style="--i:4"><span class="ledger-n">05</span><span>Right to Sue for Violations</span><span class="rights-mark" aria-hidden="true"><svg class="check" viewBox="0 0 20 20"><path d="M4 10.5l4 4 8-8"/></svg></span></a>
+        <p class="ledger-total mono-label">Rights on record <span class="odo" data-odo="5">0</span></p>
+      </div>
+
+      <h3 class="hl" id="right-1">1. Dispute Directly with Credit Bureaus</h3>
       <p>You have the right to dispute inaccurate information in your credit report by contacting the credit bureau directly, without the assistance of a credit repair organization. The three major credit bureaus are:</p>
       <ul>
         <li><strong>Equifax:</strong> P.O. Box 740256, Atlanta, GA 30374 | 1-800-685-1111 | www.equifax.com</li>
@@ -121,26 +157,29 @@
       </ul>
       <p>You may also contact the Federal Trade Commission (FTC) at www.ftc.gov or the Consumer Financial Protection Bureau (CFPB) at www.consumerfinance.gov for more information about your rights.</p>
 
-      <h3>2. Obtain Your Credit Report</h3>
+      <h3 class="hl" id="right-2">2. Obtain Your Credit Report</h3>
       <p>You have the right to obtain a copy of your credit report from a credit bureau. You may be charged a reasonable fee for this report. You are entitled to a free copy of your credit report once every 12 months from each of the three major credit bureaus by visiting www.annualcreditreport.com or calling 1-877-322-8228.</p>
 
-      <h3>3. No Removal of Accurate Information</h3>
+      <h3 class="hl" id="right-3">3. No Removal of Accurate Information</h3>
       <p>Neither you nor any credit repair organization has the right to have accurate, current, and verifiable information removed from your credit report. Under the Fair Credit Reporting Act (FCRA), the credit bureau must remove accurate negative information from your report only when:</p>
       <ul>
         <li>The information is more than 7 years old (for most negative items)</li>
         <li>The information involves a bankruptcy that is more than 10 years old</li>
       </ul>
 
-      <h3>4. Right to Cancel Within 5 Business Days</h3>
-      <p>You have the right to cancel your contract with ImproveU LLC, without any penalty or obligation, at any time before midnight of the 5th business day after the date on which you signed the contract.</p>
-      <p>To cancel your contract, you may notify ImproveU LLC in writing at:</p>
-      <ul>
-        <li><strong>Email:</strong> help@improveu.net</li>
-        <li><strong>Phone:</strong> (559) 900-9326</li>
-        <li><strong>Mail:</strong> ImproveU LLC, Fresno, California</li>
-      </ul>
+      <!-- The one thing that draws the eye: the 5-business-day cancellation right as a vault notice -->
+      <div class="notice cancel" id="s03">
+        <h3 class="hl" id="right-4">4. Right to Cancel Within 5 Business Days</h3>
+        <p>You have the right to cancel your contract with ImproveU LLC, without any penalty or obligation, at any time before midnight of the 5th business day after the date on which you signed the contract.</p>
+        <p>To cancel your contract, you may notify ImproveU LLC in writing at:</p>
+        <ul>
+          <li><strong>Email:</strong> <a href="mailto:help@improveu.net">help@improveu.net</a></li>
+          <li><strong>Phone:</strong> <a href="tel:5599009326">(559) 900-9326</a></li>
+          <li><strong>Mail:</strong> ImproveU LLC, Fresno, California</li>
+        </ul>
+      </div>
 
-      <h3>5. Right to Sue for Violations</h3>
+      <h3 class="hl" id="right-5">5. Right to Sue for Violations</h3>
       <p>You have a right to sue a credit repair organization that violates the Credit Repair Organizations Act. This law prohibits deceptive practices by credit repair organizations. If a credit repair organization violates the CROA, you have the right to:</p>
       <ul>
         <li>Recover your actual damages</li>
@@ -149,12 +188,12 @@
         <li>Any other relief a court deems proper</li>
       </ul>
 
-      <h2>About ImproveU LLC</h2>
+      <h2 class="hl" id="s04">About ImproveU LLC</h2>
 
-      <h3>ImproveU Is Not a Law Firm</h3>
+      <h3 class="hl">ImproveU Is Not a Law Firm</h3>
       <p>ImproveU LLC is a credit repair organization as defined under the Credit Repair Organizations Act. We are not a law firm, and we do not provide legal advice. Our services are limited to assisting you in disputing inaccurate, unverifiable, or incomplete information on your credit reports. If you require legal advice, we recommend that you consult with a qualified attorney licensed to practice in your state.</p>
 
-      <h3>Results Vary by Individual</h3>
+      <h3 class="hl">Results Vary by Individual</h3>
       <p>The results of credit repair services vary significantly from person to person. The outcome of your case depends on many factors, including:</p>
       <ul>
         <li>The specific items on your credit report</li>
@@ -165,7 +204,7 @@
       </ul>
       <p>ImproveU does not guarantee any specific results, including but not limited to specific credit score increases, specific item removals, or specific timelines for results.</p>
 
-      <h3>What We Do</h3>
+      <h3 class="hl">What We Do</h3>
       <p>ImproveU assists clients by:</p>
       <ul>
         <li>Analyzing credit reports for inaccurate, unverifiable, or incomplete information</li>
@@ -174,42 +213,58 @@
         <li>Providing ongoing strategy and credit education</li>
       </ul>
 
-      <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:32px; margin:32px 0;">
-        <h3 style="color:var(--accent); margin-bottom:16px;">Statutory Disclosure Statement</h3>
-        <p style="font-style:italic; line-height:1.8;">"You have a right to dispute inaccurate information in your credit report by contacting the credit bureau directly. However, neither you nor any 'credit repair' company or credit repair organization has the right to have accurate, current, and verifiable information removed from your credit report. The credit bureau must remove accurate, negative information from your report only if it is over 7 years old. Bankruptcy information can be reported for 10 years.</p>
-        <p style="font-style:italic; line-height:1.8;">You have a right to obtain a copy of your credit report from a credit bureau. You may be charged a reasonable fee. There is no fee, however, if you have been turned down for credit, employment, insurance, or a rental dwelling because of information in your credit report within the preceding 60 days. The credit bureau must provide anyone who asks with the name, address, and telephone number of anyone who has reported information about you.</p>
-        <p style="font-style:italic; line-height:1.8;">You have a right to sue a credit repair organization that violates the Credit Repair Organization Act. This law prohibits deceptive practices by credit repair organizations.</p>
-        <p style="font-style:italic; line-height:1.8;">You have the right to cancel your contract with any credit repair organization for any reason within 5 business days from the date you signed it.</p>
-        <p style="font-style:italic; line-height:1.8;">Credit bureaus are required to follow reasonable procedures to ensure that the information they report is accurate. However, mistakes may occur. You may, on your own, notify a credit bureau in writing that you dispute the accuracy of information in your credit file. The credit bureau must then reinvestigate and modify or remove inaccurate or incomplete information. The credit bureau may not charge any fee for this service. Any pertinent information and copies of all documents you have concerning an error should be given to the credit bureau.</p>
-        <p style="font-style:italic; line-height:1.8;">If the credit bureau's reinvestigation does not resolve the dispute to your satisfaction, you may send a brief statement to the credit bureau, to be kept in your file, explaining why you think the record is inaccurate. The credit bureau must include a summary of your statement about disputed information with any report it issues about you.</p>
-        <p style="font-style:italic; line-height:1.8;">The Federal Trade Commission regulates credit bureaus and credit repair organizations. For more information contact: The Federal Trade Commission, Washington, D.C. 20580."</p>
+      <div class="doc-quote statute" id="s05">
+        <h3 class="hl">Statutory Disclosure Statement</h3>
+        <p>"You have a right to dispute inaccurate information in your credit report by contacting the credit bureau directly. However, neither you nor any 'credit repair' company or credit repair organization has the right to have accurate, current, and verifiable information removed from your credit report. The credit bureau must remove accurate, negative information from your report only if it is over 7 years old. Bankruptcy information can be reported for 10 years.</p>
+        <p>You have a right to obtain a copy of your credit report from a credit bureau. You may be charged a reasonable fee. There is no fee, however, if you have been turned down for credit, employment, insurance, or a rental dwelling because of information in your credit report within the preceding 60 days. The credit bureau must provide anyone who asks with the name, address, and telephone number of anyone who has reported information about you.</p>
+        <p>You have a right to sue a credit repair organization that violates the Credit Repair Organization Act. This law prohibits deceptive practices by credit repair organizations.</p>
+        <p>You have the right to cancel your contract with any credit repair organization for any reason within 5 business days from the date you signed it.</p>
+        <p>Credit bureaus are required to follow reasonable procedures to ensure that the information they report is accurate. However, mistakes may occur. You may, on your own, notify a credit bureau in writing that you dispute the accuracy of information in your credit file. The credit bureau must then reinvestigate and modify or remove inaccurate or incomplete information. The credit bureau may not charge any fee for this service. Any pertinent information and copies of all documents you have concerning an error should be given to the credit bureau.</p>
+        <p>If the credit bureau's reinvestigation does not resolve the dispute to your satisfaction, you may send a brief statement to the credit bureau, to be kept in your file, explaining why you think the record is inaccurate. The credit bureau must include a summary of your statement about disputed information with any report it issues about you.</p>
+        <p>The Federal Trade Commission regulates credit bureaus and credit repair organizations. For more information contact: The Federal Trade Commission, Washington, D.C. 20580."</p>
       </div>
 
-      <h2>Contact Us</h2>
+      <h2 class="hl" id="s06">Contact Us</h2>
       <p>If you have any questions about this CROA Disclosure or your rights, please contact us:</p>
       <ul>
-        <li><strong>Email:</strong> <a href="mailto:help@improveu.net" style="color:var(--accent);">help@improveu.net</a></li>
-        <li><strong>Phone:</strong> <a href="tel:5599009326" style="color:var(--accent);">(559) 900-9326</a></li>
+        <li><strong>Email:</strong> <a href="mailto:help@improveu.net">help@improveu.net</a></li>
+        <li><strong>Phone:</strong> <a href="tel:5599009326">(559) 900-9326</a></li>
         <li><strong>Mail:</strong> ImproveU LLC, Fresno, California</li>
       </ul>
+
+        </div>
+        <div class="doc-end">
+          <span class="mono-label">End of DOC 03 &middot; CROA Disclosure</span>
+          <nav class="doc-set" aria-label="Other legal documents">
+            <a href="privacy-policy.html">DOC 01 &middot; Privacy</a>
+            <a href="terms-of-service.html">DOC 02 &middot; Terms</a>
+            <a href="cookie-policy.html">DOC 04 &middot; Cookies</a>
+          </nav>
+        </div>
+      </article>
 
     </div>
   </section>
 
-  <!-- ========== FOOTER ========== -->
-  <footer class="footer">
+<!-- ========== FOOTER (canonical — paste verbatim on every page, right after the CTA banner) ========== -->
+  <div class="seam" aria-hidden="true"></div>
+  <footer class="footer vault">
+    <div class="wordmark" aria-hidden="true">IMPROVEU</div>
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="images/logo.png" alt="ImproveU" width="120" height="34">
-          <p style="margin-top:8px; font-style:italic; color:var(--accent); font-size:0.9rem;">Improve your credit. Improve your life.</p>
-          <div class="footer-contact" style="margin-top:16px;">
-            <a href="tel:5599009326">&#9742; (559) 900-9326</a>
-            <a href="mailto:help@improveu.net">&#9993; help@improveu.net</a>
-            <span style="font-size:0.85rem; color:var(--gray-dark);">Fresno, CA &bull; Mon-Fri 9am-6pm PST</span>
+          <a href="index.html" class="footer-logo" aria-label="ImproveU Home">
+            <img src="images/logo.png" alt="ImproveU" width="160" height="160" loading="lazy">
+          </a>
+          <p>Improve your credit. Improve your life.</p>
+          <div class="footer-contact">
+            <a href="tel:5599009326" class="mono">(559) 900-9326</a>
+            <a href="mailto:help@improveu.net">help@improveu.net</a>
+            <span>Fresno, CA &bull; Mon&ndash;Fri 9am&ndash;6pm PST</span>
           </div>
           <div class="footer-social">
             <a href="https://instagram.com/boostwithjames" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+            <!-- TikTok / YouTube circles return here only when real profile URLs exist — never ship href="#" -->
           </div>
         </div>
         <div>
@@ -255,5 +310,6 @@
   </div>
 
   <script src="js/main.js"></script>
+  <script src="js/pages/legal.js"></script>
 </body>
 </html>
